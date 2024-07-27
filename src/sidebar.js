@@ -25,11 +25,11 @@ const sidebar = `
                 </header>
                 <div class="mini-posts">
                     <article>
-                        <a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+                        <a href="#" class="image"><img src="images/skysearch.webp" alt="" /></a>
                         <p>Check out SkySearch UAVs</p>
                     </article>
                     <article>
-                        <a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
+                        <a href="#" class="image"><img src="images/diffusionmodel.webp" alt="" /></a>
                         <p>Image GenAI with Stable Denoising Diffusion models</p>
                     </article>
                 </div>
