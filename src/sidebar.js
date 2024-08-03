@@ -45,7 +45,7 @@ const sidebar = `
                 </header>
                 <p></p>
                 <ul class="contact">
-                    <li class="icon solid fa-envelope"><a href="#">zachariah.farahany@gmail.com</a></li>
+                    <li class="icon solid fa-envelope"><a href="mailto:zachariah.farahany@gmail.com">zachariah.farahany@gmail.com</a></li>
                     <li class="icon solid fa-phone">(847) 502-5010</li>
                     <li class="icon solid fa-home">711 N. Broadway Ave.<br />
                     Park Ridge, IL 60068</li>

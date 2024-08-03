@@ -2295,6 +2295,7 @@ button,
   color: inherit; /* Inherit text color */
   display: block;
   width: 350px; /* Set the width to match the project-card */
+  border: none; /* Ensure no border */
 }
 
 .project-card {
@@ -2304,10 +2305,10 @@ button,
   overflow: hidden;
   width: 350px;
   height: 100%; /* Ensure it spans the full height of the project-card */
-
   transition: transform 0.2s;
   display: flex;
   flex-direction: column;
+  align-items: stretch; /* Ensure content stretches */
 }
 
 .project-card:hover {
@@ -2451,8 +2452,14 @@ button,
   margin-bottom: 10px;
 }
 
-.job, .education-item {
+.job {
   margin-bottom: 2em;
+}
+
+.job-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .job-title, .education-title {
@@ -2470,4 +2477,17 @@ button,
 
 .job-description li, .education-description li {
   margin-bottom: 0.5em;
+}
+
+.company-banner {
+  max-width: 100px;
+  height: auto;
+  margin-right: 10px; /* Adjust margin to move the image to the left */
+  border: 2px solid #ccc; /* Add a simple border */
+  border-radius: 5px; /* Optional: add a slight rounding to the border */
+  padding: 4px; /* Optional: add some padding for a better visual effect */
+}
+
+.job-details {
+  flex-grow: 1;
 }
