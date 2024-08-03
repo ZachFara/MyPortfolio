@@ -2287,7 +2287,7 @@ button,
   gap: 20px;
   padding: 20px;
   flex-wrap: wrap;
-  align-items: stretch;
+  align-items: stretch; /* Ensure items stretch to the same height */
 }
 
 .project-link {
@@ -2295,8 +2295,6 @@ button,
   color: inherit; /* Inherit text color */
   display: block;
   width: 350px; /* Set the width to match the project-card */
-  height: 100%; /* Ensure it spans the full height of the project-card */
-  display: block;
 }
 
 .project-card {
