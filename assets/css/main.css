@@ -2283,20 +2283,33 @@ button,
 
 .projects-container {
   display: flex;
-  justify-content: left;
+  justify-content: flex-start;
   gap: 20px;
   padding: 20px;
-  flex-wrap: wrap; /* Ensure cards wrap if the screen is too narrow */
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.project-link {
+  text-decoration: none; /* Remove underline from link */
+  color: inherit; /* Inherit text color */
+  display: block;
+  width: 350px; /* Set the width to match the project-card */
+  height: 100%; /* Ensure it spans the full height of the project-card */
+  display: block;
 }
 
 .project-card {
-  background-color: #ddd; /* Lighter color */
+  background-color: #ddd;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  width: 350px; /* Increased width */
+  width: 350px;
+  height: 100%; /* Ensure it spans the full height of the project-card */
+
   transition: transform 0.2s;
-  flex: 0 1 350px; /* Ensure cards maintain a fixed width but can shrink if necessary */
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card:hover {
@@ -2305,13 +2318,17 @@ button,
 
 .project-image {
   width: 100%;
-  height: 200px; /* Set the desired height */
-  object-fit: cover; /* Cutoff bits of the image if it doesn't fit */
+  height: 200px;
+  object-fit: cover;
 }
 
 .project-info {
   padding: 10px;
-  background-color: white; /* Set background color to white */
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
 }
 
 .project-info h2 {
@@ -2335,12 +2352,14 @@ button,
 }
 
 .repo-card {
-  flex: 1 1 calc(50% - 20px); /* Adjusts to fit two cards per row */
+  width: calc(50% - 20px); /* 50% width minus the gap */
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .repo-card:hover {
@@ -2359,17 +2378,23 @@ button,
 }
 
 .repo-link {
-  text-decoration: none;
+  text-decoration: none; /* Remove the default underline */
   color: #0366d6;
   font-weight: bold;
+  margin-bottom: 10px; /* Add some margin for spacing */
+  margin-top: auto; /* Pushes .repo-link to the bottom above .repo-meta */
+  border-bottom: 1px dotted #0366d6; /* Custom underline */
+  display: inline-block; /* Ensure the underline is only as long as the text */
+  width: fit-content; /* Adjust the width to fit the content */
 }
 
 .repo-meta {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 0.9em;
   color: #666;
-  margin-top: 10px;
+  margin-top: 10px; /* Add a small margin for spacing */
 }
 
 .repo-stars, .repo-language {

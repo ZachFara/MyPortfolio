@@ -25,11 +25,11 @@ const sidebar = `
                 </header>
                 <div class="mini-posts">
                     <article>
-                        <a href="#" class="image"><img src="images/skysearch.webp" alt="" /></a>
+                        <a href="projects.html#skysearch" class="image"><img src="images/skysearch.webp" alt="" /></a>
                         <p>Check out SkySearch UAVs</p>
                     </article>
                     <article>
-                        <a href="#" class="image"><img src="images/diffusionmodel.webp" alt="" /></a>
+                        <a href="projects.html#diffusionmodels" class="image"><img src="images/diffusionmodel.webp" alt="" /></a>
                         <p>Image GenAI with Stable Denoising Diffusion models</p>
                     </article>
                 </div>
@@ -56,7 +56,6 @@ const sidebar = `
             <footer id="footer">
                 <p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
             </footer>
-
     </div>
 </div>
 `
