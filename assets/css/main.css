@@ -1243,6 +1243,17 @@ input[type="radio"] + label:before {
     width: 100%; }
     .image.main img {
       width: 100%; }
+  .image.sidebar {
+    width: 325px; /* Set the desired width */
+    height: 275px; /* Set the desired height */
+    overflow: hidden; /* Ensure content doesn't overflow */
+  }
+
+  .image.sidebar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire area */
+  }
 
 a.image {
   overflow: hidden; }
