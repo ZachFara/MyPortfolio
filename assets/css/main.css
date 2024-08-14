@@ -1244,8 +1244,8 @@ input[type="radio"] + label:before {
     .image.main img {
       width: 100%; }
   .image.sidebar {
-    width: 325px; /* Set the desired width */
-    height: 275px; /* Set the desired height */
+    width: 275px; /* Set the desired width */
+    height: 225px; /* Set the desired height */
     overflow: hidden; /* Ensure content doesn't overflow */
   }
 
