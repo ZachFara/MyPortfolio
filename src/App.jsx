@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import './App.css'
 import './styles/transitions.css' // Import our custom transitions
 import './styles/overrides.css' // Import overrides to fix red outlines
+import './styles/blog.css' // Import blog styles
 // Card animations CSS is loaded directly in index.html
 import Layout from './components/Layout'
 
@@ -11,6 +12,9 @@ import Home from './pages/Home'
 import Projects from './pages/Projects'
 import Repositories from './pages/Repositories'
 import CurriculumVitae from './pages/CurriculumVitae'
+import Blog from './pages/Blog'
+import AIAgentMemory from './pages/BlogPosts/AIAgentMemory'
+import AITechnicalProductManager from './pages/BlogPosts/AITechnicalProductManager'
 
 function App() {
   useEffect(() => {
@@ -57,6 +61,9 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/repositories" element={<Repositories />} />
           <Route path="/cv" element={<CurriculumVitae />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/ai-agent-memory" element={<AIAgentMemory />} />
+          <Route path="/blog/ai-technical-product-manager" element={<AITechnicalProductManager />} />
           {/* Add a catch-all redirect to home */}
           <Route path="*" element={<Home />} />
         </Routes>

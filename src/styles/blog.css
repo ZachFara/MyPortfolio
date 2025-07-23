@@ -1,0 +1,172 @@
+/* Blog styles */
+
+/* Blog listing page */
+.subtitle {
+  font-size: 1.4rem;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+  color: #888;
+  line-height: 1.5;
+}
+
+.posts {
+  margin: 2rem 0;
+}
+
+.posts .post {
+  padding: 1.5rem 0;
+}
+
+.posts .post-link {
+  text-decoration: none;
+  border: none;
+}
+
+.posts h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.posts h2:hover {
+  color: #2c86c5;
+}
+
+.post-desc {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: #777;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.read-time {
+  margin-left: 1rem;
+  padding-left: 1rem;
+  border-left: 1px solid #ddd;
+}
+
+.post-tags {
+  margin-top: 0.5rem;
+}
+
+.tag {
+  display: inline-block;
+  background-color: rgba(44, 134, 197, 0.1);
+  color: #2c86c5;
+  padding: 0.3rem 0.6rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  transition: background-color 0.3s ease;
+}
+
+.tag:hover {
+  background-color: rgba(44, 134, 197, 0.2);
+}
+
+/* Blog post page */
+.blog-post {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.blog-subtitle {
+  font-size: 1.3rem;
+  margin-top: -0.5rem;
+  color: #555;
+}
+
+.blog-meta {
+  margin: 1.5rem 0;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.blog-date {
+  color: #777;
+}
+
+.blog-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.blog-content p {
+  margin-bottom: 1.5rem;
+}
+
+.blog-content h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.blog-content h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.blog-content ul, 
+.blog-content ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.blog-content li {
+  margin-bottom: 0.5rem;
+}
+
+.blog-quote {
+  font-style: italic;
+  color: #333;
+  border-left: 4px solid #2c86c5;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  margin: 2rem 0;
+  font-size: 1.2rem;
+}
+
+.blog-quote cite {
+  display: block;
+  text-align: right;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.blog-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+}
+
+/* Sidebar blog preview */
+.sidebar-blog-posts {
+  margin-top: 1rem;
+}
+
+.sidebar-blog-post {
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-blog-post:hover {
+  transform: translateY(-3px);
+}
+
+.sidebar-blog-title {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.sidebar-blog-meta {
+  font-size: 0.8rem;
+  color: #777;
+}

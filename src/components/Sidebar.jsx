@@ -1,4 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
+import BlogSidebar from './BlogSidebar';
 
 const Sidebar = () => {
   return (
@@ -20,9 +21,13 @@ const Sidebar = () => {
             <li><NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>Home</NavLink></li>
             <li><NavLink to="/projects" className={({ isActive }) => isActive ? "active" : ""}>Projects</NavLink></li>
             <li><NavLink to="/repositories" className={({ isActive }) => isActive ? "active" : ""}>Repositories</NavLink></li>
+            <li><NavLink to="/blog" className={({ isActive }) => isActive ? "active" : ""}>Blog</NavLink></li>
             <li><NavLink to="/cv" className={({ isActive }) => isActive ? "active" : ""}>Curriculum Vitae</NavLink></li>
           </ul>
         </nav>
+
+        {/* Blog Section */}
+        <BlogSidebar />
 
         {/* Recent Projects Section */}
         <section>

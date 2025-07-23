@@ -1,0 +1,51 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const BlogSidebar = () => {
+  // Sample blog posts for the sidebar
+  const recentPosts = [
+    {
+      id: 'ai-agent-memory',
+      title: 'AI Agent Memory',
+      date: 'May 30, 2025',
+      readTime: '4 min read'
+    },
+    {
+      id: 'ai-technical-product-manager',
+      title: 'The Roadmap to AI Technical Product Manager',
+      date: 'May 18, 2025',
+      readTime: '12 min read'
+    },
+    {
+      id: 'reinforcement-learning-fundamentals',
+      title: 'Reinforcement Learning Fundamentals',
+      date: 'April 15, 2025',
+      readTime: '8 min read'
+    }
+  ];
+
+  return (
+    <section className="mini-posts">
+      <header>
+        <h2>Recent Blog Posts</h2>
+      </header>
+      <div className="sidebar-blog-posts">
+        {recentPosts.map((post) => (
+          <article key={post.id} className="sidebar-blog-post">
+            <Link to={`/blog/${post.id}`} className="sidebar-blog-title">
+              <h3>{post.title}</h3>
+            </Link>
+            <div className="sidebar-blog-meta">
+              <span>{post.date}</span> · <span>{post.readTime}</span>
+            </div>
+          </article>
+        ))}
+      </div>
+      <footer>
+        <Link to="/blog" className="button">View All Posts</Link>
+      </footer>
+    </section>
+  );
+};
+
+export default BlogSidebar;
