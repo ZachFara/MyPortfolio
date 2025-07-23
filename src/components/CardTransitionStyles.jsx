@@ -13,6 +13,7 @@ const CardTransitionStyles = () => {
         backface-visibility: hidden !important;
         perspective: 1000px !important;
         transform: translateZ(0) !important;
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
       }
       
       .project-card:hover {
@@ -42,6 +43,7 @@ const CardTransitionStyles = () => {
         backface-visibility: hidden !important;
         perspective: 1000px !important;
         transform: translateZ(0) !important;
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
       }
       
       .repo-card:hover {
@@ -58,6 +60,7 @@ const CardTransitionStyles = () => {
         backface-visibility: hidden !important;
         perspective: 1000px !important;
         transform: translateZ(0) !important;
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
       }
       
       .mini-posts article:hover {
