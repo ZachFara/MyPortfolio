@@ -1,0 +1,65 @@
+/* Enhanced transitions for project and repository cards */
+
+/* Project Cards Enhancements */
+.project-card {
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
+              box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+              background-color 0.3s ease-in-out !important;
+}
+
+.project-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+.project-image {
+  transition: transform 0.5s ease-in-out, filter 0.3s ease-in-out !important;
+}
+
+.project-info {
+  transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out !important;
+}
+
+.project-card:hover .project-info {
+  background-color: rgba(44, 134, 197, 0.05);
+}
+
+/* Repository Cards Enhancements */
+.repo-card {
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
+              box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+              border-color 0.3s ease-in-out !important;
+}
+
+.repo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
+  border-color: #2c86c5;
+}
+
+.repo-title, .repo-description, .repo-link, .repo-meta {
+  transition: color 0.3s ease-in-out;
+}
+
+.repo-card:hover .repo-title {
+  color: #2c86c5;
+}
+
+/* Additional effects for all interactive elements */
+button, .button, input[type="submit"], input[type="reset"], input[type="button"] {
+  transition: background-color 0.3s ease-in-out, 
+              color 0.3s ease-in-out, 
+              border-color 0.3s ease-in-out,
+              box-shadow 0.3s ease-in-out !important;
+}
+
+/* Enhance links in the entire site */
+a:not(.button) {
+  transition: color 0.3s ease-in-out, 
+              border-bottom-color 0.3s ease-in-out,
+              text-decoration 0.3s ease-in-out !important;
+}

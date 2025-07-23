@@ -1,6 +1,7 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import { useEffect } from 'react'
 import './App.css'
+import './styles/transitions.css' // Import our custom transitions
 import Layout from './components/Layout'
 
 // Pages
