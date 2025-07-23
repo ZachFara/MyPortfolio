@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import './App.css'
 import './styles/transitions.css' // Import our custom transitions
 import './styles/overrides.css' // Import overrides to fix red outlines
+import './styles/card-animations.css' // Import specific card animations for main pages
 import Layout from './components/Layout'
 
 // Pages
@@ -28,7 +29,8 @@ function App() {
       './assets/js/browser.min.js',
       './assets/js/breakpoints.min.js',
       './assets/js/util.js',
-      './assets/js/main.js'
+      './assets/js/main.js',
+      './assets/js/card-animations.js' // Load our custom card animations
     ]
     
     let loadedScripts = []

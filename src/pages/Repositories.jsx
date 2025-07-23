@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet';
+import CardTransitionStyles from '../components/CardTransitionStyles';
 
 const Repositories = () => {
   return (
@@ -6,6 +7,7 @@ const Repositories = () => {
       <Helmet>
         <title>Repositories - Zachariah Farahany</title>
       </Helmet>
+      <CardTransitionStyles />
       
       <section>
         <header className="main">
@@ -13,7 +15,10 @@ const Repositories = () => {
         </header>
         <hr />
         <div className="repo-container">
-          <div className="repo-card">
+          <div className="repo-card" style={{
+            transition: "transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1)",
+            cursor: "pointer"
+          }}>
             <h2 className="repo-title">Skysearch UAVs</h2>
             <p className="repo-description">Skysearch is an open source Python package that allows for simple and flexible DJI drone swarm capabilities utilizing a multi-modal model to identify anything</p>
             <a className="repo-link" href="https://github.com/duncancalvert/SkySearch" target="_blank" rel="noopener noreferrer">View on GitHub</a>

@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet';
 import { useEffect, useRef } from 'react';
+import CardTransitionStyles from '../components/CardTransitionStyles';
 
 const Projects = () => {
   const skysearchRef = useRef(null);
@@ -30,6 +31,7 @@ const Projects = () => {
       <Helmet>
         <title>Projects - Zachariah Farahany</title>
       </Helmet>
+      <CardTransitionStyles />
       
       <section>
         <header className="main">
@@ -43,7 +45,9 @@ const Projects = () => {
           <div className="projects-container" id="skysearch" ref={skysearchRef}>
             <a href="https://github.com/duncancalvert/SkySearch" className="project-link" target="_blank" rel="noopener noreferrer">
               <div className="project-card">
-                <img src="images/skysearch.webp" alt="Project Image" className="project-image" />
+                <div className="project-image" style={{ overflow: "hidden" }}>
+                  <img src="images/skysearch.webp" alt="Project Image" />
+                </div>
                 <div className="project-info">
                   <h2>SkySearch UAVs</h2>
                   <p>Multi-modal model powered UAVs</p>

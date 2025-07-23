@@ -23,15 +23,19 @@ ul.pagination li > .page.active:hover {
 
 /* Project Cards Enhancements */
 .project-card {
-  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
-              box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
-              background-color 0.3s ease-in-out !important;
+  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), 
+              box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+              background-color 0.5s ease-in-out !important;
   outline: none !important; /* Remove outline */
+  will-change: transform, box-shadow !important;
+  backface-visibility: hidden !important;
+  perspective: 1000px !important;
+  transform: translateZ(0) !important;
 }
 
 .project-card:hover {
-  transform: translateY(-8px) !important;
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-5px) !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12) !important;
   outline: none !important; /* Remove outline */
   border-color: #2c86c5 !important; /* Blue border instead of any red */
 }
@@ -60,15 +64,19 @@ ul.pagination li > .page.active:hover {
 
 /* Repository Cards Enhancements */
 .repo-card {
-  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
-              box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
-              border-color 0.3s ease-in-out !important;
+  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), 
+              box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+              border-color 0.5s ease-in-out !important;
   outline: none !important;
+  will-change: transform, box-shadow !important;
+  backface-visibility: hidden !important;
+  perspective: 1000px !important;
+  transform: translateZ(0) !important;
 }
 
 .repo-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12) !important;
   border-color: #2c86c5 !important;
   outline: none !important;
 }
