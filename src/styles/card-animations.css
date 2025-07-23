@@ -1,0 +1,92 @@
+/* Card animations for the main pages */
+
+/* Project Cards - Direct targeting with higher specificity */
+section .projects-container .project-card {
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
+              box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  border: 1px solid rgba(210, 215, 217, 0.75) !important;
+  overflow: hidden !important;
+}
+
+section .projects-container .project-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15) !important;
+  border-color: #2c86c5 !important;
+}
+
+section .projects-container .project-card .project-image {
+  overflow: hidden !important;
+}
+
+section .projects-container .project-card .project-image img {
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+section .projects-container .project-card:hover .project-image img {
+  transform: scale(1.05) !important;
+}
+
+section .projects-container .project-card .project-info {
+  transition: background-color 0.3s ease-in-out !important;
+}
+
+section .projects-container .project-card:hover .project-info {
+  background-color: rgba(44, 134, 197, 0.05) !important;
+}
+
+/* Repository Cards - Direct targeting with higher specificity */
+section .repo-container .repo-card {
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
+              box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+              border-color 0.3s ease-in-out !important;
+  border: 1px solid rgba(210, 215, 217, 0.75) !important;
+}
+
+section .repo-container .repo-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
+  border-color: #2c86c5 !important;
+}
+
+section .repo-container .repo-card .repo-title,
+section .repo-container .repo-card .repo-description,
+section .repo-container .repo-card .repo-link,
+section .repo-container .repo-card .repo-meta {
+  transition: color 0.3s ease-in-out !important;
+}
+
+section .repo-container .repo-card:hover .repo-title {
+  color: #2c86c5 !important;
+}
+
+/* Force animations by using animation instead of transition for browsers that might ignore transitions */
+@keyframes float-up {
+  0% {
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@keyframes scale-image {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+section .projects-container .project-card:hover,
+section .repo-container .repo-card:hover {
+  animation: float-up 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards !important;
+}
+
+section .projects-container .project-card:hover .project-image img {
+  animation: scale-image 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards !important;
+}
