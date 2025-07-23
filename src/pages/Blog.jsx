@@ -31,10 +31,10 @@ const Blog = () => {
               <span className="blog-read-time">4 min read</span>
             </div>
             <div className="blog-tags">
-              <span className="tag">AI</span>
-              <span className="tag">Research</span>
-              <span className="tag">Agents</span>
-              <span className="tag">data-science</span>
+              <span className="tag">#AI</span>
+              <span className="tag">#Research</span>
+              <span className="tag">#Agents</span>
+              <span className="tag">#data-science</span>
             </div>
           </div>
           
@@ -49,12 +49,12 @@ const Blog = () => {
               <span className="blog-read-time">12 min read</span>
             </div>
             <div className="blog-tags">
-              <span className="tag">AI</span>
-              <span className="tag">Machine_Learning</span>
-              <span className="tag">Deep_Learning</span>
-              <span className="tag">Product_Management</span>
-              <span className="tag">Agents</span>
-              <span className="tag">data-science</span>
+              <span className="tag">#AI</span>
+              <span className="tag">#Machine_Learning</span>
+              <span className="tag">#Deep_Learning</span>
+              <span className="tag">#Product_Management</span>
+              <span className="tag">#Agents</span>
+              <span className="tag">#data-science</span>
             </div>
           </div>
           
@@ -69,9 +69,9 @@ const Blog = () => {
               <span className="blog-read-time">8 min read</span>
             </div>
             <div className="blog-tags">
-              <span className="tag">AI</span>
-              <span className="tag">Machine_Learning</span>
-              <span className="tag">Reinforcement_Learning</span>
+              <span className="tag">#AI</span>
+              <span className="tag">#Machine_Learning</span>
+              <span className="tag">#Reinforcement_Learning</span>
             </div>
           </div>
           
@@ -86,9 +86,9 @@ const Blog = () => {
               <span className="blog-read-time">10 min read</span>
             </div>
             <div className="blog-tags">
-              <span className="tag">Robotics</span>
-              <span className="tag">Healthcare</span>
-              <span className="tag">AI</span>
+              <span className="tag">#Robotics</span>
+              <span className="tag">#Healthcare</span>
+              <span className="tag">#AI</span>
             </div>
           </div>
         </div>

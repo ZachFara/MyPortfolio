@@ -14,12 +14,12 @@ const AIAgentMemory = () => {
           <p className="blog-subtitle">Demystifying the different types of AI agent memory</p>
           <div className="blog-meta">
             <span className="blog-date">Created on May 30, 2025</span>
-            <div className="blog-tags">
-              <span className="tag">AI</span>
-              <span className="tag">Research</span>
-              <span className="tag">Agents</span>
-              <span className="tag">data-science</span>
-            </div>
+          </div>
+          <div className="blog-tags">
+            <span className="tag">#AI</span>
+            <span className="tag">#Research</span>
+            <span className="tag">#Agents</span>
+            <span className="tag">#data-science</span>
           </div>
         </header>
 

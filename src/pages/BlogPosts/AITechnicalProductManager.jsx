@@ -14,14 +14,14 @@ const AITechnicalProductManager = () => {
           <p className="blog-subtitle">A guide to AI upskilling for Technical Product Managers</p>
           <div className="blog-meta">
             <span className="blog-date">Created on May 18, 2025</span>
-            <div className="blog-tags">
-              <span className="tag">AI</span>
-              <span className="tag">Machine_Learning</span>
-              <span className="tag">Deep_Learning</span>
-              <span className="tag">Product_Management</span>
-              <span className="tag">Agents</span>
-              <span className="tag">data-science</span>
-            </div>
+          </div>
+          <div className="blog-tags">
+            <span className="tag">#AI</span>
+            <span className="tag">#Machine_Learning</span>
+            <span className="tag">#Deep_Learning</span>
+            <span className="tag">#Product_Management</span>
+            <span className="tag">#Agents</span>
+            <span className="tag">#data-science</span>
           </div>
         </header>
 
