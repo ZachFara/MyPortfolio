@@ -4,12 +4,9 @@
  */
 (function() {
   document.addEventListener('DOMContentLoaded', function() {
-    console.log('Card animations script loaded');
-    
     // Apply hover effects to all project cards
     function applyProjectCardEffects() {
       const projectCards = document.querySelectorAll('.project-card');
-      console.log('Found project cards:', projectCards.length);
       
       projectCards.forEach(card => {
         // Apply smoother animation using CSS transitions
@@ -63,7 +60,6 @@
     // Apply hover effects to repository cards
     function applyRepoCardEffects() {
       const repoCards = document.querySelectorAll('.repo-card');
-      console.log('Found repo cards:', repoCards.length);
       
       repoCards.forEach(card => {
         // Apply smoother animation using CSS transitions
@@ -117,7 +113,6 @@
     // Apply hover effects to mini-posts
     function applyMiniPostEffects() {
       const miniPosts = document.querySelectorAll('.mini-posts article');
-      console.log('Found mini posts:', miniPosts.length);
       
       miniPosts.forEach(post => {
         // Apply smoother animation using CSS transitions
