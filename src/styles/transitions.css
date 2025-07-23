@@ -116,12 +116,20 @@ a:focus, a:active {
 /* Fix for sidebar mini-posts hover effect */
 .mini-posts article {
   transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
-              box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+              box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+              border-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  border-top-color: transparent !important; /* Hide the border that causes the black line */
 }
 
 .mini-posts article:hover {
   transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+  border-top-color: transparent !important;
+}
+
+.mini-posts article .image {
+  overflow: hidden;
+  border-radius: 5px;
 }
 
 .mini-posts article .image img {

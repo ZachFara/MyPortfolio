@@ -29,6 +29,44 @@ a, button, .button, input, select, textarea,
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
 }
 
+/* Common card styles for consistency across the site */
+.project-card, .repo-card, .mini-posts article {
+  transform: translateY(0);
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+              box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+              border-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.project-card:hover, .repo-card:hover, .mini-posts article:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
+  border-color: transparent !important;
+}
+
+/* Fix borders that might cause lines during hover */
+.mini-posts article {
+  border-top-color: rgba(210, 215, 217, 0.5) !important;
+}
+
+.mini-posts article:hover {
+  border-top-color: transparent !important;
+}
+
+/* Image hover effects */
+.project-card .project-image img, 
+.repo-card img, 
+.mini-posts article .image img {
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.project-card:hover .project-image img, 
+.repo-card:hover img, 
+.mini-posts article:hover .image img {
+  transform: scale(1.05) !important;
+}
+
 /* Override browser default focus styles */
 input:focus, select:focus, textarea:focus {
   border-color: #2c86c5 !important;
@@ -41,12 +79,49 @@ a:focus, a:active, a:hover {
   border-color: #2c86c5 !important;
 }
 
-/* Fix for any red borders on hover */
-*:hover {
-  border-color: inherit !important;
+/* Project card specific enhancements */
+.project-card {
+  border-radius: 8px !important;
+  background-color: white !important;
+  border: 1px solid rgba(210, 215, 217, 0.75) !important;
 }
 
-/* Only show blue highlight for elements that should have it */
-.project-card:hover, .repo-card:hover, #menu ul a:hover, .mini-posts article:hover {
-  border-color: #2c86c5 !important;
+.project-card .project-image {
+  overflow: hidden;
+}
+
+.project-info {
+  padding: 15px !important;
+  transition: background-color 0.3s ease-in-out !important;
+}
+
+.project-card:hover .project-info {
+  background-color: rgba(44, 134, 197, 0.05) !important;
+}
+
+/* Repository card specific enhancements */
+.repo-card {
+  border-radius: 8px !important;
+  padding: 20px !important;
+  border: 1px solid rgba(210, 215, 217, 0.75) !important;
+}
+
+.repo-card:hover .repo-title {
+  color: #2c86c5 !important;
+}
+
+/* Improved menu transitions */
+#menu ul a {
+  transition: color 0.3s ease-in-out, 
+              background-color 0.3s ease-in-out, 
+              border-left 0.3s ease-in-out, 
+              padding-left 0.3s ease-in-out !important;
+  border-left: 3px solid transparent !important;
+}
+
+#menu ul a:hover {
+  border-left: 3px solid rgba(44, 134, 197, 0.5) !important;
+  background-color: rgba(44, 134, 197, 0.05) !important;
+  color: #2c86c5 !important;
+  padding-left: 1em !important;
 }
