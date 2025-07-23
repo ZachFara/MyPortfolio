@@ -2,6 +2,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import { useEffect } from 'react'
 import './App.css'
 import './styles/transitions.css' // Import our custom transitions
+import './styles/overrides.css' // Import overrides to fix red outlines
 import Layout from './components/Layout'
 
 // Pages

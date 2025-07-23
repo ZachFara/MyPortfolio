@@ -40,16 +40,25 @@ img {
 
 /* Fix for React Router Link compatibility */
 a {
-  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, padding 0.3s ease;
+  transition: color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
+              background-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
+              border-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
+              padding 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  outline: none !important;
+}
+
+a:focus, a:active {
+  outline: none !important;
 }
 
 a.active {
   font-weight: bold;
-  color: #2c86c5 !important; /* Changed to a blue color that matches the site theme */
-  background-color: rgba(44, 134, 197, 0.1); /* Light blue background for better visibility */
+  color: #2c86c5 !important;
+  background-color: rgba(44, 134, 197, 0.1);
   padding: 0.5em;
   border-radius: 4px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  outline: none !important;
 }
 
 /* Spacing fixes */
@@ -59,7 +68,15 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Style specifically for sidebar menu active links */
 #menu ul a {
-  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, border-left 0.3s ease-in-out, padding-left 0.3s ease-in-out;
+  transition: color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
+              background-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
+              border-left 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
+              padding-left 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  outline: none !important;
+}
+
+#menu ul a:focus, #menu ul a:active {
+  outline: none !important;
 }
 
 #menu ul a.active {
@@ -67,6 +84,7 @@ h1, h2, h3, h4, h5, h6 {
   border-left: 3px solid #2c86c5;
   background-color: rgba(44, 134, 197, 0.1);
   padding-left: 1em;
+  outline: none !important;
 }
 
 p {

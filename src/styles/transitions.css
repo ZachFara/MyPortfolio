@@ -1,15 +1,45 @@
 /* Enhanced transitions for project and repository cards */
 
+/* Global focus and outline fixes */
+*:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(44, 134, 197, 0.3) !important;
+  transition: box-shadow 0.3s ease-in-out !important;
+}
+
+/* Fix for red outlines and backgrounds */
+.page.active, 
+input[type="submit"].primary:active,
+input[type="reset"].primary:active,
+input[type="button"].primary:active,
+button.primary:active,
+.button.primary:active,
+ul.pagination li > .page.active:active,
+ul.pagination li > .page.active:hover {
+  background-color: #2c86c5 !important; /* Replace red with blue */
+  color: #ffffff !important;
+  transition: background-color 0.3s ease-in-out !important;
+}
+
 /* Project Cards Enhancements */
 .project-card {
   transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
               box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
               background-color 0.3s ease-in-out !important;
+  outline: none !important; /* Remove outline */
 }
 
 .project-card:hover {
   transform: translateY(-8px) !important;
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15) !important;
+  outline: none !important; /* Remove outline */
+  border-color: #2c86c5 !important; /* Blue border instead of any red */
+}
+
+.project-card:focus,
+.project-card:active {
+  outline: none !important;
+  border-color: #2c86c5 !important;
 }
 
 .project-card:hover .project-image {
@@ -33,12 +63,20 @@
   transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
               box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
               border-color 0.3s ease-in-out !important;
+  outline: none !important;
 }
 
 .repo-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
-  border-color: #2c86c5;
+  border-color: #2c86c5 !important;
+  outline: none !important;
+}
+
+.repo-card:focus,
+.repo-card:active {
+  outline: none !important;
+  border-color: #2c86c5 !important;
 }
 
 .repo-title, .repo-description, .repo-link, .repo-meta {
@@ -55,6 +93,12 @@ button, .button, input[type="submit"], input[type="reset"], input[type="button"]
               color 0.3s ease-in-out, 
               border-color 0.3s ease-in-out,
               box-shadow 0.3s ease-in-out !important;
+  outline: none !important;
+}
+
+button:focus, .button:focus, input[type="submit"]:focus, input[type="reset"]:focus, input[type="button"]:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(44, 134, 197, 0.3) !important;
 }
 
 /* Enhance links in the entire site */
@@ -62,4 +106,35 @@ a:not(.button) {
   transition: color 0.3s ease-in-out, 
               border-bottom-color 0.3s ease-in-out,
               text-decoration 0.3s ease-in-out !important;
+  outline: none !important;
+}
+
+a:focus, a:active {
+  outline: none !important;
+}
+
+/* Fix for sidebar mini-posts hover effect */
+.mini-posts article {
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
+              box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.mini-posts article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.mini-posts article .image img {
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.mini-posts article:hover .image img {
+  transform: scale(1.05);
+}
+
+/* Menu hover styles */
+#menu ul a:hover {
+  color: #2c86c5 !important;
+  background-color: rgba(44, 134, 197, 0.05) !important;
+  transition: all 0.3s ease-in-out !important;
 }
