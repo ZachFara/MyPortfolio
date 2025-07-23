@@ -5,22 +5,16 @@ const BlogSidebar = () => {
   // Sample blog posts for the sidebar
   const recentPosts = [
     {
+      id: 'why-do-we-need-agents',
+      title: 'Why Do We Need Agents?',
+      date: 'July 23, 2025',
+      readTime: '8 min read'
+    },
+    {
       id: 'ai-agent-memory',
       title: 'AI Agent Memory',
       date: 'May 30, 2025',
       readTime: '4 min read'
-    },
-    {
-      id: 'ai-technical-product-manager',
-      title: 'The Roadmap to AI Technical Product Manager',
-      date: 'May 18, 2025',
-      readTime: '12 min read'
-    },
-    {
-      id: 'reinforcement-learning-fundamentals',
-      title: 'Reinforcement Learning Fundamentals',
-      date: 'April 15, 2025',
-      readTime: '8 min read'
     }
   ];
 
