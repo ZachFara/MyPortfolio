@@ -1,0 +1,44 @@
+/* App-specific styles - most styles are imported from main.css */
+
+/* Ensure links in React Router look like regular links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Override default focus styles for better accessibility */
+a:focus, button:focus {
+  outline: 2px solid #f56a6a;
+  outline-offset: 2px;
+}
+
+/* Ensure image paths work correctly */
+.image img {
+  display: block;
+}
+
+/* Improve responsive layout */
+@media screen and (max-width: 736px) {
+  #sidebar {
+    display: none;
+  }
+}
+
+/* Animation for page transitions */
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
