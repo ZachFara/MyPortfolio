@@ -16,6 +16,12 @@ const BlogSidebar = () => {
       title: 'AI Agent Memory',
       date: 'May 30, 2025',
       readTime: '4 min read'
+    },
+    {
+      id: 'ai-technical-product-manager',
+      title: 'The Roadmap to AI Technical Product Manager',
+      date: 'May 18, 2025',
+      readTime: '12 min read'
     }
   ];
 

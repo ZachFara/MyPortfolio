@@ -98,7 +98,7 @@ const WhyDoWeNeedAgents = () => {
 
           <h2>Conclusion</h2>
           <p>
-            Agents elevate static code into <strong>adaptive collaborators</strong>—capable of learning, remembering, and orchestrating actions across services. By leveraging managed infrastructure, LlamaIndex’s modular design, and minimal declarative code, you build a system that doesn’t just respond, but evolves—transforming passive scripts into proactive, intelligent systems.
+            Agents transform static code into <strong>adaptive partners</strong> that learn, remember, and coordinate across services. By combining AWS's managed infrastructure with LlamaIndex's modular abstractions, you create a system that not only responds but also evolves—turning reactive scripts into proactive problem-solvers.
           </p>
         </div>
       </article>
