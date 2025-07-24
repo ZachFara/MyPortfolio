@@ -24,7 +24,7 @@ const WhyDoWeNeedAgents = () => {
 
         <div className="blog-content">
           <p>
-            Imagine juggling a dozen different dashboards, APIs, and databases to answer a single question—then forgetting what you did ten minutes ago. That's the fate of traditional scripts: powerful yet perpetually stateless. An <strong>AI agent</strong>, by contrast, is like your personal project manager with an elephant's memory—coordinating tasks, recalling past insights, and adapting on the fly.
+            Imagine juggling a dozen different dashboards, APIs, and databases to answer a single question then forgetting what you did ten minutes ago. That's the fate of traditional scripts: powerful yet perpetually stateless. An <strong>AI agent</strong>, by contrast, is like your personal project manager with an elephant's memory coordinating tasks, recalling past insights, and adapting on the fly.
           </p>
 
           <h2>What Is an AI Agent?</h2>
@@ -38,7 +38,7 @@ const WhyDoWeNeedAgents = () => {
             <li><strong>Reflection & Memory</strong>: Storing outcomes and context for future interactions.</li>
           </ol>
           <p>
-            Without this loop, the tool becomes a static script—rigidly following pre-defined branches without adapting to new contexts or learning from past interactions, much like a program without if-else logic.
+            Without this loop, the tool becomes a static script rigidly following pre-defined branches without adapting to new contexts or learning from past interactions, much like a program without if-else logic.
           </p>
 
           <h2>Core Components & Intuition</h2>
@@ -77,7 +77,7 @@ const WhyDoWeNeedAgents = () => {
           </p>
 
           <p>
-            Once the query engine is ready, you'll want to expose it as a tool that the agent can call. LlamaIndex offers a convenient <strong><a href="https://docs.llamaindex.ai/en/stable/api_reference/tools/query_engine/" target="_blank" rel="noopener noreferrer">QueryEngineTool</a></strong> to do just that. If you're working with custom logic—say, a Python function that performs an action—you can wrap it using <strong><a href="https://docs.llamaindex.ai/en/stable/api_reference/tools/function/" target="_blank" rel="noopener noreferrer">FunctionTool</a></strong>, providing both a name and description so the agent knows when and how to use it.
+            Once the query engine is ready, you'll want to expose it as a tool that the agent can call. LlamaIndex offers a convenient <strong><a href="https://docs.llamaindex.ai/en/stable/api_reference/tools/query_engine/" target="_blank" rel="noopener noreferrer">QueryEngineTool</a></strong> to do just that.             If you're working with custom logic say, a Python function that performs an action you can wrap it using <strong><a href="https://docs.llamaindex.ai/en/stable/api_reference/tools/function/" target="_blank" rel="noopener noreferrer">FunctionTool</a></strong>, providing both a name and description so the agent knows when and how to use it.
           </p>
 
           <p>
@@ -93,12 +93,12 @@ const WhyDoWeNeedAgents = () => {
           </p>
 
           <p>
-            In short, LlamaIndex streamlines the process of building agentic systems by combining core concepts—memory, planning, data access, and execution—into a cohesive, extensible framework. And this is just scratching the surface. Features like streaming responses, cloud-based connectors, and live execution tracing make it one of the most powerful libraries for anyone building intelligent, multi-step AI workflows.
+            In short, LlamaIndex streamlines the process of building agentic systems by combining core concepts memory, planning, data access, and execution into a cohesive, extensible framework. And this is just scratching the surface. Features like streaming responses, cloud-based connectors, and live execution tracing make it one of the most powerful libraries for anyone building intelligent, multi-step AI workflows.
           </p>
 
           <h2>Conclusion</h2>
           <p>
-            Agents transform static code into <strong>adaptive partners</strong> that learn, remember, and coordinate across services. By combining AWS's managed infrastructure with LlamaIndex's modular abstractions, you create a system that not only responds but also evolves—turning reactive scripts into proactive problem-solvers.
+            Agents transform static code into <strong>adaptive partners</strong> that learn, remember, and coordinate across services. By combining AWS's managed infrastructure with LlamaIndex's modular abstractions, you create a system that not only responds but also evolves turning reactive scripts into proactive problem-solvers.
           </p>
         </div>
       </article>
