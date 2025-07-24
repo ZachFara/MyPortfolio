@@ -19,15 +19,15 @@ const AIAgentMemory = () => {
             }
             .code-cell pre {
               margin: 0;
-              white-space: pre !important;
+              white-space: pre;
               overflow-x: auto;
-              font-family: "Fira Code", "Consolas", monospace;
+              font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
               font-size: 0.9em;
             }
             .code-cell code {
               display: block;
-              line-height: 1.6;
-              white-space: pre !important;
+              line-height: 1.5;
+              white-space: pre;
               color: #333;
             }
             /* Inline code styling - more subtle */
@@ -55,19 +55,19 @@ const AIAgentMemory = () => {
               margin-bottom: 1rem;
             }
             
-            /* Python Syntax Highlighting - Blue-focused palette */
-            .token.comment { color: #94a3b8; font-style: italic; }
-            .token.keyword { color: #3b82f6; }
-            .token.string { color: #0ea5e9; }
-            .token.number { color: #0284c7; }
-            .token.function { color: #2563eb; }
-            .token.class-name { color: #2563eb; }
-            .token.punctuation { color: #64748b; }
-            .token.operator { color: #3b82f6; }
-            .token.builtin { color: #4f46e5; }
-            .token.property { color: #0284c7; }
-            .token.parameter { color: #64748b; }
-            .python-code .parameter-name { color: #1e40af; font-weight: normal; }
+            /* Python Syntax Highlighting - Simple blue palette */
+            .token.comment { color: #718096; font-style: italic; }
+            .token.keyword { color: #2b6cb0; }
+            .token.string { color: #2c5282; }
+            .token.number { color: #3182ce; }
+            .token.function { color: #1a365d; }
+            .token.class-name { color: #2c5282; }
+            .token.punctuation { color: #4a5568; }
+            .token.operator { color: #2b6cb0; }
+            .token.builtin { color: #2c5282; }
+            .token.property { color: #3182ce; }
+            .token.parameter { color: #4a5568; }
+            .python-code .parameter-name { color: #2c5282; }
           `}
         </style>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css" />
