@@ -5,6 +5,7 @@ import './styles/transitions.css' // Import our custom transitions
 import './styles/overrides.css' // Import overrides to fix red outlines
 import './styles/blog.css' // Import blog styles
 import './styles/sidebar-components.css' // Import our clean sidebar styling
+import './styles/unified-card-animations.css' // Import unified card animations
 // Card animations CSS is loaded directly in index.html
 import Layout from './components/Layout'
 

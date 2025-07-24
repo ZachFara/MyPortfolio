@@ -1,0 +1,126 @@
+/* Card animations for all card elements across the site */
+
+/* Override any animations or transitions that might be interfering */
+.project-card,
+.repo-card,
+.blog-card,
+section .project-card,
+section .projects-container .project-card,
+section .repo-container .repo-card,
+section .blog-container .blog-card,
+#sidebar .mini-posts article,
+.sidebar-blog-post,
+html body .project-card,
+html body .repo-card,
+html body .blog-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  animation: none !important;
+  position: relative;
+  border: 1px solid #e8e8e8 !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  background: #fff !important;
+  transform: translateY(0) !important;
+  will-change: transform, box-shadow !important;
+}
+
+/* Unified hover effect for all cards - with maximum specificity */
+.project-card:hover,
+.repo-card:hover,
+.blog-card:hover,
+section .project-card:hover,
+section .projects-container .project-card:hover,
+section .repo-container .repo-card:hover,
+section .blog-container .blog-card:hover,
+#sidebar .mini-posts article:hover,
+.sidebar-blog-post:hover,
+html body .project-card:hover,
+html body .repo-card:hover,
+html body .blog-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  border-color: #ddd !important;
+  animation: none !important;
+}
+
+/* Image hover animations - with maximum specificity */
+.project-card .project-image,
+.blog-card .blog-image,
+.repo-card .repo-image,
+section .project-card .project-image,
+section .blog-card .blog-image,
+section .repo-card .repo-image,
+#sidebar .mini-posts article .image,
+html body .project-card .project-image,
+html body .blog-card .blog-image,
+html body .repo-card .repo-image {
+  overflow: hidden !important;
+  animation: none !important;
+}
+
+.project-card .project-image img,
+.blog-card .blog-image img,
+.repo-card .repo-image img,
+section .project-card .project-image img,
+section .blog-card .blog-image img,
+section .repo-card .repo-image img,
+#sidebar .mini-posts article .image img,
+html body .project-card .project-image img,
+html body .blog-card .blog-image img,
+html body .repo-card .repo-image img {
+  transition: transform 0.6s ease !important;
+  width: 100% !important;
+  animation: none !important;
+  transform: scale(1) !important;
+}
+
+.project-card:hover .project-image img,
+.blog-card:hover .blog-image img,
+.repo-card:hover .repo-image img,
+section .project-card:hover .project-image img,
+section .blog-card:hover .blog-image img,
+section .repo-card:hover .repo-image img,
+#sidebar .mini-posts article:hover .image img,
+html body .project-card:hover .project-image img,
+html body .blog-card:hover .blog-image img,
+html body .repo-card:hover .repo-image img {
+  transform: scale(1.05) !important;
+  animation: none !important;
+}
+
+/* Title hover effect */
+.project-card .project-title,
+.blog-card .blog-title,
+.repo-card .repo-title {
+  transition: color 0.2s ease;
+}
+
+.project-card:hover .project-title,
+.blog-card:hover .blog-title,
+.repo-card:hover .repo-title {
+  color: #4a98d8;
+}
+
+/* Specific styles for project cards */
+.project-card {
+  padding-bottom: 0.5em;
+}
+
+/* Specific styles for blog cards */
+.blog-card {
+  margin-bottom: 2em;
+}
+
+/* Specific styles for repository cards */
+.repo-card {
+  margin-bottom: 1.5em;
+}
+
+/* Ensure text is left aligned in all cards */
+.project-card .project-info,
+.blog-card .blog-description,
+.repo-card .repo-description {
+  text-align: left;
+}
