@@ -1,0 +1,39 @@
+/* Fix for sidebar disappearing when scrolling to contact section */
+#sidebar > .inner {
+  /* Add overflow scrolling so sidebar content is scrollable */
+  overflow-y: auto;
+  
+  /* Ensure the inner content takes up the full height */
+  height: 100%;
+  
+  /* Add smooth scrolling */
+  scroll-behavior: smooth;
+  
+  /* Better touch scrolling on mobile */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Add extra space at the bottom to ensure all content is visible */
+#sidebar > .inner:after {
+  content: '';
+  display: block;
+  height: 2rem;
+}
+
+/* Improve scrollbar appearance */
+#sidebar > .inner::-webkit-scrollbar {
+  width: 5px;
+}
+
+#sidebar > .inner::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+#sidebar > .inner::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+
+#sidebar > .inner::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
