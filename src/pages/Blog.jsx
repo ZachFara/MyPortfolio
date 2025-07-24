@@ -12,8 +12,10 @@ const Blog = () => {
       
       <section>
         <header className="main">
-          <h1>One Degree Better</h1>
-          <p className="subtitle">My writings on data science, robotics, philosophy, literature, and everything in between</p>
+          <h1>Beyond the Mean</h1>
+          <div className="text-center">
+            <p className="subtitle">Beyond the basics in data science and technology — exploring the subtle, the surprising, and the statistically counterintuitive.</p>
+          </div>
         </header>
         <hr />
         <div className="blog-container">
