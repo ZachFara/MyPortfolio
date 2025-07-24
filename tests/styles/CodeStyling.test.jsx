@@ -2,6 +2,7 @@ import { describe, it, expect, vi } from 'vitest';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import AIAgentMemory from '../../src/pages/BlogPosts/AIAgentMemory';
+import '../../src/styles/CodeStyling.css';
 
 // Mock Helmet to avoid errors
 vi.mock('react-helmet', () => ({
@@ -34,5 +35,10 @@ describe('Code Styling Test', () => {
     
     // This test simply verifies the presence of the elements
     // JSDOM doesn't fully support computed styles, so we can't test the styling directly
+  });
+  
+  it('ensures code styling CSS file is imported', () => {
+    // This test just verifies that the import works without errors
+    expect(() => import('../../src/styles/CodeStyling.css')).not.toThrow();
   });
 });

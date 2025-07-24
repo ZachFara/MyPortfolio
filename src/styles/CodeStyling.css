@@ -1,0 +1,37 @@
+/* Override any hover effects or transitions for code elements */
+
+.code-cell,
+.code-cell pre,
+.code-cell code,
+pre code,
+pre,
+code {
+  transition: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.code-cell:hover,
+.code-cell pre:hover,
+.code-cell code:hover,
+pre code:hover,
+pre:hover,
+code:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  background-color: inherit !important;
+  border-color: inherit !important;
+  color: inherit !important;
+}
+
+/* Ensure the Python code block doesn't get blue highlight */
+.python-code,
+.language-python,
+.python-code:hover,
+.language-python:hover {
+  background-color: #f5f5f5 !important;
+  color: #333 !important;
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: #e0e0e0 !important;
+}

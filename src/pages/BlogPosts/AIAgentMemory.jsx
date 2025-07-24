@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
+import '../../styles/CodeStyling.css';
 
 const AIAgentMemory = () => {
   return (
@@ -9,13 +10,14 @@ const AIAgentMemory = () => {
         <style type="text/css">
           {`
             .code-cell {
-              background-color: #f8f9fc;
+              background-color: #f5f5f5;
               padding: 16px;
               margin: 20px 0;
-              border: 1px solid #e2e8f0;
+              border: 1px solid #e0e0e0;
               border-radius: 6px;
               white-space: pre;
               overflow-x: auto;
+              transition: none;
             }
             .code-cell pre {
               margin: 0;
@@ -23,12 +25,19 @@ const AIAgentMemory = () => {
               overflow-x: auto;
               font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
               font-size: 0.9em;
+              transition: none;
             }
             .code-cell code {
               display: block;
               line-height: 1.5;
               white-space: pre;
               color: #333;
+              transition: none;
+            }
+            .code-cell:hover, .code-cell pre:hover, .code-cell code:hover {
+              transform: none;
+              box-shadow: none;
+              background-color: #f5f5f5;
             }
             /* Inline code styling - more subtle */
             p code, li code, h2 code {
@@ -41,11 +50,31 @@ const AIAgentMemory = () => {
               font-weight: normal;
               white-space: nowrap;
               border: none;
+              transition: none;
+            }
+            
+            p code:hover, li code:hover, h2 code:hover {
+              background-color: rgba(175, 184, 193, 0.2);
+              color: #444;
+              transform: none;
+              box-shadow: none;
             }
             
             /* Simple language indicator */
             .code-cell {
               position: relative;
+              transform: none !important;
+              box-shadow: none !important;
+              border-color: #e0e0e0 !important;
+            }
+            
+            /* Disable all hover effects on code cells */
+            .code-cell *, .code-cell *:hover {
+              transform: none !important;
+              box-shadow: none !important;
+              transition: none !important;
+              border-color: inherit !important;
+              background-color: inherit !important;
             }
             
             /* No hover effects or transitions */
@@ -73,6 +102,7 @@ const AIAgentMemory = () => {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css" />
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+        <link rel="stylesheet" href="/src/styles/CodeStyling.css" />
       </Helmet>
 
       <article className="blog-post">
