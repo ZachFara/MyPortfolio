@@ -60,60 +60,7 @@ const Blog = () => {
               <span className="tag">#data-science</span>
             </div>
           </div>
-          
-          {/* Blog Post 2 */}
-          <div className="blog-card">
-            <Link to="/blog/ai-technical-product-manager" className="blog-link">
-              <h2 className="blog-title">The Roadmap to AI Technical Product Manager</h2>
-            </Link>
-            <p className="blog-description">A guide to AI upskilling for Technical Product Managers</p>
-            <div className="blog-meta">
-              <span className="blog-date">May 18, 2025</span>
-              <span className="blog-read-time">12 min read</span>
-            </div>
-            <div className="blog-tags">
-              <span className="tag">#AI</span>
-              <span className="tag">#Machine_Learning</span>
-              <span className="tag">#Deep_Learning</span>
-              <span className="tag">#Product_Management</span>
-              <span className="tag">#Agents</span>
-              <span className="tag">#data-science</span>
-            </div>
-          </div>
-          
-          {/* Blog Post 3 */}
-          <div className="blog-card">
-            <Link to="/blog/reinforcement-learning-fundamentals" className="blog-link">
-              <h2 className="blog-title">Reinforcement Learning Fundamentals</h2>
-            </Link>
-            <p className="blog-description">Understanding the basics of reinforcement learning algorithms</p>
-            <div className="blog-meta">
-              <span className="blog-date">April 15, 2025</span>
-              <span className="blog-read-time">8 min read</span>
-            </div>
-            <div className="blog-tags">
-              <span className="tag">#AI</span>
-              <span className="tag">#Machine_Learning</span>
-              <span className="tag">#Reinforcement_Learning</span>
-            </div>
-          </div>
-          
-          {/* Blog Post 4 */}
-          <div className="blog-card">
-            <Link to="/blog/future-of-robotics" className="blog-link">
-              <h2 className="blog-title">The Future of Robotics in Healthcare</h2>
-            </Link>
-            <p className="blog-description">How robots are transforming patient care and medical procedures</p>
-            <div className="blog-meta">
-              <span className="blog-date">March 22, 2025</span>
-              <span className="blog-read-time">10 min read</span>
-            </div>
-            <div className="blog-tags">
-              <span className="tag">#Robotics</span>
-              <span className="tag">#Healthcare</span>
-              <span className="tag">#AI</span>
-            </div>
-          </div>
+
         </div>
       </section>
     </>
