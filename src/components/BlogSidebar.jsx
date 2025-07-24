@@ -8,8 +8,8 @@ const BlogSidebar = () => {
     {
       id: 'why-do-we-need-agents',
       title: 'Why Do We Need Agents?',
-      date: 'July 23, 2025',
-      readTime: '8 min read'
+      date: 'July 24, 2025',
+      readTime: '7 min read'
     },
     {
       id: 'ai-agent-memory',

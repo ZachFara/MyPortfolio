@@ -17,6 +17,7 @@ import CurriculumVitae from './pages/CurriculumVitae'
 import Blog from './pages/Blog'
 import AIAgentMemory from './pages/BlogPosts/AIAgentMemory'
 import AITechnicalProductManager from './pages/BlogPosts/AITechnicalProductManager'
+import WhyDoWeNeedAgents from './pages/BlogPosts/WhyDoWeNeedAgents'
 
 function App() {
   useEffect(() => {
@@ -64,6 +65,7 @@ function App() {
           <Route path="/repositories" element={<Repositories />} />
           <Route path="/cv" element={<CurriculumVitae />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/why-do-we-need-agents" element={<WhyDoWeNeedAgents />} />
           <Route path="/blog/ai-agent-memory" element={<AIAgentMemory />} />
           <Route path="/blog/ai-technical-product-manager" element={<AITechnicalProductManager />} />
           {/* Add a catch-all redirect to home */}

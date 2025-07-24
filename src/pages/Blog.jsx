@@ -24,6 +24,27 @@ const Blog = () => {
             transition: "transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1)",
             cursor: "pointer"
           }}>
+            <Link to="/blog/why-do-we-need-agents" className="blog-link">
+              <h2 className="blog-title">Why Do We Need Agents?</h2>
+            </Link>
+            <p className="blog-description">Understanding the role and importance of AI agents in modern applications</p>
+            <div className="blog-meta">
+              <span className="blog-date">July 24, 2025</span>
+              <span className="blog-read-time">7 min read</span>
+            </div>
+            <div className="blog-tags">
+              <span className="tag">#AI</span>
+              <span className="tag">#Agents</span>
+              <span className="tag">#LlamaIndex</span>
+              <span className="tag">#data-science</span>
+            </div>
+          </div>
+          
+          {/* Blog Post 2 */}
+          <div className="blog-card" style={{
+            transition: "transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1)",
+            cursor: "pointer"
+          }}>
             <Link to="/blog/ai-agent-memory" className="blog-link">
               <h2 className="blog-title">AI Agent Memory</h2>
             </Link>
