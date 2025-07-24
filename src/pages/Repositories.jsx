@@ -60,10 +60,8 @@ const Repositories = () => {
           
           <div className="repo-card">
             <h2 className="repo-title">Chartwell Insurance E-mail chatbot</h2>
-            <p className="repo-description">An OpenAI based project in which help automate some of Chartwells most frequently asked questions by email. 
-              <span style={{ fontSize: '0.9em', color: 'grey', display: 'block' }}>*Not yet public</span>
-            </p>
-            <a className="repo-link" href="" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+            <p className="repo-description">An OpenAI based project in which help automate some of Chartwells most frequently asked questions by email.</p>
+            <a className="repo-link" href="https://github.com/ZachFara/Chartwell-Insurance-AI" target="_blank" rel="noopener noreferrer">View on GitHub</a>
             <div className="repo-meta">
               <span className="repo-stars">★ 1</span>
               <span className="repo-language"><i className="fab fa-python"></i> Python</span>

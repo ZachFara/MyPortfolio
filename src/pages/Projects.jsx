@@ -106,13 +106,15 @@ const Projects = () => {
           <hr />
           <h2 style={{ marginBottom: '0' }}>Generative AI</h2>
           <div className="projects-container">
-            <div className="project-card">
-              <img src="images/genai.webp" alt="Project Image" className="project-image" />
-              <div className="project-info">
-                <h2>Chartwell Insurance E-Mail chatbot</h2>
-                <p>*Not yet public</p>
+            <a href="https://github.com/ZachFara/Chartwell-Insurance-AI" className="project-link" target="_blank" rel="noopener noreferrer">
+              <div className="project-card">
+                <img src="images/genai.webp" alt="Project Image" className="project-image" />
+                <div className="project-info">
+                  <h2>Chartwell Insurance E-Mail chatbot</h2>
+                  <p>OpenAI based email automation solution</p>
+                </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </section>
