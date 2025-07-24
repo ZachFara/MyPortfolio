@@ -9,24 +9,73 @@ const AIAgentMemory = () => {
         <style type="text/css">
           {`
             .code-cell {
-              background-color: #f6f8fa;
-              border-radius: 6px;
-              padding: 16px;
+              background-color: rgba(248, 250, 252, 0.7);
+              padding: 16px 10px;
               margin: 20px 0;
-              border: 1px solid #ddd;
+              border-left: 3px solid #3b82f6;
               white-space: pre;
               overflow-x: auto;
+              box-shadow: none;
+              position: relative;
+            }
+            .code-cell::before {
+              content: "";
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              width: 3px;
+              background: linear-gradient(to bottom, transparent, #3b82f6, transparent);
+              opacity: 0.4;
             }
             .code-cell pre {
               margin: 0;
               white-space: pre !important;
               overflow-x: auto;
-              font-family: monospace;
+              font-family: "Fira Code", "Consolas", monospace;
+              font-size: 0.9em;
             }
             .code-cell code {
               display: block;
-              line-height: 1.5;
+              line-height: 1.6;
               white-space: pre !important;
+              color: #333;
+            }
+            /* Inline code styling - more subtle */
+            p code, li code, h2 code {
+              background-color: rgba(175, 184, 193, 0.2);
+              padding: 0.1em 0.4em;
+              border-radius: 3px;
+              font-family: monospace;
+              font-size: 0.9em;
+              color: #444;
+              font-weight: normal;
+              white-space: nowrap;
+              border: none;
+            }
+            
+            /* Additional code cell styling */
+            .code-cell::after {
+              content: "python";
+              position: absolute;
+              top: 0;
+              right: 10px;
+              padding: 2px 8px;
+              font-size: 0.7em;
+              color: #3b82f6;
+              background-color: transparent;
+              border-radius: 0 0 0 4px;
+              letter-spacing: 0.05em;
+              text-transform: lowercase;
+              opacity: 0.8;
+            }
+            
+            /* Add subtle transition effects */
+            .code-cell {
+              transition: all 0.2s ease-in-out;
+            }
+            .code-cell:hover {
+              background-color: rgba(239, 246, 255, 0.8);
             }
             h2.blog-title {
               font-size: 1.5rem;
@@ -34,19 +83,19 @@ const AIAgentMemory = () => {
               margin-bottom: 1rem;
             }
             
-            /* Python Syntax Highlighting */
-            .token.comment { color: #6a737d; }
-            .token.keyword { color: #d73a49; }
-            .token.string { color: #032f62; }
-            .token.number { color: #005cc5; }
-            .token.function { color: #6f42c1; }
-            .token.class-name { color: #6f42c1; }
-            .token.punctuation { color: #24292e; }
-            .token.operator { color: #d73a49; }
-            .token.builtin { color: #6f42c1; }
-            .token.property { color: #005cc5; }
-            .token.parameter { color: #24292e; }
-            .python-code .parameter-name { color: #e36209; font-weight: bold; }
+            /* Python Syntax Highlighting - Blue-focused palette */
+            .token.comment { color: #94a3b8; font-style: italic; }
+            .token.keyword { color: #3b82f6; }
+            .token.string { color: #0ea5e9; }
+            .token.number { color: #0284c7; }
+            .token.function { color: #2563eb; }
+            .token.class-name { color: #2563eb; }
+            .token.punctuation { color: #64748b; }
+            .token.operator { color: #3b82f6; }
+            .token.builtin { color: #4f46e5; }
+            .token.property { color: #0284c7; }
+            .token.parameter { color: #64748b; }
+            .python-code .parameter-name { color: #1e40af; font-weight: normal; }
           `}
         </style>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css" />
@@ -76,7 +125,7 @@ const AIAgentMemory = () => {
           </p>
 
           <p>
-            Short‑term memory (STM) is the rolling context that keeps the model coherent right now. Long‑term memory (LTM) is slimmer, curated, and retrieved only when relevant. Something must decide what to keep, how to compress it, and when to bring it back. LlamaIndex's <strong>Memory</strong> object plus specialized memory blocks give you exactly that.
+            Short‑term memory (STM) is the rolling context that keeps the model coherent right now. Long‑term memory (LTM) is slimmer, curated, and retrieved only when relevant. Something must decide what to keep, how to compress it, and when to bring it back. LlamaIndex's <code>Memory</code> object plus specialized memory blocks give you exactly that.
           </p>
 
           <hr />
@@ -84,7 +133,7 @@ const AIAgentMemory = () => {
           <h2>Memory</h2>
 
           <p>
-            In LlamaIndex, <strong>Memory</strong> is the orchestrator. It owns the plain‑text rolling chat buffer and automatically flushes overflowed tokens into long‑term memory blocks once you exceed a global <strong>token_limit</strong>. If you don't attach any blocks, those tokens are simply dropped. You tune the short‑term buffer's protection with <strong>chat_history_token_ratio</strong> (e.g., 0.7 to reserve 70% of the context for the live chat) and set <strong>token_flush_size</strong> to control how many tokens get evicted at a time. Conversations are isolated under a <strong>session_id</strong>, and you can persist memory by pointing <strong>async_database_uri</strong> to a real database (instead of the default in‑memory SQLite). At inference time, <strong>Memory</strong> reassembles the prompt by merging the short‑term buffer with whatever long‑term content still fits under <strong>token_limit</strong>, injected via your chosen <strong>insert_method</strong> (commonly <strong>"system"</strong>). Conceptually: <strong>memory.put()</strong> logs new events; <strong>memory.get()</strong> returns the token‑bounded context the model will actually see.
+            In LlamaIndex, <code>Memory</code> is the orchestrator. It owns the plain‑text rolling chat buffer and automatically flushes overflowed tokens into long‑term memory blocks once you exceed a global <code>token_limit</code>. If you don't attach any blocks, those tokens are simply dropped. You tune the short‑term buffer's protection with <code>chat_history_token_ratio</code> (e.g., 0.7 to reserve 70% of the context for the live chat) and set <code>token_flush_size</code> to control how many tokens get evicted at a time. Conversations are isolated under a <code>session_id</code>, and you can persist memory by pointing <code>async_database_uri</code> to a real database (instead of the default in‑memory SQLite). At inference time, <code>Memory</code> reassembles the prompt by merging the short‑term buffer with whatever long‑term content still fits under <code>token_limit</code>, injected via your chosen <code>insert_method</code> (commonly <code>"system"</code>). Conceptually: <code>memory.put()</code> logs new events; <code>memory.get()</code> returns the token‑bounded context the model will actually see.
           </p>
 
           <hr />
@@ -92,7 +141,7 @@ const AIAgentMemory = () => {
           <h2>StaticMemoryBlock</h2>
 
           <p>
-            <strong>StaticMemoryBlock</strong> is your non‑negotiable, always‑on context: agent identity, safety policies, core constraints, or stable user profile facts. It never retrieves, ranks, or summarizes—it always gets appended to the LLM context on every call. You typically set <strong>priority=0</strong>, which effectively says: "don't ever truncate this." It's cheap, deterministic, and perfect for what you'd otherwise hard‑code into a system prompt.
+            <code>StaticMemoryBlock</code> is your non‑negotiable, always‑on context: agent identity, safety policies, core constraints, or stable user profile facts. It never retrieves, ranks, or summarizes—it always gets appended to the LLM context on every call. You typically set <code>priority=0</code>, which effectively says: "don't ever truncate this." It's cheap, deterministic, and perfect for what you'd otherwise hard‑code into a system prompt.
           </p>
 
           <hr />
@@ -100,7 +149,7 @@ const AIAgentMemory = () => {
           <h2>FactExtractionMemoryBlock</h2>
 
           <p>
-            <strong>FactExtractionMemoryBlock</strong> converts long chats into durable, compact facts. When short‑term memory overflows, this block asks an LLM (<strong>llm</strong>) to extract salient information—preferences, decisions, constraints, key entities—up to <strong>max_facts</strong>. If it overgrows, it summarizes itself to stay tight. The result is a lightweight, always‑useful layer you can inject almost every turn. The cost: extra LLM calls and lossy compression. In practice, give it <strong>priority=1</strong>, so it nearly always survives truncation right after your static policy block.
+            <code>FactExtractionMemoryBlock</code> converts long chats into durable, compact facts. When short‑term memory overflows, this block asks an LLM (<code>llm</code>) to extract salient information—preferences, decisions, constraints, key entities—up to <code>max_facts</code>. If it overgrows, it summarizes itself to stay tight. The result is a lightweight, always‑useful layer you can inject almost every turn. The cost: extra LLM calls and lossy compression. In practice, give it <code>priority=1</code>, so it nearly always survives truncation right after your static policy block.
           </p>
 
           <hr />
@@ -108,7 +157,7 @@ const AIAgentMemory = () => {
           <h2>VectorMemoryBlock</h2>
 
           <p>
-            <strong>VectorMemoryBlock</strong> is your semantic recall layer. Flushed messages are embedded (<strong>embed_model</strong>) and written to a vector store (<strong>vector_store</strong>). On each step, it can pull back the most relevant past snippets (<strong>similarity_top_k</strong>, <strong>retrieval_context_window</strong>) and optionally post‑process them. This is ideal when you need to reach way back ("remember that Athena query we debugged last month?") or when you want verbatim, auditable recovery. Because retrieved spans can be token‑heavy, assign it a lower priority (e.g., <strong>priority=2+</strong>) so it's trimmed first when the context gets tight.
+            <code>VectorMemoryBlock</code> is your semantic recall layer. Flushed messages are embedded (<code>embed_model</code>) and written to a vector store (<code>vector_store</code>). On each step, it can pull back the most relevant past snippets (<code>similarity_top_k</code>, <code>retrieval_context_window</code>) and optionally post‑process them. This is ideal when you need to reach way back ("remember that Athena query we debugged last month?") or when you want verbatim, auditable recovery. Because retrieved spans can be token‑heavy, assign it a lower priority (e.g., <code>priority=2+</code>) so it's trimmed first when the context gets tight.
           </p>
 
           <hr />
@@ -116,17 +165,17 @@ const AIAgentMemory = () => {
           <h2>Priority</h2>
 
           <p>
-            The <strong>priority</strong> you assign to each block defines your degradation path under strict token budgets. A production‑ready default:
+            The <code>priority</code> you assign to each block defines your degradation path under strict token budgets. A production‑ready default:
           </p>
 
           <ol>
-            <li><strong>StaticMemoryBlock</strong> (<strong>priority=0</strong>) — identity/rules must never drop.</li>
-            <li><strong>FactExtractionMemoryBlock</strong> (<strong>priority=1</strong>) — distilled, low‑cost facts that almost always help.</li>
-            <li><strong>VectorMemoryBlock</strong> (<strong>priority=2+</strong>) — deep semantic recall included only when there's space or clear relevance.</li>
+            <li><code>StaticMemoryBlock</code> (<code>priority=0</code>) — identity/rules must never drop.</li>
+            <li><code>FactExtractionMemoryBlock</code> (<code>priority=1</code>) — distilled, low‑cost facts that almost always help.</li>
+            <li><code>VectorMemoryBlock</code> (<code>priority=2+</code>) — deep semantic recall included only when there's space or clear relevance.</li>
           </ol>
 
           <p>
-            This mirrors the theory: guarantee invariant context, keep a compact evergreen factual spine, and fall back to heavy semantic retrieval when necessary. Need something bespoke (scores, counters, domain state)? Subclass <strong>BaseMemoryBlock</strong>—<strong>Memory</strong> will still flush, retrieve, and truncate it under the same rules.
+            This mirrors the theory: guarantee invariant context, keep a compact evergreen factual spine, and fall back to heavy semantic retrieval when necessary. Need something bespoke (scores, counters, domain state)? Subclass <code>BaseMemoryBlock</code>—<code>Memory</code> will still flush, retrieve, and truncate it under the same rules.
           </p>
 
           <hr />
@@ -134,7 +183,7 @@ const AIAgentMemory = () => {
           <h2>Best Practices</h2>
 
           <p>
-            Adopt the three‑layer stack with explicit priorities. Set a strict <strong>token_limit</strong>, keep <strong>chat_history_token_ratio</strong> high enough for live turns, and flush in coherent chunks (<strong>token_flush_size</strong>) so long‑term blocks receive meaningful spans. Bound <strong>max_facts</strong> so facts stay cheap to inject; tighten <strong>similarity_top_k</strong> / <strong>retrieval_context_window</strong> to keep vector recalls lean. Use separate <strong>session_id</strong>s and a persistent <strong>async_database_uri</strong> when you need continuity beyond process restarts. Prefer <strong>insert_method="system"</strong> for clean, deterministic prompt injection.
+            Adopt the three‑layer stack with explicit priorities. Set a strict <code>token_limit</code>, keep <code>chat_history_token_ratio</code> high enough for live turns, and flush in coherent chunks (<code>token_flush_size</code>) so long‑term blocks receive meaningful spans. Bound <code>max_facts</code> so facts stay cheap to inject; tighten <code>similarity_top_k</code> / <code>retrieval_context_window</code> to keep vector recalls lean. Use separate <code>session_id</code>s and a persistent <code>async_database_uri</code> when you need continuity beyond process restarts. Prefer <code>insert_method="system"</code> for clean, deterministic prompt injection.
           </p>
 
           <div className="code-cell">
@@ -183,7 +232,7 @@ response = await agent.run(user_msg, memory=memory)
           <h2>Conclusion</h2>
 
           <p>
-            Memory is what turns a clever LLM into a situated agent. LlamaIndex's <strong>Memory</strong> orchestrator plus a layered stack—<strong>StaticMemoryBlock (0)</strong> for invariants, <strong>FactExtractionMemoryBlock (1)</strong> for compact durable facts, and <strong>VectorMemoryBlock (2)</strong> for deep semantic recall—maps cleanly onto short‑ vs. long‑term memory theory while staying within strict token limits. Priorities give you a predictable degradation path; knobs like <strong>token_limit</strong>, <strong>chat_history_token_ratio</strong>, and <strong>token_flush_size</strong> keep prompts lean. Start with the three‑block baseline, measure token pressure and retrieval usefulness, and only customize where your workload proves it's needed. The payoff is an agent that remembers what matters, forgets what doesn't, and scales its recall gracefully as conversations (and stakes) grow.
+            Memory is what turns a clever LLM into a situated agent. LlamaIndex's <code>Memory</code> orchestrator plus a layered stack—<code>StaticMemoryBlock (0)</code> for invariants, <code>FactExtractionMemoryBlock (1)</code> for compact durable facts, and <code>VectorMemoryBlock (2)</code> for deep semantic recall—maps cleanly onto short‑ vs. long‑term memory theory while staying within strict token limits. Priorities give you a predictable degradation path; knobs like <code>token_limit</code>, <code>chat_history_token_ratio</code>, and <code>token_flush_size</code> keep prompts lean. Start with the three‑block baseline, measure token pressure and retrieval usefulness, and only customize where your workload proves it's needed. The payoff is an agent that remembers what matters, forgets what doesn't, and scales its recall gracefully as conversations (and stakes) grow.
           </p>
 
           <div className="blog-footer">

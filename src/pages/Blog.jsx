@@ -46,7 +46,7 @@ const Blog = () => {
             cursor: "pointer"
           }}>
             <Link to="/blog/ai-agent-memory" className="blog-link">
-              <h2 className="blog-title">AI Agent Memory</h2>
+              <h2 className="blog-title">Agentic Memory from Llama Index</h2>
             </Link>
             <p className="blog-description">Demystifying the different types of AI agent memory</p>
             <div className="blog-meta">

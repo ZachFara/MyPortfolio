@@ -13,7 +13,7 @@ const BlogSidebar = () => {
     },
     {
       id: 'ai-agent-memory',
-      title: 'AI Agent Memory',
+      title: 'Agentic Memory from Llama Index',
       date: 'May 30, 2025',
       readTime: '4 min read'
     }
