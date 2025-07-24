@@ -9,24 +9,13 @@ const AIAgentMemory = () => {
         <style type="text/css">
           {`
             .code-cell {
-              background-color: rgba(248, 250, 252, 0.7);
-              padding: 16px 10px;
+              background-color: #f8f9fc;
+              padding: 16px;
               margin: 20px 0;
-              border-left: 3px solid #3b82f6;
+              border: 1px solid #e2e8f0;
+              border-radius: 6px;
               white-space: pre;
               overflow-x: auto;
-              box-shadow: none;
-              position: relative;
-            }
-            .code-cell::before {
-              content: "";
-              position: absolute;
-              top: 0;
-              right: 0;
-              bottom: 0;
-              width: 3px;
-              background: linear-gradient(to bottom, transparent, #3b82f6, transparent);
-              opacity: 0.4;
             }
             .code-cell pre {
               margin: 0;
@@ -54,29 +43,12 @@ const AIAgentMemory = () => {
               border: none;
             }
             
-            /* Additional code cell styling */
-            .code-cell::after {
-              content: "python";
-              position: absolute;
-              top: 0;
-              right: 10px;
-              padding: 2px 8px;
-              font-size: 0.7em;
-              color: #3b82f6;
-              background-color: transparent;
-              border-radius: 0 0 0 4px;
-              letter-spacing: 0.05em;
-              text-transform: lowercase;
-              opacity: 0.8;
+            /* Simple language indicator */
+            .code-cell {
+              position: relative;
             }
             
-            /* Add subtle transition effects */
-            .code-cell {
-              transition: all 0.2s ease-in-out;
-            }
-            .code-cell:hover {
-              background-color: rgba(239, 246, 255, 0.8);
-            }
+            /* No hover effects or transitions */
             h2.blog-title {
               font-size: 1.5rem;
               line-height: 1.3;
