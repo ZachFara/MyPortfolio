@@ -72,10 +72,8 @@ const Sidebar = () => {
             <li className="icon solid fa-envelope">
               <a href="mailto:zachariah.farahany@gmail.com">zachariah.farahany@gmail.com</a>
             </li>
-            <li className="icon solid fa-phone">(847) 502-5010</li>
-            <li className="icon solid fa-home">
-              711 N. Broadway Ave.<br />
-              Park Ridge, IL 60068
+            <li className="icon brands fa-linkedin">
+              <a href="https://www.linkedin.com/in/zachariah-farahany-3818aa1bb/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </li>
           </ul>
         </section>

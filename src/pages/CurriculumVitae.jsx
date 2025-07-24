@@ -25,7 +25,7 @@ const CurriculumVitae = () => {
           </p>
           <p>
             <span className="label">LinkedIn</span>: &nbsp;&nbsp;
-            <a className="link" href="https://www.linkedin.com/in/zach-farahany-3818aa1bb/" target="_blank" rel="noopener noreferrer">
+            <a className="link" href="https://www.linkedin.com/in/zachariah-farahany-3818aa1bb/" target="_blank" rel="noopener noreferrer">
               <img src="images/Linkedin icon.png" alt="LinkedIn Icon" style={{width:'16px', height:'16px', verticalAlign:'middle', marginRight:'5px'}} /> 
               LinkedIn
             </a>
