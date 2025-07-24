@@ -11,6 +11,28 @@ const WhyDoWeNeedAgents = () => {
       <article className="blog-post">
         <header className="main">
           <h1>Why Do We Need Agents?</h1>
+          
+          <div className="blog-featured-image" style={{ 
+              display: 'flex', 
+              justifyContent: 'center', 
+              alignItems: 'center', 
+              margin: '2rem auto 2.5rem',
+              maxWidth: '90%'
+            }}>
+            <img 
+              src="images/ai-agent-diagram.webp" 
+              alt="AI Agent Architecture Diagram" 
+              className="img-fluid"
+              style={{ 
+                maxWidth: '100%', 
+                height: 'auto', 
+                borderRadius: '8px', 
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+                marginBottom: '0'
+              }}
+            />
+          </div>
+          
           <div className="blog-meta">
             <span className="blog-date">Created on July 24, 2025</span>
           </div>
@@ -23,6 +45,7 @@ const WhyDoWeNeedAgents = () => {
         </header>
 
         <div className="blog-content">
+          
           <p>
             Imagine juggling a dozen different dashboards, APIs, and databases to answer a single question then forgetting what you did ten minutes ago. That's the fate of traditional scripts: powerful yet perpetually stateless. An <strong>AI agent</strong>, by contrast, is like your personal project manager with an elephant's memory coordinating tasks, recalling past insights, and adapting on the fly.
           </p>
@@ -98,8 +121,14 @@ const WhyDoWeNeedAgents = () => {
 
           <h2>Conclusion</h2>
           <p>
-            Agents transform static code into <strong>adaptive partners</strong> that learn, remember, and coordinate across services. By combining AWS's managed infrastructure with LlamaIndex's modular abstractions, you create a system that not only responds but also evolves turning reactive scripts into proactive problem-solvers.
+            Agents transform static code into <strong>adaptive partners</strong> that learn, remember, and coordinate across services. By combining external managed infrastructure, LlamaIndex's modular abstractions, and minimal declarative code you create a system that not only responds but also evolves turning reactive scripts into proactive problem-solvers.
           </p>
+          
+          <div className="blog-image-citation" style={{ marginTop: '3rem', fontSize: '0.8rem', color: '#666', borderTop: '1px solid #eee', paddingTop: '1rem' }}>
+            <p>
+              <strong>Image credit:</strong> "Agentic AI: How to Build an AI Agent from Scratch - A Developer's Guide" by Aman Raghuvanshi. Source: <a href="https://medium.com/@iamanraghuvanshi/agentic-ai-2-how-to-build-an-ai-agent-from-scratch-a-developers-guide-ba2f6ae042c4" target="_blank" rel="noopener noreferrer">Medium</a>
+            </p>
+          </div>
         </div>
       </article>
     </>
