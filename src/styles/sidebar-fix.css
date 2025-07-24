@@ -3,6 +3,9 @@
   /* Add overflow scrolling so sidebar content is scrollable */
   overflow-y: auto;
   
+  /* Prevent horizontal scrollbar */
+  overflow-x: hidden;
+  
   /* Ensure the inner content takes up the full height */
   height: 100%;
   
@@ -18,6 +21,15 @@
   content: '';
   display: block;
   height: 2rem;
+}
+
+/* Fix any potential width issues causing horizontal scroll */
+#sidebar .mini-posts,
+#sidebar section,
+#sidebar form,
+#sidebar ul.contact {
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Improve scrollbar appearance */
