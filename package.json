@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "ci-install": "npm ci --legacy-peer-deps"
   },
   "dependencies": {
     "react": "^19.1.0",
