@@ -261,7 +261,7 @@ response = await agent.run(user_msg, memory=memory)
 
           <div className="blog-image-citation" style={{ marginTop: '3rem', fontSize: '0.8rem', color: '#666', borderTop: '1px solid #eee', paddingTop: '1rem' }}>
             <p>
-              <strong>Image credit:</strong> Created by Zachariah Farahany to illustrate the concept of AI agent memory systems.
+              <strong>Image credit:</strong> Created using OpenAI image generation services.
             </p>
           </div>
 
