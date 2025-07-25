@@ -109,6 +109,28 @@ const AIAgentMemory = () => {
         <header className="main">
           <h1>Agentic Memory from Llama Index</h1>
           <p className="blog-subtitle">How To Turn Theory Into A Practical Stack</p>
+          
+          <div className="blog-featured-image" style={{ 
+              display: 'flex', 
+              justifyContent: 'center', 
+              alignItems: 'center', 
+              margin: '2rem auto 2.5rem',
+              maxWidth: '90%'
+            }}>
+            <img 
+              src="images/memory.png" 
+              alt="Illustration of agent memory systems showing short-term and long-term memory components" 
+              className="img-fluid"
+              style={{ 
+                maxWidth: '100%', 
+                height: 'auto', 
+                borderRadius: '8px', 
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+                marginBottom: '0'
+              }}
+            />
+          </div>
+          
           <div className="blog-meta">
             <span className="blog-date">Created on May 30, 2025</span>
           </div>
@@ -236,6 +258,12 @@ response = await agent.run(user_msg, memory=memory)
           <p>
             Memory is what turns a clever LLM into a situated agent. LlamaIndex's <code>Memory</code> orchestrator plus a layered stack—<code>StaticMemoryBlock (0)</code> for invariants, <code>FactExtractionMemoryBlock (1)</code> for compact durable facts, and <code>VectorMemoryBlock (2)</code> for deep semantic recall—maps cleanly onto short‑ vs. long‑term memory theory while staying within strict token limits. Priorities give you a predictable degradation path; knobs like <code>token_limit</code>, <code>chat_history_token_ratio</code>, and <code>token_flush_size</code> keep prompts lean. Start with the three‑block baseline, measure token pressure and retrieval usefulness, and only customize where your workload proves it's needed. The payoff is an agent that remembers what matters, forgets what doesn't, and scales its recall gracefully as conversations (and stakes) grow.
           </p>
+
+          <div className="blog-image-citation" style={{ marginTop: '3rem', fontSize: '0.8rem', color: '#666', borderTop: '1px solid #eee', paddingTop: '1rem' }}>
+            <p>
+              <strong>Image credit:</strong> Created by Zachariah Farahany to illustrate the concept of AI agent memory systems.
+            </p>
+          </div>
 
           <div className="blog-footer">
             <Link to="/blog" className="button">← Back to All Posts</Link>
