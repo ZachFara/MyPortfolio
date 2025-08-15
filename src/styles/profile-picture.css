@@ -1,0 +1,52 @@
+/* Profile picture styling improvements */
+
+/* Remove hover animations and add consistent shadow */
+#banner .image {
+  transition: none !important; /* Remove all transitions */
+}
+
+#banner .image img {
+  transition: none !important; /* Remove all transitions */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important; /* Always show shadow */
+  border-radius: 8px !important; /* Add subtle border radius */
+}
+
+/* Remove any hover effects */
+#banner .image:hover {
+  transform: none !important;
+}
+
+#banner .image:hover img {
+  transform: none !important;
+  filter: none !important;
+}
+
+/* Position image more to the right on desktop */
+@media screen and (min-width: 1281px) {
+  #banner .image {
+    margin-right: 2rem !important; /* Move image to the right */
+    flex-basis: 35% !important; /* Make it slightly wider to compensate */
+  }
+}
+
+/* Ensure shadow is consistent across all screen sizes */
+@media screen and (max-width: 1280px) {
+  #banner .image img {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 8px !important;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  #banner .image img {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 8px !important;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  #banner .image img {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 8px !important;
+  }
+}

@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet';
+import '../styles/profile-picture.css';
 
 const Home = () => {
   return (
