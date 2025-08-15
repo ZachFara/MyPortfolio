@@ -1,0 +1,135 @@
+/* Mobile Responsive Enhancements */
+
+/* Ensure sidebar toggle is visible and clickable on mobile */
+@media screen and (max-width: 1280px) {
+  #sidebar .toggle {
+    display: block !important;
+    z-index: 10001;
+    background: rgba(245, 246, 247, 0.95);
+    border-radius: 0 0.375em 0.375em 0;
+    outline: none !important;
+    border: none !important;
+  }
+  
+  #sidebar .toggle:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  #sidebar .toggle:active {
+    outline: none !important;
+    transform: none !important;
+  }
+  
+  #sidebar .toggle:before {
+    color: #7f888f !important;
+  }
+  
+  /* Ensure sidebar appears above content on mobile */
+  #sidebar {
+    z-index: 10000 !important;
+    transition: margin-left 0.5s ease, box-shadow 0.5s ease !important;
+  }
+  
+  /* Ensure main content doesn't jump around */
+  #main {
+    transition: none !important;
+    margin-left: 0 !important;
+    width: 100% !important;
+    position: relative;
+  }
+  
+  /* Add backdrop when sidebar is open on mobile */
+  #sidebar:not(.inactive):before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  #sidebar.inactive:before {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* Additional mobile optimizations */
+@media screen and (max-width: 736px) {
+  #sidebar .toggle {
+    height: 4em !important;
+    line-height: 4em !important;
+    width: 4em !important;
+    text-indent: 0 !important;
+  }
+  
+  #sidebar .toggle:before {
+    font-size: 1.25rem !important;
+    margin: 0 !important;
+  }
+  
+  #sidebar .toggle:after {
+    display: none !important;
+  }
+  
+  /* Make sure main content doesn't overlap with toggle */
+  #main {
+    padding-top: 0;
+  }
+  
+  #header {
+    padding-top: 4em;
+  }
+}
+
+/* Very small devices */
+@media screen and (max-width: 480px) {
+  #sidebar > .inner {
+    padding: 1em !important;
+  }
+  
+  #sidebar .toggle {
+    height: 3.5em !important;
+    line-height: 3.5em !important;
+    width: 3.5em !important;
+  }
+  
+  #sidebar .toggle:before {
+    font-size: 1.1rem !important;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media screen and (max-width: 1024px) and (orientation: landscape) {
+  #sidebar .toggle {
+    top: 0.5em;
+    height: 3em !important;
+    line-height: 3em !important;
+    width: 3em !important;
+  }
+}
+
+/* Touch improvements */
+@media (hover: none) and (pointer: coarse) {
+  #sidebar .toggle {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  #sidebar a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 0.5em 0;
+  }
+  
+  #sidebar nav ul li a {
+    padding: 0.75em 0;
+    font-size: 1.1em;
+  }
+}

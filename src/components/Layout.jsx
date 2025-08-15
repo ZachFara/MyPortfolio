@@ -1,8 +1,56 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Topbar from './Topbar';
 import Sidebar from './Sidebar';
+import '../styles/mobile-responsive.css';
+import '../styles/responsive-content.css';
+import '../styles/mobile-ux-fixes.css';
 
 const Layout = ({ children }) => {
+  const [sidebarInactive, setSidebarInactive] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if we're on mobile/tablet
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 1280);
+      if (window.innerWidth <= 1280) {
+        setSidebarInactive(true);
+      } else {
+        setSidebarInactive(false);
+      }
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Close sidebar when clicking outside on mobile
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (isMobile && !sidebarInactive) {
+        const sidebar = document.getElementById('sidebar');
+        const toggle = sidebar?.querySelector('.toggle');
+        
+        if (sidebar && !sidebar.contains(e.target) && e.target !== toggle) {
+          setSidebarInactive(true);
+        }
+      }
+    };
+
+    if (isMobile) {
+      document.addEventListener('click', handleClickOutside);
+      return () => document.removeEventListener('click', handleClickOutside);
+    }
+  }, [isMobile, sidebarInactive]);
+
+  const toggleSidebar = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setSidebarInactive(!sidebarInactive);
+  };
+
   useEffect(() => {
     // Add is-preload class to body when component mounts
     document.body.classList.add('is-preload');
@@ -44,7 +92,11 @@ const Layout = ({ children }) => {
           {children}
         </div>
       </div>
-      <Sidebar />
+      <Sidebar 
+        isInactive={sidebarInactive} 
+        onToggle={toggleSidebar}
+        isMobile={isMobile}
+      />
     </div>
   );
 };

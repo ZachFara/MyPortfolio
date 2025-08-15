@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/sidebar-components.css';
 
-const BlogSidebar = () => {
+const BlogSidebar = ({ onLinkClick }) => {
   // Sample blog posts for the sidebar
   const recentPosts = [
     {
@@ -27,7 +27,7 @@ const BlogSidebar = () => {
       <div className="sidebar-blog-posts">
         {recentPosts.map((post) => (
           <article key={post.id} className="sidebar-blog-post">
-            <Link to={`/blog/${post.id}`} className="sidebar-blog-title">
+            <Link to={`/blog/${post.id}`} className="sidebar-blog-title" onClick={onLinkClick}>
               <h3>{post.title}</h3>
             </Link>
             <div className="sidebar-blog-meta">
@@ -37,7 +37,7 @@ const BlogSidebar = () => {
         ))}
       </div>
       <footer>
-        <Link to="/blog" className="button">View All Posts</Link>
+        <Link to="/blog" className="button" onClick={onLinkClick}>View All Posts</Link>
       </footer>
     </section>
   );

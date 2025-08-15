@@ -17,7 +17,18 @@ const Home = () => {
           <p>I am a data scientist and machine learning engineer holding an M.S. from the University of Chicago and with 4+ years of experience enhancing the efficiency, scalability, and performance of data processing systems. I am passionate about solving complex problems, implementing innovative machine learning solutions, and continuously learning to stay ahead in the rapidly evolving fields of AI, machine learning, and data science.</p>
         </div>
         <span className="image object">
-          <img src="images/LinkedInImages.jpg" alt="Zachariah Farahany" style={{ maxWidth: '80%', maxHeight: '90%' }} />
+          <img 
+            src="images/LinkedInImages.jpg" 
+            alt="Zachariah Farahany" 
+            style={{ 
+              width: '100%', 
+              height: '100%', 
+              objectFit: 'cover',
+              objectPosition: 'center top',
+              maxWidth: 'none',
+              maxHeight: 'none'
+            }} 
+          />
         </span>
       </section>
 

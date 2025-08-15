@@ -2,14 +2,56 @@ import { Link, NavLink } from 'react-router-dom';
 import BlogSidebar from './BlogSidebar';
 import '../styles/sidebar-components.css';
 
-const Sidebar = () => {
+const Sidebar = ({ isInactive, onToggle, isMobile }) => {
+  const handleLinkClick = (e) => {
+    // On mobile, close sidebar when a link is clicked
+    if (isMobile && onToggle) {
+      setTimeout(() => {
+        onToggle(e);
+      }, 100);
+    }
+  };
+
   return (
-    <div id="sidebar">
+    <div id="sidebar" className={isInactive ? 'inactive' : ''}>
+      {isMobile && (
+        <a 
+          href="#sidebar" 
+          className="toggle" 
+          onClick={onToggle}
+          aria-label="Toggle Navigation Menu"
+        >
+          Toggle
+        </a>
+      )}
       <div className="inner">
         {/* Search */}
         <section id="search" className="alt">
-          <form method="post" action="#">
-            <input type="text" name="query" id="query" placeholder="Search" />
+          <form method="post" action="#" onSubmit={(e) => e.preventDefault()}>
+            <input 
+              type="text" 
+              name="query" 
+              id="query" 
+              placeholder="Search" 
+              onFocus={() => {
+                // Prevent iOS zoom on input focus
+                if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+                  document.querySelector('meta[name=viewport]').setAttribute(
+                    'content', 
+                    'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
+                  );
+                }
+              }}
+              onBlur={() => {
+                // Restore normal viewport on blur
+                if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+                  document.querySelector('meta[name=viewport]').setAttribute(
+                    'content', 
+                    'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+                  );
+                }
+              }}
+            />
           </form>
         </section>
 
@@ -19,16 +61,16 @@ const Sidebar = () => {
             <h2>Menu</h2>
           </header>
           <ul>
-            <li><NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>Home</NavLink></li>
-            <li><NavLink to="/projects" className={({ isActive }) => isActive ? "active" : ""}>Projects</NavLink></li>
-            <li><NavLink to="/repositories" className={({ isActive }) => isActive ? "active" : ""}>Repositories</NavLink></li>
-            <li><NavLink to="/blog" className={({ isActive }) => isActive ? "active" : ""}>Blog</NavLink></li>
-            <li><NavLink to="/cv" className={({ isActive }) => isActive ? "active" : ""}>Curriculum Vitae</NavLink></li>
+            <li><NavLink to="/" className={({ isActive }) => isActive ? "active" : ""} onClick={handleLinkClick}>Home</NavLink></li>
+            <li><NavLink to="/projects" className={({ isActive }) => isActive ? "active" : ""} onClick={handleLinkClick}>Projects</NavLink></li>
+            <li><NavLink to="/repositories" className={({ isActive }) => isActive ? "active" : ""} onClick={handleLinkClick}>Repositories</NavLink></li>
+            <li><NavLink to="/blog" className={({ isActive }) => isActive ? "active" : ""} onClick={handleLinkClick}>Blog</NavLink></li>
+            <li><NavLink to="/cv" className={({ isActive }) => isActive ? "active" : ""} onClick={handleLinkClick}>Curriculum Vitae</NavLink></li>
           </ul>
         </nav>
 
         {/* Blog Section */}
-        <BlogSidebar />
+        <BlogSidebar onLinkClick={handleLinkClick} />
 
         {/* Recent Projects Section */}
         <section>
@@ -37,7 +79,7 @@ const Sidebar = () => {
           </header>
           <div className="mini-posts">
             <article>
-              <Link to="/projects#skysearch" className="image">
+              <Link to="/projects#skysearch" className="image" onClick={handleLinkClick}>
                 <img 
                   src="images/skysearch.webp" 
                   alt="SkySearch UAVs" 
@@ -47,7 +89,7 @@ const Sidebar = () => {
               <p>Check out SkySearch UAVs</p>
             </article>
             <article>
-              <Link to="/projects#diffusionmodels" className="image">
+              <Link to="/projects#diffusionmodels" className="image" onClick={handleLinkClick}>
                 <img 
                   src="images/diffusionmodel.webp" 
                   alt="Diffusion Models" 
@@ -58,7 +100,7 @@ const Sidebar = () => {
             </article>
           </div>
           <ul className="actions">
-            <li><Link to="/projects" className="button">More</Link></li>
+            <li><Link to="/projects" className="button" onClick={handleLinkClick}>More</Link></li>
           </ul>
         </section>
 
