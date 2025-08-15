@@ -62,7 +62,7 @@ jobs:
       
   deploy:
     needs: build
-    if: false # Disable this deployment job as we're using the static.yml workflow for deployment
+    if: github.ref == 'refs/heads/master' # Only deploy from master branch
     runs-on: ubuntu-latest
     
     steps:
