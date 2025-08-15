@@ -4,11 +4,41 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/MyPortfolio/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/MyPortfolio/" />
     <title>Zachariah Farahany</title>
+    <!-- Handle redirects for SPA on GitHub Pages -->
+    <script>
+      // Redirect from 404.html
+      (function() {
+        if (sessionStorage.redirect) {
+          const redirect = sessionStorage.redirect;
+          delete sessionStorage.redirect;
+          const baseTag = document.querySelector('base');
+          const basePath = baseTag ? baseTag.getAttribute('href') : '/';
+          const path = redirect.replace(location.origin + basePath, '');
+          history.replaceState(null, null, basePath + path);
+        }
+      })();
+    </script>
     <!-- Load CSS files directly -->
     <link rel="stylesheet" href="/MyPortfolio/assets/css/main.css" />
     <link rel="stylesheet" href="/MyPortfolio/assets/css/fontawesome-all.min.css" />
     <link rel="stylesheet" href="/MyPortfolio/assets/css/card-animations.css" />
+    <style>
+      /* Professional profile image styling */
+      .image.object img {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+        border-radius: 3px;
+        padding: 5px;
+        background-color: white;
+        transition: all 0.25s ease-in-out;
+      }
+      .image.object img:hover {
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.08);
+        transform: translateY(-1px);
+      }
+    </style>
     <!-- Redirect script for GitHub Pages SPA -->
     <script>
       (function() {
@@ -20,8 +50,8 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/MyPortfolio/assets/index-CcAUUB5Z.js"></script>
-    <link rel="stylesheet" crossorigin href="/MyPortfolio/assets/index-B1UQPYW9.css">
+    <script type="module" crossorigin src="/MyPortfolio/assets/index-0T9WQScL.js"></script>
+    <link rel="stylesheet" crossorigin href="/MyPortfolio/assets/index-CW4LLiWk.css">
   </head>
   <body>
     <div id="root"></div>
