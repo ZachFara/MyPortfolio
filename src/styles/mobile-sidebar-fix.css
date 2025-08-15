@@ -1,0 +1,47 @@
+/* Override the default behavior that hides sidebar on small screens */
+@media screen and (max-width: 736px) {
+  #sidebar {
+    display: block !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 20rem !important; /* Narrower width for mobile */
+    max-width: 20rem !important; /* Prevent expansion */
+    min-width: 20rem !important; /* Prevent shrinking */
+    height: 100vh !important;
+    z-index: 10000 !important;
+    background: white !important;
+    transform: translateX(-100%) !important;
+    transition: transform 0.3s ease !important;
+    flex: none !important; /* Override flexbox behavior on mobile */
+    overflow-x: hidden !important; /* Prevent horizontal overflow */
+  }
+  
+  #sidebar:not(.inactive) {
+    transform: translateX(0) !important;
+  }
+  
+  /* Ensure main content shifts when sidebar is open on mobile */
+  #main {
+    transition: margin-left 0.3s ease !important;
+  }
+}
+
+/* Additional constraint to prevent sidebar expansion on any screen size - use original template size */
+#sidebar {
+  max-width: 22em !important;
+  min-width: 22em !important;
+  overflow-x: hidden !important;
+}
+
+/* Ensure sidebar content doesn't overflow */
+#sidebar .inner {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  word-wrap: break-word !important;
+}
+
+#sidebar .inner * {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}

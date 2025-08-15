@@ -1,0 +1,8 @@
+/* Move the sidebar navigation menu down */
+#sidebar nav#menu {
+  margin-top: 2rem !important;
+}
+
+#sidebar .inner {
+  padding-top: 3rem !important;
+}

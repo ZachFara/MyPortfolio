@@ -14,47 +14,7 @@ const Sidebar = ({ isInactive, onToggle, isMobile }) => {
 
   return (
     <div id="sidebar" className={isInactive ? 'inactive' : ''}>
-      {isMobile && (
-        <a 
-          href="#sidebar" 
-          className="toggle" 
-          onClick={onToggle}
-          aria-label="Toggle Navigation Menu"
-        >
-          Toggle
-        </a>
-      )}
       <div className="inner">
-        {/* Search */}
-        <section id="search" className="alt">
-          <form method="post" action="#" onSubmit={(e) => e.preventDefault()}>
-            <input 
-              type="text" 
-              name="query" 
-              id="query" 
-              placeholder="Search" 
-              onFocus={() => {
-                // Prevent iOS zoom on input focus
-                if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
-                  document.querySelector('meta[name=viewport]').setAttribute(
-                    'content', 
-                    'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
-                  );
-                }
-              }}
-              onBlur={() => {
-                // Restore normal viewport on blur
-                if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
-                  document.querySelector('meta[name=viewport]').setAttribute(
-                    'content', 
-                    'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
-                  );
-                }
-              }}
-            />
-          </form>
-        </section>
-
         {/* Menu */}
         <nav id="menu">
           <header className="major">

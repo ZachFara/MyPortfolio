@@ -1,0 +1,15 @@
+/* Hide Original Template Toggle Button */
+
+/* Completely hide the original toggle button from the template */
+#sidebar .toggle {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Remove any pseudo-elements that might still show */
+#sidebar .toggle:before,
+#sidebar .toggle:after {
+  display: none !important;
+  content: none !important;
+}

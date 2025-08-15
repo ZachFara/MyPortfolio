@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import Topbar from './Topbar';
 import Sidebar from './Sidebar';
-import '../styles/mobile-responsive.css';
+import HamburgerMenu from './HamburgerMenu';
 import '../styles/responsive-content.css';
-import '../styles/mobile-ux-fixes.css';
+import '../styles/hide-original-toggle.css';
+import '../styles/mobile-sidebar-fix.css';
+import '../styles/sidebar-spacing.css';
 
 const Layout = ({ children }) => {
   const [sidebarInactive, setSidebarInactive] = useState(false);
@@ -12,8 +14,10 @@ const Layout = ({ children }) => {
   // Check if we're on mobile/tablet
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 1280);
-      if (window.innerWidth <= 1280) {
+      const mobile = window.innerWidth <= 1280;
+      console.log('Mobile check:', { windowWidth: window.innerWidth, isMobile: mobile });
+      setIsMobile(mobile);
+      if (mobile) {
         setSidebarInactive(true);
       } else {
         setSidebarInactive(false);
@@ -31,9 +35,11 @@ const Layout = ({ children }) => {
     const handleClickOutside = (e) => {
       if (isMobile && !sidebarInactive) {
         const sidebar = document.getElementById('sidebar');
-        const toggle = sidebar?.querySelector('.toggle');
+        const hamburger = document.querySelector('.hamburger-menu');
         
-        if (sidebar && !sidebar.contains(e.target) && e.target !== toggle) {
+        if (sidebar && hamburger && 
+            !sidebar.contains(e.target) && 
+            !hamburger.contains(e.target)) {
           setSidebarInactive(true);
         }
       }
@@ -86,6 +92,11 @@ const Layout = ({ children }) => {
 
   return (
     <div id="wrapper">
+      <HamburgerMenu 
+        isOpen={!sidebarInactive}
+        onToggle={toggleSidebar}
+        isMobile={isMobile}
+      />
       <div id="main">
         <div className="inner">
           <Topbar />
