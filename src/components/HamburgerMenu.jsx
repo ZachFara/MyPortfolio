@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import './HamburgerMenu.css';
 import '../styles/force-hamburger-position.css';
 
