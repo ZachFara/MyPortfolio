@@ -21,32 +21,146 @@
   filter: none !important;
 }
 
-/* Position image more to the right on desktop */
-@media screen and (min-width: 1281px) {
+/* Enhanced responsive sizing controls */
+
+/* Extra large screens (1920px+) */
+@media screen and (min-width: 1920px) {
   #banner .image {
-    margin-right: 2rem !important; /* Move image to the right */
-    flex-basis: 35% !important; /* Make it slightly wider to compensate */
+    margin-right: 3rem !important;
+    flex-basis: 32% !important;
+    max-width: 420px !important;
+  }
+  
+  #banner .image img {
+    border-radius: 10px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35) !important;
   }
 }
 
-/* Ensure shadow is consistent across all screen sizes */
-@media screen and (max-width: 1280px) {
+/* Large desktop screens (1281px - 1919px) */
+@media screen and (min-width: 1281px) and (max-width: 1919px) {
+  #banner .image {
+    margin-right: 2rem !important;
+    flex-basis: 35% !important;
+    max-width: 380px !important;
+  }
+  
   #banner .image img {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
     border-radius: 8px !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
   }
 }
 
-@media screen and (max-width: 980px) {
+/* Medium desktop screens (981px - 1280px) */
+@media screen and (min-width: 981px) and (max-width: 1280px) {
+  #banner .image {
+    margin-right: 1.5rem !important;
+    flex-basis: 38% !important;
+    max-width: 350px !important;
+  }
+  
   #banner .image img {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
     border-radius: 8px !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
   }
 }
 
-@media screen and (max-width: 736px) {
+/* Tablet landscape (737px - 980px) */
+@media screen and (min-width: 737px) and (max-width: 980px) {
+  #banner .image {
+    margin: 0 auto 2rem !important;
+    max-width: 280px !important;
+    max-height: 280px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+  }
+  
   #banner .image img {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
-    border-radius: 8px !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 20% !important;
+    border-radius: 50% !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25) !important;
+  }
+}
+
+/* Mobile portrait (481px - 736px) */
+@media screen and (min-width: 481px) and (max-width: 736px) {
+  #banner .image {
+    margin: 0 auto 1.5rem !important;
+    max-width: 250px !important;
+    max-height: 250px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+  }
+  
+  #banner .image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 20% !important;
+    border-radius: 50% !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25) !important;
+  }
+}
+
+/* Small mobile (320px - 480px) */
+@media screen and (max-width: 480px) {
+  #banner .image {
+    margin: 0 auto 1rem !important;
+    max-width: 200px !important;
+    max-height: 200px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+  }
+  
+  #banner .image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 20% !important;
+    border-radius: 50% !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  }
+}
+
+/* Very small screens (below 320px) */
+@media screen and (max-width: 319px) {
+  #banner .image {
+    margin: 0 auto 0.75rem !important;
+    max-width: 160px !important;
+    max-height: 160px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+  }
+  
+  #banner .image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 20% !important;
+    border-radius: 50% !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2) !important;
+  }
+}
+
+/* Portrait orientation specific adjustments */
+@media screen and (orientation: portrait) {
+  #banner .image {
+    align-self: center !important;
+  }
+  
+  #banner .image img {
+    border-radius: 50% !important;
+  }
+}
+
+/* High DPI displays */
+@media screen and (-webkit-min-device-pixel-ratio: 2), 
+       screen and (min-resolution: 192dpi) {
+  #banner .image img {
+    image-rendering: -webkit-optimize-contrast !important;
+    image-rendering: crisp-edges !important;
   }
 }
