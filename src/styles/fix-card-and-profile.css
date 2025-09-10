@@ -1,0 +1,78 @@
+/* Aggressive override for project/repo card hover blue effects */
+.project-card,
+.repo-card {
+  border: 1px solid #ddd !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+  background: #fff !important;
+  color: #222 !important;
+}
+.project-card:hover,
+.project-card:focus,
+.project-card:active,
+.repo-card:hover,
+.repo-card:focus,
+.repo-card:active {
+  border: 1.5px solid #bbb !important;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15) !important;
+  background: #fff !important;
+  color: #222 !important;
+}
+.project-card .project-title,
+.repo-card .repo-title {
+  color: #222 !important;
+}
+.project-card:hover .project-title,
+.repo-card:hover .repo-title {
+  color: #222 !important;
+}
+.project-card .project-link,
+.repo-card .repo-link {
+  color: #222 !important;
+  border: none !important;
+}
+.project-card:hover .project-link,
+.repo-card:hover .repo-link {
+  color: #222 !important;
+  border: none !important;
+}
+/* Remove blue from any link inside cards */
+.project-card a,
+.repo-card a {
+  color: #222 !important;
+  border: none !important;
+}
+.project-card a:hover,
+.repo-card a:hover {
+  color: #222 !important;
+  border: none !important;
+}
+
+/* Profile picture: always show shadow and border radius, all breakpoints */
+#banner .image img {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3) !important;
+  border-radius: 12px !important;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+#banner .image {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: 300px !important;
+  margin: 0 auto 2rem auto !important;
+}
+@media screen and (max-width: 980px) {
+  #banner .image {
+    max-width: 220px !important;
+  }
+}
+@media screen and (max-width: 736px) {
+  #banner .image {
+    max-width: 160px !important;
+  }
+}

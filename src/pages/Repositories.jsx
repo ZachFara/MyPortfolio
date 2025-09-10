@@ -49,7 +49,7 @@ const Repositories = () => {
           </div>
           
           <div className="repo-card">
-            <h2 className="repo-title">Autonamous Weather based commodity trading</h2>
+            <h2 className="repo-title">Autonomous Weather based commodity trading</h2>
             <p className="repo-description">A repository which utilizes two servers to simulate a trading environment and use weather based trading signals.</p>
             <a className="repo-link" href="https://github.com/ZachFara/RealTime-AutonamousWeatherTrading" target="_blank" rel="noopener noreferrer">View on GitHub</a>
             <div className="repo-meta">

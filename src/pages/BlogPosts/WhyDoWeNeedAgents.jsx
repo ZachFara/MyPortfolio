@@ -73,7 +73,7 @@ const WhyDoWeNeedAgents = () => {
 
           <h3>Planning</h3>
           <p>
-            The agent's "war room." Here, an LLM (e.g., Amazon Bedrock Claude) reasons step-by-step, crafting a plan like "First query yesterday's sales in Athena, then fetch related reports from OpenSearch."
+            The agent's "war room." Here, an LLM (e.g., Anthropic Claude) reasons step-by-step, crafting a plan like "First query yesterday's sales in Athena, then fetch related reports from OpenSearch."
           </p>
 
           <h3>Execution</h3>

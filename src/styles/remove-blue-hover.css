@@ -1,0 +1,63 @@
+/* High specificity overrides to remove blue hover effects from project cards */
+
+/* Override all possible blue hover effects with maximum specificity */
+html body section .projects-container .project-link:hover .project-card,
+html body section .projects-container .project-link:focus .project-card,
+html body section .projects-container .project-link:active .project-card,
+html body section .projects-container a:hover .project-card,
+html body section .projects-container a:focus .project-card,
+html body section .projects-container a:active .project-card,
+html body .project-link:hover .project-card,
+html body .project-link:focus .project-card,
+html body .project-link:active .project-card,
+html body a:hover .project-card,
+html body a:focus .project-card,
+html body a:active .project-card {
+  border-color: #ddd !important;
+  outline: none !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Same for repo cards */
+html body section .repo-container .repo-link:hover .repo-card,
+html body section .repo-container .repo-link:focus .repo-card,
+html body section .repo-container .repo-link:active .repo-card,
+html body section .repo-container a:hover .repo-card,
+html body section .repo-container a:focus .repo-card,
+html body section .repo-container a:active .repo-card,
+html body .repo-link:hover .repo-card,
+html body .repo-link:focus .repo-card,
+html body .repo-link:active .repo-card,
+html body a:hover .repo-card,
+html body a:focus .repo-card,
+html body a:active .repo-card {
+  border-color: #ddd !important;
+  outline: none !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Override any link hover styles that might affect cards */
+html body section .projects-container a,
+html body section .repo-container a,
+html body .project-link,
+html body .repo-link {
+  border: none !important;
+  outline: none !important;
+}
+
+html body section .projects-container a:hover,
+html body section .projects-container a:focus,
+html body section .projects-container a:active,
+html body section .repo-container a:hover,
+html body section .repo-container a:focus,
+html body section .repo-container a:active,
+html body .project-link:hover,
+html body .project-link:focus,
+html body .project-link:active,
+html body .repo-link:hover,
+html body .repo-link:focus,
+html body .repo-link:active {
+  border: none !important;
+  outline: none !important;
+  border-color: transparent !important;
+}

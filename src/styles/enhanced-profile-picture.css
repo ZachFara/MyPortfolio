@@ -1,0 +1,97 @@
+/* Enhanced profile picture mobile responsive styling */
+
+/* Ensure profile picture always has shadow and proper styling */
+#banner .image img {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+  border-radius: 8px !important;
+  transition: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+}
+
+/* Desktop styles */
+@media screen and (min-width: 1281px) {
+  #banner .image {
+    margin-right: 2rem !important;
+    flex-basis: 35% !important;
+  }
+  
+  #banner .image img {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 8px !important;
+  }
+}
+
+/* Tablet styles */
+@media screen and (max-width: 1280px) and (min-width: 981px) {
+  #banner .image {
+    max-width: 300px !important;
+    height: 300px !important;
+    margin: 0 auto 1.5rem auto !important;
+    display: block !important;
+  }
+  
+  #banner .image img {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 8px !important;
+  }
+}
+
+/* Medium mobile styles */
+@media screen and (max-width: 980px) and (min-width: 737px) {
+  #banner .image {
+    max-width: 250px !important;
+    height: 250px !important;
+    margin: 0 auto 1.5rem auto !important;
+    display: block !important;
+  }
+  
+  #banner .image img {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 8px !important;
+  }
+}
+
+/* Small mobile styles */
+@media screen and (max-width: 736px) and (min-width: 481px) {
+  #banner .image {
+    max-width: 200px !important;
+    height: 200px !important;
+    margin: 0 auto 1.5rem auto !important;
+    display: block !important;
+  }
+  
+  #banner .image img {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 8px !important;
+  }
+}
+
+/* Extra small mobile styles */
+@media screen and (max-width: 480px) {
+  #banner .image {
+    max-width: 180px !important;
+    height: 180px !important;
+    margin: 0 auto 1.5rem auto !important;
+    display: block !important;
+  }
+  
+  #banner .image img {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 8px !important;
+  }
+}
+
+/* Remove any hover effects */
+#banner .image:hover {
+  transform: none !important;
+}
+
+#banner .image:hover img {
+  transform: none !important;
+  filter: none !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+  border-radius: 8px !important;
+}

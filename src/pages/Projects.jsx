@@ -93,7 +93,7 @@ const Projects = () => {
               <div className="project-card" id="trading">
                 <img src="images/server.webp" alt="Project Image" className="project-image" />
                 <div className="project-info">
-                  <h2>Autonamous Weather based commodity trading</h2>
+                  <h2>Autonomous Weather based commodity trading</h2>
                   <p>Deploying a multi-server trading platform</p>
                 </div>
               </div>

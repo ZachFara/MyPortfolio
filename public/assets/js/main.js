@@ -53,7 +53,7 @@
 		// Object fit images.
 			if (!browser.canUse('object-fit')
 			||	browser.name == 'safari')
-				$('.image.object').each(function() {
+				$('.image.object').not('#banner .image.object').each(function() {
 
 					var $this = $(this),
 						$img = $this.children('img');
