@@ -15,10 +15,14 @@
   justify-content: center !important;
   align-items: center !important;
   gap: 0.25rem !important;
-  transition: all 0.3s ease !important;
+  transition: left 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+              background 0.3s ease,
+              box-shadow 0.3s ease,
+              transform 0.3s ease !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
   visibility: visible !important;
   opacity: 1 !important;
+  backface-visibility: hidden !important;
 }
 
 /* When sidebar is closed - hamburger on the left */
@@ -34,6 +38,7 @@
 .hamburger-menu:hover {
   background: rgba(222, 225, 226, 1) !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-1px) !important;
 }
 
 .hamburger-menu:focus {
@@ -41,14 +46,8 @@
   box-shadow: 0 0 0 2px rgba(44, 47, 154, 0.3) !important;
 }
 
-.hamburger-menu:hover {
-  background: rgba(222, 225, 226, 1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.hamburger-menu:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(44, 47, 154, 0.3);
+.hamburger-menu:active {
+  transform: translateY(0) !important;
 }
 
 .hamburger-line {

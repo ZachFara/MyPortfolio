@@ -1,0 +1,101 @@
+/* Enhanced Sidebar Transitions */
+
+/* Desktop Sidebar Transitions */
+@media screen and (min-width: 1281px) {
+  #sidebar {
+    transition: margin-left 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+                box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+                opacity 0.4s ease !important;
+  }
+  
+  #sidebar.inactive {
+    opacity: 0.8;
+  }
+
+  /* Smooth main content transition on desktop */
+  #main {
+    transition: margin-left 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+  }
+  
+  /* When sidebar is inactive, adjust main content */
+  #wrapper:has(#sidebar.inactive) #main {
+    margin-left: 0 !important;
+  }
+}
+
+/* Enhanced Mobile Sidebar Transitions */
+@media screen and (max-width: 1280px) {
+  #sidebar {
+    transform: translateX(-100%) !important;
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+                opacity 0.4s ease,
+                visibility 0.4s ease !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+  
+  #sidebar:not(.inactive) {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* Add backdrop blur effect when sidebar is open */
+  #wrapper::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0px);
+    z-index: 9999;
+    pointer-events: none;
+    transition: background 0.4s ease,
+                backdrop-filter 0.4s ease;
+  }
+  
+  #wrapper:has(#sidebar:not(.inactive))::before {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(2px);
+    pointer-events: auto;
+  }
+}
+
+/* Sidebar Content Slide-in Animation */
+#sidebar .inner {
+  transform: translateY(0);
+  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) 0.1s;
+}
+
+#sidebar.inactive .inner {
+  transform: translateY(-20px);
+}
+
+/* Individual menu items staggered animation */
+#sidebar nav#menu ul li {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition-delay: calc(var(--item-index, 0) * 0.05s + 0.2s);
+}
+
+#sidebar.inactive nav#menu ul li {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition-delay: 0s;
+}
+
+/* Smooth hamburger position transition */
+.hamburger-menu {
+  transition: left 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+              background 0.3s ease,
+              box-shadow 0.3s ease !important;
+}
+
+/* Prevent sidebar content flash */
+#sidebar * {
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}

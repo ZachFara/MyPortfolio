@@ -1,0 +1,95 @@
+/* Aggressive override to remove blue highlighting from all links and focus states */
+/* This file should be loaded AFTER main.css to ensure proper override */
+
+/* CRITICAL: Target anchor tags that wrap project cards specifically */
+html body section .projects-container a.project-link,
+html body section .projects-container a.project-link:hover,
+html body section .projects-container a.project-link:focus,
+html body section .projects-container a.project-link:active,
+html body section .projects-container a.project-link:visited,
+html body .projects-container a.project-link,
+html body .projects-container a.project-link:hover,
+html body .projects-container a.project-link:focus,
+html body .projects-container a.project-link:active,
+html body .projects-container a.project-link:visited,
+html body a.project-link,
+html body a.project-link:hover,
+html body a.project-link:focus,
+html body a.project-link:active,
+html body a.project-link:visited {
+  color: inherit !important;
+  text-decoration: none !important;
+  border: none !important;
+  border-bottom: none !important;
+  border-bottom-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: none !important;
+  background-color: transparent !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-focus-ring-color: transparent !important;
+  user-select: none !important;
+}
+
+/* Target the actual project cards inside the links */
+html body section .projects-container a.project-link .project-card,
+html body section .projects-container a.project-link:hover .project-card,
+html body section .projects-container a.project-link:focus .project-card,
+html body section .projects-container a.project-link:active .project-card,
+html body section .projects-container a.project-link:visited .project-card,
+html body .projects-container a.project-link .project-card,
+html body .projects-container a.project-link:hover .project-card,
+html body .projects-container a.project-link:focus .project-card,
+html body .projects-container a.project-link:active .project-card,
+html body .projects-container a.project-link:visited .project-card,
+html body a.project-link .project-card,
+html body a.project-link:hover .project-card,
+html body a.project-link:focus .project-card,
+html body a.project-link:active .project-card,
+html body a.project-link:visited .project-card {
+  border: 1px solid #ddd !important;
+  outline: none !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+  background: #fff !important;
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+/* Hover state for project cards */
+html body section .projects-container a.project-link:hover .project-card,
+html body .projects-container a.project-link:hover .project-card,
+html body a.project-link:hover .project-card {
+  border: 1px solid #ddd !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-5px) !important;
+}
+
+/* Maximum specificity overrides for main.css blue color (#2c2f9a) */
+html body * {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-focus-ring-color: transparent !important;
+}
+
+/* Override ALL other link styles with maximum specificity */
+html body section a,
+html body section a:hover,
+html body section a:focus,
+html body section a:active,
+html body section a:visited,
+html body a,
+html body a:hover,
+html body a:focus,
+html body a:active,
+html body a:visited {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-bottom: none !important;
+  border-bottom-color: transparent !important;
+  color: inherit !important;
+  text-decoration: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-focus-ring-color: transparent !important;
+}

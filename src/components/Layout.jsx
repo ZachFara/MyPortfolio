@@ -6,6 +6,7 @@ import '../styles/responsive-content.css';
 import '../styles/hide-original-toggle.css';
 import '../styles/mobile-sidebar-fix.css';
 import '../styles/sidebar-spacing.css';
+import '../styles/enhanced-sidebar-transitions.css';
 
 const Layout = ({ children }) => {
   const [sidebarInactive, setSidebarInactive] = useState(false);
@@ -54,7 +55,18 @@ const Layout = ({ children }) => {
   const toggleSidebar = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    setSidebarInactive(!sidebarInactive);
+    
+    // Add a small delay to ensure smooth animation
+    const newState = !sidebarInactive;
+    
+    // On mobile, if we're closing the sidebar, add a slight delay for better UX
+    if (isMobile && !newState) {
+      setTimeout(() => {
+        setSidebarInactive(newState);
+      }, 50);
+    } else {
+      setSidebarInactive(newState);
+    }
   };
 
   useEffect(() => {

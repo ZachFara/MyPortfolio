@@ -21,11 +21,11 @@ const Sidebar = ({ isInactive, onToggle, isMobile }) => {
             <h2>Menu</h2>
           </header>
           <ul>
-            <li><NavLink to="/" className={({ isActive }) => isActive ? "active" : ""} onClick={handleLinkClick}>Home</NavLink></li>
-            <li><NavLink to="/projects" className={({ isActive }) => isActive ? "active" : ""} onClick={handleLinkClick}>Projects</NavLink></li>
-            <li><NavLink to="/repositories" className={({ isActive }) => isActive ? "active" : ""} onClick={handleLinkClick}>Repositories</NavLink></li>
-            <li><NavLink to="/blog" className={({ isActive }) => isActive ? "active" : ""} onClick={handleLinkClick}>Blog</NavLink></li>
-            <li><NavLink to="/cv" className={({ isActive }) => isActive ? "active" : ""} onClick={handleLinkClick}>Curriculum Vitae</NavLink></li>
+            <li style={{'--item-index': 0}}><NavLink to="/" className={({ isActive }) => isActive ? "active" : ""} onClick={handleLinkClick}>Home</NavLink></li>
+            <li style={{'--item-index': 1}}><NavLink to="/projects" className={({ isActive }) => isActive ? "active" : ""} onClick={handleLinkClick}>Projects</NavLink></li>
+            <li style={{'--item-index': 2}}><NavLink to="/repositories" className={({ isActive }) => isActive ? "active" : ""} onClick={handleLinkClick}>Repositories</NavLink></li>
+            <li style={{'--item-index': 3}}><NavLink to="/blog" className={({ isActive }) => isActive ? "active" : ""} onClick={handleLinkClick}>Blog</NavLink></li>
+            <li style={{'--item-index': 4}}><NavLink to="/cv" className={({ isActive }) => isActive ? "active" : ""} onClick={handleLinkClick}>Curriculum Vitae</NavLink></li>
           </ul>
         </nav>
 
