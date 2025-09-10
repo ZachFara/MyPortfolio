@@ -1,0 +1,106 @@
+/* Emergency hamburger menu visibility fixes */
+
+/* Force hamburger menu to always be visible on mobile */
+@media screen and (max-width: 1280px) {
+  /* Override any potential hiding styles */
+  #sidebar .toggle,
+  #sidebar.inactive .toggle,
+  #sidebar:not(.inactive) .toggle {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: all !important;
+    position: fixed !important;
+    z-index: 99999 !important;
+    background: rgba(245, 246, 247, 0.98) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  /* Hamburger icon styling */
+  #sidebar .toggle:before {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    content: '\f0c9' !important;
+    font-family: 'Font Awesome 5 Free' !important;
+    font-weight: 900 !important;
+    color: #7f888f !important;
+    text-align: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    line-height: inherit !important;
+  }
+  
+  /* Ensure it's above everything else */
+  #sidebar .toggle {
+    top: 1em !important;
+    left: 1em !important;
+    width: 3em !important;
+    height: 3em !important;
+    line-height: 3em !important;
+    border-radius: 0.375em !important;
+    text-indent: 0 !important;
+    overflow: visible !important;
+    transform: none !important;
+  }
+  
+  /* Adjust position when sidebar is open */
+  #sidebar:not(.inactive) .toggle {
+    left: calc(100vw - 4em) !important;
+    background: rgba(245, 246, 247, 0.95) !important;
+    color: #7f888f !important;
+  }
+  
+  /* Make sure it's not hidden by other elements */
+  body * {
+    position: relative;
+  }
+  
+  #sidebar .toggle {
+    position: fixed !important;
+  }
+}
+
+/* Specific phone size adjustments */
+@media screen and (max-width: 736px) {
+  #sidebar .toggle {
+    top: 0.5em !important;
+    left: 0.5em !important;
+    width: 3.5em !important;
+    height: 3.5em !important;
+    line-height: 3.5em !important;
+  }
+  
+  #sidebar:not(.inactive) .toggle {
+    left: calc(100vw - 4em) !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #sidebar .toggle {
+    top: 0.5em !important;
+    left: 0.5em !important;
+    width: 3em !important;
+    height: 3em !important;
+    line-height: 3em !important;
+  }
+  
+  #sidebar:not(.inactive) .toggle {
+    left: calc(100vw - 3.5em) !important;
+  }
+}
+
+/* iPhone specific fixes */
+@supports (-webkit-touch-callout: none) {
+  @media screen and (max-width: 1280px) {
+    #sidebar .toggle {
+      -webkit-touch-callout: none !important;
+      -webkit-user-select: none !important;
+      user-select: none !important;
+      -webkit-tap-highlight-color: transparent !important;
+      position: fixed !important;
+      z-index: 99999 !important;
+    }
+  }
+}

@@ -1,0 +1,92 @@
+/* Clean Mobile Responsive Styles - No Hamburger Menu */
+
+/* Ensure sidebar maintains proper background color on mobile */
+@media screen and (max-width: 1280px) {
+  #sidebar {
+    background-color: #f5f6f7 !important;
+    background: #f5f6f7 !important;
+  }
+  
+  /* Ensure sidebar inner also maintains color */
+  #sidebar > .inner {
+    background-color: #f5f6f7 !important;
+    background: #f5f6f7 !important;
+  }
+  
+  /* Ensure main content doesn't jump around */
+  #main {
+    transition: none !important;
+    margin-left: 0 !important;
+    width: 100% !important;
+    position: relative;
+  }
+  
+  /* Add backdrop when sidebar is open on mobile */
+  #sidebar:not(.inactive):before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  #sidebar.inactive:before {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* Additional mobile optimizations */
+@media screen and (max-width: 736px) {
+  #sidebar {
+    background-color: #f5f6f7 !important;
+    background: #f5f6f7 !important;
+  }
+  
+  #sidebar > .inner {
+    background-color: #f5f6f7 !important;
+    background: #f5f6f7 !important;
+  }
+  
+  #main {
+    padding-top: 0;
+  }
+  
+  #header {
+    padding-top: 4em;
+  }
+}
+
+/* Very small devices */
+@media screen and (max-width: 480px) {
+  #sidebar {
+    background-color: #f5f6f7 !important;
+    background: #f5f6f7 !important;
+  }
+  
+  #sidebar > .inner {
+    padding: 1em !important;
+    background-color: #f5f6f7 !important;
+    background: #f5f6f7 !important;
+  }
+}
+
+/* Touch improvements */
+@media (hover: none) and (pointer: coarse) {
+  #sidebar a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 0.5em 0;
+  }
+  
+  #sidebar nav ul li a {
+    padding: 0.75em 0;
+    font-size: 1.1em;
+  }
+}

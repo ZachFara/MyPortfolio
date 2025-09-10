@@ -22,7 +22,9 @@ If you are developing a production application, we recommend using TypeScript wi
 
 # TODO
 - [ ] Fix the images of myself
-    - [ ] Make sure that the image no longer has an on-hover animation
-    - [ ] Make sure that the image has it's shadow the whole time
-- [ ] Ensure that there isn't any tracked items that shouldn't be
-- [ ] Ensure that the sidebar can always dispaly even if the page is really small
+    - [ ] Make the image show properly and the same on mobile
+- [ ] Fix Duncan's critiques that he offered
+    - [ ] Change Amazon Claude model to mention Anthropic Claude
+    - [ ] Make the "Beyond the mean" title just a hair larger
+    - [ ] Make the project cards not highlight blue when I hover over them.
+    - [ ] Make sure that I spell autonamous correctly for the weather based trading algorithm

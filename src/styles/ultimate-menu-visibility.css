@@ -1,0 +1,122 @@
+/* Ultimate hamburger menu visibility insurance */
+
+/* Create a floating action button as backup */
+@media screen and (max-width: 1280px) {
+  /* Floating menu button that's always visible */
+  .mobile-menu-fab {
+    position: fixed !important;
+    top: 1rem !important;
+    left: 1rem !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    background: #2c2f9a !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 50% !important;
+    z-index: 100000 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.2rem !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.3s ease !important;
+    opacity: 0.9 !important;
+  }
+  
+  .mobile-menu-fab:hover {
+    opacity: 1 !important;
+    transform: scale(1.1) !important;
+  }
+  
+  .mobile-menu-fab:active {
+    transform: scale(0.95) !important;
+  }
+  
+  /* Hide FAB when sidebar is open */
+  .sidebar-open .mobile-menu-fab {
+    left: calc(100vw - 4rem) !important;
+    background: rgba(245, 246, 247, 0.95) !important;
+    color: #7f888f !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
+/* Emergency visibility rules - override everything */
+@media screen and (max-width: 1280px) {
+  #sidebar .toggle,
+  .toggle-fallback,
+  .mobile-menu-fab {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: all !important;
+    position: fixed !important;
+    z-index: 99999 !important;
+  }
+  
+  /* Prevent any other element from hiding the menu */
+  * {
+    position: relative;
+  }
+  
+  #sidebar .toggle,
+  .toggle-fallback,
+  .mobile-menu-fab {
+    position: fixed !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  @media screen and (max-width: 1280px) {
+    #sidebar .toggle,
+    .toggle-fallback,
+    .mobile-menu-fab {
+      border: 2px solid currentColor !important;
+      background: ButtonFace !important;
+      color: ButtonText !important;
+    }
+  }
+}
+
+/* Ensure visibility across all possible viewport sizes */
+@media screen and (max-width: 1024px) {
+  #sidebar .toggle,
+  .toggle-fallback,
+  .mobile-menu-fab {
+    display: block !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #sidebar .toggle,
+  .toggle-fallback,
+  .mobile-menu-fab {
+    display: block !important;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  #sidebar .toggle,
+  .toggle-fallback,
+  .mobile-menu-fab {
+    display: block !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #sidebar .toggle,
+  .toggle-fallback,
+  .mobile-menu-fab {
+    display: block !important;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  #sidebar .toggle,
+  .toggle-fallback,
+  .mobile-menu-fab {
+    display: block !important;
+  }
+}
