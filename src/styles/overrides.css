@@ -95,19 +95,11 @@ a:focus, a:active, a:hover {
   transition: background-color 0.3s ease-in-out !important;
 }
 
-.project-card:hover .project-info {
-  background-color: rgba(44, 134, 197, 0.05) !important;
-}
-
 /* Repository card specific enhancements */
 .repo-card {
   border-radius: 8px !important;
   padding: 20px !important;
   border: 1px solid rgba(210, 215, 217, 0.75) !important;
-}
-
-.repo-card:hover .repo-title {
-  color: #2c86c5 !important;
 }
 
 /* Improved menu transitions */

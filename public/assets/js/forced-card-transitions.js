@@ -83,7 +83,7 @@
               const title = this.querySelector('.repo-title');
               if (title) {
                 title.style.transition = 'color 0.4s cubic-bezier(0.25, 0.1, 0.25, 1)';
-                title.style.color = '#2c86c5';
+                title.style.color = 'inherit';
               }
             });
           });
@@ -102,7 +102,7 @@
               // Reset title effect
               const title = this.querySelector('.repo-title');
               if (title) {
-                title.style.color = '#0366d6';
+                title.style.color = '';
               }
             });
           });

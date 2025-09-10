@@ -36,8 +36,7 @@ ul.pagination li > .page.active:hover {
 .project-card:hover {
   transform: translateY(-5px) !important;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12) !important;
-  outline: none !important; /* Remove outline */
-  border-color: #2c86c5 !important; /* Blue border instead of any red */
+  outline: none !important;
 }
 
 .project-card:focus,
@@ -58,10 +57,6 @@ ul.pagination li > .page.active:hover {
   transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out !important;
 }
 
-.project-card:hover .project-info {
-  background-color: rgba(44, 134, 197, 0.05);
-}
-
 /* Repository Cards Enhancements */
 .repo-card {
   transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), 
@@ -77,7 +72,6 @@ ul.pagination li > .page.active:hover {
 .repo-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12) !important;
-  border-color: #2c86c5 !important;
   outline: none !important;
 }
 
@@ -89,10 +83,6 @@ ul.pagination li > .page.active:hover {
 
 .repo-title, .repo-description, .repo-link, .repo-meta {
   transition: color 0.3s ease-in-out;
-}
-
-.repo-card:hover .repo-title {
-  color: #2c86c5;
 }
 
 /* Additional effects for all interactive elements */

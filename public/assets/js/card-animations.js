@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Apply transform and box-shadow directly
         card.style.transform = 'translateY(-8px)';
         card.style.boxShadow = '0 12px 20px rgba(0, 0, 0, 0.15)';
-        card.style.borderColor = '#2c86c5';
         
         // Find and enhance the image if it exists
         const img = card.querySelector('.project-image img');
@@ -30,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Enhance project info
         const info = card.querySelector('.project-info');
         if (info) {
-          info.style.backgroundColor = 'rgba(44, 134, 197, 0.05)';
+          // Removed blue background color
         }
       });
       
@@ -70,13 +69,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Apply transform and box-shadow directly
         card.style.transform = 'translateY(-8px)';
         card.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.15)';
-        card.style.borderColor = '#2c86c5';
-        
-        // Enhance title
-        const title = card.querySelector('.repo-title');
-        if (title) {
-          title.style.color = '#2c86c5';
-        }
       });
       
       // Add event listeners for mouseleave

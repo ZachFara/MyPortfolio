@@ -11,7 +11,7 @@ section .projects-container .project-card {
 section .projects-container .project-card:hover {
   transform: translateY(-8px) !important;
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15) !important;
-  border-color: #2c86c5 !important;
+  border-color: #ddd !important;
 }
 
 section .projects-container .project-card .project-image {
@@ -33,7 +33,7 @@ section .projects-container .project-card .project-info {
 }
 
 section .projects-container .project-card:hover .project-info {
-  background-color: rgba(44, 134, 197, 0.05) !important;
+  background-color: rgba(240, 240, 240, 0.05) !important;
 }
 
 /* Repository Cards - Direct targeting with higher specificity */
@@ -47,7 +47,7 @@ section .repo-container .repo-card {
 section .repo-container .repo-card:hover {
   transform: translateY(-8px) !important;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
-  border-color: #2c86c5 !important;
+  border-color: #ddd !important;
 }
 
 section .repo-container .repo-card .repo-title,

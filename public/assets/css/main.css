@@ -120,6 +120,22 @@ a {
     a:hover strong {
       color: inherit; }
 
+/* Override for project and repository card links to prevent blue highlighting */
+.project-link,
+.project-link:hover,
+.project-link:focus,
+.project-link:active,
+.project-link:visited,
+.repo-link,
+.repo-link:hover,
+.repo-link:focus,
+.repo-link:active,
+.repo-link:visited {
+  color: inherit !important;
+  border-bottom: none !important;
+  text-decoration: none !important;
+}
+
 strong, b {
   color: #3d4449;
   font-weight: 600; }

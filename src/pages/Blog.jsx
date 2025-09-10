@@ -12,7 +12,7 @@ const Blog = () => {
       
       <section>
         <header className="main">
-          <h1 style={{fontSize: '2.2em'}}>Beyond the Mean</h1>
+          <h1>Beyond the Mean</h1>
           <div className="text-center">
             <p className="subtitle">Beyond the basics in data science and technology — exploring the subtle, the surprising, and the statistically counterintuitive.</p>
           </div>
