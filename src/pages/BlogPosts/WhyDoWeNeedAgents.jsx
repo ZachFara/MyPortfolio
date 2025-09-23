@@ -47,7 +47,7 @@ const WhyDoWeNeedAgents = () => {
         <div className="blog-content">
           
           <p>
-            Imagine juggling a dozen different dashboards, APIs, and databases to answer a single question then forgetting what you did ten minutes ago. That's the fate of traditional chatbots without additional capabilities: powerful yet perpetually stateless. An <strong>AI agent</strong>, by contrast, is truly like having a second brain that can remember context, plan multi-step actions, react to failures, and learn from past interactions.
+            Imagine juggling a dozen different dashboards, APIs, and databases to answer a single question, then forgetting what you did ten minutes ago. That's the fate of traditional chatbots without additional capabilities: powerful yet perpetually stateless. An <strong>AI agent</strong>, by contrast, is truly like having a second brain that can remember context, plan multi-step actions, react to failures, and learn from past interactions.
           </p>
 
           <h2>What Is an AI Agent?</h2>
@@ -78,11 +78,11 @@ const WhyDoWeNeedAgents = () => {
 
           <h3>Execution</h3>
           <p>
-            During this step the agent calls the tools that it planned out during the planning stage. Each tool, such as a SQL query engine that prunes your database, a graphing tool that generates visuals, and a vector-based search for RAG, works together. The executor stitches these outputs into a cohesive response.          
+            During this step, the agent calls the tools that it planned out during the planning stage. Each tool, such as a SQL query engine that prunes your database, a graphing tool that generates visuals, and a vector-based search for RAG, works together. The executor stitches these outputs into a cohesive response.          
           </p>
           <h3>Memory</h3>
           <p>
-            Memory is the agent’s context store. It captures prior queries, tool outputs, and decisions, then re-injects them when relevant. This makes follow up question faster and more natural, building continuity across interactions.
+            Memory is the agent’s context store. It captures prior queries, tool outputs, and decisions, then re-injects them when relevant. This makes follow up questions faster and more natural, building continuity across interactions.
           </p>
 
           <h2>LlamaIndex: The Glue That Binds</h2>
@@ -99,7 +99,7 @@ const WhyDoWeNeedAgents = () => {
           </p>
 
           <p>
-            Once the query engine is ready, you'll want to expose it as a tool that the agent can call. LlamaIndex offers a convenient <strong><a href="https://docs.llamaindex.ai/en/stable/api_reference/tools/query_engine/" target="_blank" rel="noopener noreferrer">QueryEngineTool</a></strong> to do just that.             If you're working with custom logic say, a Python function that performs an action you can wrap it using <strong><a href="https://docs.llamaindex.ai/en/stable/api_reference/tools/function/" target="_blank" rel="noopener noreferrer">FunctionTool</a></strong>, providing both a name and description so the agent knows when and how to use it.
+            Once the query engine is ready, you'll want to expose it as a tool that the agent can call. LlamaIndex offers a convenient <strong><a href="https://docs.llamaindex.ai/en/stable/api_reference/tools/query_engine/" target="_blank" rel="noopener noreferrer">QueryEngineTool</a></strong> to do just that.             If you're working with custom logic, say a Python function that performs an action you can wrap it using <strong><a href="https://docs.llamaindex.ai/en/stable/api_reference/tools/function/" target="_blank" rel="noopener noreferrer">FunctionTool</a></strong>, providing both a name and description so the agent knows when and how to use it.
           </p>
 
           <p>
@@ -120,7 +120,7 @@ const WhyDoWeNeedAgents = () => {
 
           <h2>Conclusion</h2>
           <p>
-            Agents transform static code into <strong>adaptive partners</strong> that learn, remember, and coordinate across services. By combining external managed infrastructure, LlamaIndex's modular abstractions, and minimal declarative code you create a system that not only responds but also evolves turning reactive scripts into proactive problem-solvers.
+            Agents transform static code into <strong>adaptive partners</strong> that learn, remember, and coordinate across services. By combining external managed infrastructure, LlamaIndex's modular abstractions, and minimal declarative code, you create a system that not only responds but also evolves turning reactive scripts into proactive problem-solvers.
           </p>
           
           <div className="blog-image-citation" style={{ marginTop: '3rem', fontSize: '0.8rem', color: '#666', borderTop: '1px solid #eee', paddingTop: '1rem' }}>
