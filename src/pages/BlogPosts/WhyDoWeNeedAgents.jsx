@@ -78,9 +78,8 @@ const WhyDoWeNeedAgents = () => {
 
           <h3>Execution</h3>
           <p>
-            The "field operators." Each tool—a SQL query engine that prunes your database, a graphing tool for generating a visual, and a vector-based search for RAG—works together. The executor stitches these results into a cohesive response.
+            The “field operators.” Each tool, such as a SQL query engine that prunes your database, a graphing tool that generates visuals, and a vector-based search for RAG, works together. The executor stitches these outputs into a cohesive response.          
           </p>
-
           <h3>Memory</h3>
           <p>
             More than a transcript, memory is the agent's <strong>playbook</strong>. It logs past queries, tool outputs, and system prompts so follow-ups feel seamless: "Now show me that data by region" doesn't require you to repeat parameters.
