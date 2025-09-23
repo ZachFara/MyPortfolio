@@ -47,7 +47,7 @@ const WhyDoWeNeedAgents = () => {
         <div className="blog-content">
           
           <p>
-            Imagine juggling a dozen different dashboards, APIs, and databases to answer a single question then forgetting what you did ten minutes ago. That's the fate of traditional scripts: powerful yet perpetually stateless. An <strong>AI agent</strong>, by contrast, is like your personal project manager with an elephant's memory coordinating tasks, recalling past insights, and adapting on the fly.
+            Imagine juggling a dozen different dashboards, APIs, and databases to answer a single question then forgetting what you did ten minutes ago. That's the fate of traditional chatbots without additional capabilities: powerful yet perpetually stateless. An <strong>AI agent</strong>, by contrast, is truly like having a second brain that can remember context, plan multi-step actions, react to failures, and learn from past interactions.
           </p>
 
           <h2>What Is an AI Agent?</h2>
@@ -61,7 +61,7 @@ const WhyDoWeNeedAgents = () => {
             <li><strong>Reflection & Memory</strong>: Storing outcomes and context for future interactions.</li>
           </ol>
           <p>
-            Without this loop, the tool becomes a static script rigidly following pre-defined branches without adapting to new contexts or learning from past interactions, much like a program without if-else logic.
+            Without this loop, the tool becomes a static script rigidly following pre-defined branches without adapting to new contexts or learning from past interactions, much like a program without if-else logic or loops.
           </p>
 
           <h2>Core Components & Intuition</h2>
@@ -73,16 +73,16 @@ const WhyDoWeNeedAgents = () => {
 
           <h3>Planning</h3>
           <p>
-            The agent's "war room." Here, an LLM (e.g., Anthropic Claude) reasons step-by-step, crafting a plan like "First query yesterday's sales in Athena, then fetch related reports from OpenSearch."
+            This is the step where the agent interprets the desires of the user and then creates a plan to fetch the relevant results, crafting a plan like "First query yesterday's sales in Athena, then fetch related reports from OpenSearch." In addition, after each execution step, the agent reflects on the output and then drafts a new plan, allowing it to course-correct if something goes wrong or respond early if it already has enough information.
           </p>
 
           <h3>Execution</h3>
           <p>
-            The “field operators.” Each tool, such as a SQL query engine that prunes your database, a graphing tool that generates visuals, and a vector-based search for RAG, works together. The executor stitches these outputs into a cohesive response.          
+            During this step the agent calls the tools that it planned out during the planning stage. Each tool, such as a SQL query engine that prunes your database, a graphing tool that generates visuals, and a vector-based search for RAG, works together. The executor stitches these outputs into a cohesive response.          
           </p>
           <h3>Memory</h3>
           <p>
-            More than a transcript, memory is the agent's <strong>playbook</strong>. It logs past queries, tool outputs, and system prompts so follow-ups feel seamless: "Now show me that data by region" doesn't require you to repeat parameters.
+            Memory is the agent’s context store. It captures prior queries, tool outputs, and decisions, then re-injects them when relevant. This makes follow up question faster and more natural, building continuity across interactions.
           </p>
 
           <h2>LlamaIndex: The Glue That Binds</h2>
