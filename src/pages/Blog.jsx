@@ -14,7 +14,7 @@ const Blog = () => {
         <header className="main">
           <h1>Beyond the Mean</h1>
           <div className="text-center">
-            <p className="subtitle">Beyond the basics in data science and technology — exploring the subtle, the surprising, and the statistically counterintuitive.</p>
+            <p className="subtitle">Beyond the basics in data science and technology</p>
           </div>
         </header>
         <hr />
