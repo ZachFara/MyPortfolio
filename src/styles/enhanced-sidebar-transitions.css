@@ -1,20 +1,18 @@
-/* Enhanced Sidebar Transitions */
+/* Enhanced Sidebar Transitions - DISABLED FOR SNAPPY MOVEMENT */
 
 /* Desktop Sidebar Transitions */
 @media screen and (min-width: 1281px) {
   #sidebar {
-    transition: margin-left 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
-                box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
-                opacity 0.4s ease !important;
+    /* Removed all transitions for instant movement */
   }
   
   #sidebar.inactive {
     opacity: 0.8;
   }
 
-  /* Smooth main content transition on desktop */
+  /* Removed main content transition for instant movement */
   #main {
-    transition: margin-left 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+    /* No transition - instant adjustment */
   }
   
   /* When sidebar is inactive, adjust main content */
