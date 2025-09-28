@@ -31,12 +31,8 @@
       const projectCards = document.querySelectorAll('.project-card');
       
       projectCards.forEach(card => {
-        // Store original event listeners by wrapping them
-        const originalMouseEnter = card.onmouseenter;
-        const originalMouseLeave = card.onmouseleave;
-        
         // Override mouseenter
-        card.addEventListener('mouseenter', function(e) {
+        card.addEventListener('mouseenter', function() {
           // Allow original animations but remove blue colors
           setTimeout(() => {
             removeBlueStyles(this);
@@ -54,7 +50,7 @@
         }, true); // Use capture phase to run after other handlers
         
         // Override mouseleave
-        card.addEventListener('mouseleave', function(e) {
+        card.addEventListener('mouseleave', function() {
           // Ensure no blue styles remain
           setTimeout(() => {
             removeBlueStyles(this);
