@@ -4,7 +4,7 @@ A modern, responsive portfolio website built with React and Vite, showcasing pro
 
 **Live Site**: [View Portfolio](https://zfara.github.io/MyPortfolio/)
 
-## 🏗️ Architecture Overview
+## Architecture Overview
 
 ### Tech Stack
 - **Frontend**: React 19.1.0 with modern hooks and functional components
@@ -160,7 +160,7 @@ Projects are organized by category (Robotics, Machine Learning, etc.):
 - **External Links**: Direct links to GitHub repositories and live demos
 - **Image Optimization**: WebP format images for faster loading
 
-## 🔧 Configuration Files
+## Configuration Files
 
 | File | Purpose |
 |------|---------|
@@ -169,14 +169,14 @@ Projects are organized by category (Robotics, Machine Learning, etc.):
 | `eslint.config.js` | Code linting rules and standards |
 | `package.json` | Dependencies and npm scripts |
 
-## 🤝 Contributing
+## Contributing
 
 While this is a personal portfolio, suggestions and feedback are welcome! Please feel free to:
 - Open issues for bugs or suggestions
 - Submit pull requests for improvements
 - Share feedback on design or functionality
 
-## 📄 License
+## License
 
 This project is open source and available under standard web development practices for portfolio sites.
 
