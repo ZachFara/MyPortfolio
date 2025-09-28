@@ -48,6 +48,11 @@
         if (redirect && redirect !== location.href) {
           history.replaceState(null, null, redirect);
         }
+        
+        // For HashRouter: redirect naked URL to hash route
+        if (!location.hash && location.pathname.endsWith('/MyPortfolio/')) {
+          location.replace(location.href + '#/');
+        }
       })();
     </script>
   </head>
