@@ -1,0 +1,135 @@
+/* Special class to stop animations during resize */
+.resize-animation-stopper * {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Apply a performance optimization to the body to enable better hardware acceleration */
+body {
+  overscroll-behavior-y: none; /* Prevent bounce effects that can cause jank */
+}
+
+/* Performance optimization for cards */
+.project-card,
+.repo-card,
+.mini-posts article,
+.project-card .project-image img,
+.mini-posts article .image img {
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Special fix for Safari which sometimes has jittery transitions */
+@media not all and (min-resolution:.001dpcm) {
+  @supports (-webkit-appearance:none) {
+    .project-card,
+    .repo-card,
+    .mini-posts article {
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+    }
+  }
+}
+
+/* Special fix for Firefox */
+@-moz-document url-prefix() {
+  .project-card,
+  .repo-card,
+  .mini-posts article {
+    will-change: transform;
+  }
+}
+
+/* Apply to all cards to ensure consistent animations */
+.project-card,
+.repo-card,
+.mini-posts article {
+  will-change: transform, box-shadow;
+  transform: translateY(0);
+  /* Using a more refined cubic-bezier curve for smoother motion */
+  -webkit-transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), 
+                     box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+  -moz-transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), 
+                  box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+  -ms-transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), 
+                 box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+  -o-transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), 
+                box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), 
+             box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+}
+
+/* Project Card Hover Animation */
+.project-card:hover {
+  transform: translateY(-5px); /* Reduced from -8px for subtler movement */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12) !important; /* Softer shadow */
+}
+
+/* Repository Card Hover Animation */
+.repo-card:hover {
+  transform: translateY(-5px); /* Reduced from -8px for subtler movement */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12) !important; /* Softer shadow */
+}
+
+/* Mini-posts Hover Animation */
+.mini-posts article:hover {
+  transform: translateY(-3px); /* Reduced from -5px for subtler movement */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important; /* Softer shadow */
+}
+
+/* Image Zoom Animation */
+.project-card .project-image img,
+.mini-posts article .image img {
+  will-change: transform;
+  -webkit-transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) !important;
+  -moz-transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) !important;
+  -ms-transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) !important;
+  -o-transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) !important;
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) !important;
+}
+
+.project-card:hover .project-image img,
+.mini-posts article:hover .image img {
+  transform: scale(1.05);
+}
+
+/* For browsers that support it, use hardware acceleration */
+@supports (transform: translate3d(0,0,0)) {
+  .project-card,
+  .repo-card,
+  .mini-posts article {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px; /* Add perspective for smoother 3D effects */
+  }
+  
+  .project-card:hover {
+    transform: translate3d(0, -5px, 0);
+  }
+  
+  .repo-card:hover {
+    transform: translate3d(0, -5px, 0);
+  }
+  
+  .mini-posts article:hover {
+    transform: translate3d(0, -3px, 0);
+  }
+  
+  .project-card .project-image img,
+  .mini-posts article .image img {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+  
+  .project-card:hover .project-image img,
+  .mini-posts article:hover .image img {
+    transform: scale3d(1.05, 1.05, 1);
+  }
+}
