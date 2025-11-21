@@ -156,8 +156,28 @@
   margin: 0 auto;
 }
 
+.blog-post header.main {
+  text-align: center;
+}
+
 .blog-post .blog-featured-image img {
-  max-width: 75%;
+  max-width: 65%;
+  max-height: 420px;
+  height: auto;
+  object-fit: contain;
+}
+
+.blog-post .blog-meta {
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0.75rem auto 0.5rem;
+  font-size: 0.95rem;
+}
+
+.blog-post .blog-tags {
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
 }
 
 @media screen and (max-width: 980px) {
