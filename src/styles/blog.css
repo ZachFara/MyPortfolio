@@ -152,8 +152,12 @@
 
 /* Blog post page styles - keeping these the same */
 .blog-post {
-  max-width: 700px;
+  width: min(900px, 85vw);
   margin: 0 auto;
+}
+
+.blog-post .blog-featured-image img {
+  max-width: 75%;
 }
 
 @media screen and (max-width: 980px) {
