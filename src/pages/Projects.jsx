@@ -43,7 +43,7 @@ const Projects = () => {
           <hr />
           <h2 style={{ marginBottom: '0' }}>Robotics</h2>
           <div className="projects-container" id="skysearch" ref={skysearchRef}>
-            <a href="https://github.com/duncancalvert/SkySearch" className="project-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/ZachFara/SkySearch" className="project-link" target="_blank" rel="noopener noreferrer">
               <div className="project-card">
                 <div className="project-image" style={{ overflow: "hidden" }}>
                   <img src="images/skysearch.webp" alt="Project Image" />
@@ -106,7 +106,7 @@ const Projects = () => {
           <hr />
           <h2 style={{ marginBottom: '0' }}>Generative AI</h2>
           <div className="projects-container">
-            <a href="https://github.com/ZachFara/Chartwell-Insurance-AI" className="project-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/ZachFara/Chartwell-Insurance-AI/tree/revamp" className="project-link" target="_blank" rel="noopener noreferrer">
               <div className="project-card">
                 <img src="images/genai.webp" alt="Project Image" className="project-image" />
                 <div className="project-info">

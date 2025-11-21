@@ -145,7 +145,7 @@ const AIAgentMemory = () => {
         <div className="blog-content">
           <h2 className="blog-title">How to Structure Memory</h2>
           <p>
-            As I argued in my earlier post on <a href="/blog/whyagents">AI Agents</a>, memory is the difference between a clever one‑off response and a system that actually learns you—your preferences, your past asks, which tools worked (and which didn't). For the high-level theory, see Duncan Calvert's <a href="https://duncancalvert.github.io/blog/2025/ai_agent_memory/" target="_blank" rel="noopener noreferrer">"AI Agent Memory"</a>. Here, we'll stay pragmatic: short‑term vs. long‑term memory and how LlamaIndex operationalizes both with a clean, composable API.
+            As I argued in my earlier post on <a href="/blog/whyagents">AI Agents</a>, memory is the difference between a clever one‑off response and a system that actually learns you: your preferences, your past asks, which tools worked (and which didn't). For the high-level theory, see Duncan Calvert's <a href="https://duncancalvert.github.io/blog/2025/ai_agent_memory/" target="_blank" rel="noopener noreferrer">"AI Agent Memory"</a>. Here, we'll stay pragmatic: short‑term vs. long‑term memory and how LlamaIndex operationalizes both with a clean, composable API.
           </p>
 
           <p>
@@ -165,7 +165,7 @@ const AIAgentMemory = () => {
           <h2>StaticMemoryBlock</h2>
 
           <p>
-            <code>StaticMemoryBlock</code> is your non‑negotiable, always‑on context: agent identity, safety policies, core constraints, or stable user profile facts. It never retrieves, ranks, or summarizes—it always gets appended to the LLM context on every call. You typically set <code>priority=0</code>, which effectively says: "don't ever truncate this." It's cheap, deterministic, and perfect for what you'd otherwise hard‑code into a system prompt.
+            <code>StaticMemoryBlock</code> is your non‑negotiable, always‑on context: agent identity, safety policies, core constraints, or stable user profile facts. It never retrieves, ranks, or summarizes; it always gets appended to the LLM context on every call. You typically set <code>priority=0</code>, which effectively says: "don't ever truncate this." It's cheap, deterministic, and perfect for what you'd otherwise hard‑code into a system prompt.
           </p>
 
           <hr />
@@ -173,7 +173,7 @@ const AIAgentMemory = () => {
           <h2>FactExtractionMemoryBlock</h2>
 
           <p>
-            <code>FactExtractionMemoryBlock</code> converts long chats into durable, compact facts. When short‑term memory overflows, this block asks an LLM (<code>llm</code>) to extract salient information—preferences, decisions, constraints, key entities—up to <code>max_facts</code>. If it overgrows, it summarizes itself to stay tight. The result is a lightweight, always‑useful layer you can inject almost every turn. The cost: extra LLM calls and lossy compression. In practice, give it <code>priority=1</code>, so it nearly always survives truncation right after your static policy block.
+            <code>FactExtractionMemoryBlock</code> converts long chats into durable, compact facts. When short‑term memory overflows, this block asks an LLM (<code>llm</code>) to extract salient information: preferences, decisions, constraints, key entities, up to <code>max_facts</code>. If it overgrows, it summarizes itself to stay tight. The result is a lightweight, always‑useful layer you can inject almost every turn. The cost: extra LLM calls and lossy compression. In practice, give it <code>priority=1</code>, so it nearly always survives truncation right after your static policy block.
           </p>
 
           <hr />
@@ -193,13 +193,13 @@ const AIAgentMemory = () => {
           </p>
 
           <ol>
-            <li><code>StaticMemoryBlock</code> (<code>priority=0</code>) — identity/rules must never drop.</li>
-            <li><code>FactExtractionMemoryBlock</code> (<code>priority=1</code>) — distilled, low‑cost facts that almost always help.</li>
-            <li><code>VectorMemoryBlock</code> (<code>priority=2+</code>) — deep semantic recall included only when there's space or clear relevance.</li>
+            <li><code>StaticMemoryBlock</code> (<code>priority=0</code>): identity/rules must never drop.</li>
+            <li><code>FactExtractionMemoryBlock</code> (<code>priority=1</code>): distilled, low‑cost facts that almost always help.</li>
+            <li><code>VectorMemoryBlock</code> (<code>priority=2+</code>): deep semantic recall included only when there's space or clear relevance.</li>
           </ol>
 
           <p>
-            This mirrors the theory: guarantee invariant context, keep a compact evergreen factual spine, and fall back to heavy semantic retrieval when necessary. Need something bespoke (scores, counters, domain state)? Subclass <code>BaseMemoryBlock</code>—<code>Memory</code> will still flush, retrieve, and truncate it under the same rules.
+            This mirrors the theory: guarantee invariant context, keep a compact evergreen factual spine, and fall back to heavy semantic retrieval when necessary. Need something bespoke (scores, counters, domain state)? Subclass <code>BaseMemoryBlock</code> and <code>Memory</code> will still flush, retrieve, and truncate it under the same rules.
           </p>
 
           <hr />
@@ -256,7 +256,7 @@ response = await agent.run(user_msg, memory=memory)
           <h2>Conclusion</h2>
 
           <p>
-            Memory is what turns a clever LLM into a situated agent. LlamaIndex's <code>Memory</code> orchestrator plus a layered stack—<code>StaticMemoryBlock (0)</code> for invariants, <code>FactExtractionMemoryBlock (1)</code> for compact durable facts, and <code>VectorMemoryBlock (2)</code> for deep semantic recall—maps cleanly onto short‑ vs. long‑term memory theory while staying within strict token limits. Priorities give you a predictable degradation path; knobs like <code>token_limit</code>, <code>chat_history_token_ratio</code>, and <code>token_flush_size</code> keep prompts lean. Start with the three‑block baseline, measure token pressure and retrieval usefulness, and only customize where your workload proves it's needed. The payoff is an agent that remembers what matters, forgets what doesn't, and scales its recall gracefully as conversations (and stakes) grow.
+            Memory is what turns a clever LLM into a situated agent. LlamaIndex's <code>Memory</code> orchestrator plus a layered stack of <code>StaticMemoryBlock (0)</code> for invariants, <code>FactExtractionMemoryBlock (1)</code> for compact durable facts, and <code>VectorMemoryBlock (2)</code> for deep semantic recall maps cleanly onto short‑ vs. long‑term memory theory while staying within strict token limits. Priorities give you a predictable degradation path; knobs like <code>token_limit</code>, <code>chat_history_token_ratio</code>, and <code>token_flush_size</code> keep prompts lean. Start with the three‑block baseline, measure token pressure and retrieval usefulness, and only customize where your workload proves it's needed. The payoff is an agent that remembers what matters, forgets what doesn't, and scales its recall gracefully as conversations (and stakes) grow.
           </p>
 
           <div className="blog-image-citation" style={{ marginTop: '3rem', fontSize: '0.8rem', color: '#666', borderTop: '1px solid #eee', paddingTop: '1rem' }}>
