@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/MyPortfolio/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/MyPortfolio/" />
+    <title>Zachariah Farahany</title>
+    <!-- Single Page Apps for GitHub Pages — https://github.com/rafgraph/spa-github-pages -->
+    <script>
+      (function(l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&');
+          }).join('?');
+          window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location));
+    </script>
+    <!-- Load CSS files directly -->
+    <link rel="stylesheet" href="/MyPortfolio/assets/css/main.css" />
+    <link rel="stylesheet" href="/MyPortfolio/assets/css/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="/MyPortfolio/assets/css/card-animations.css" />
+    <style>
+      /* Professional profile image styling */
+      .image.object img {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+        border-radius: 3px;
+        padding: 5px;
+        background-color: white;
+        transition: all 0.25s ease-in-out;
+      }
+      .image.object img:hover {
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.08);
+        transform: translateY(-1px);
+      }
+    </style>
+    <script type="module" crossorigin src="/MyPortfolio/assets/index-CqkJQEb_.js"></script>
+    <link rel="stylesheet" crossorigin href="/MyPortfolio/assets/index-CKi_dhlH.css">
+  </head>
+  <body>
+    <div id="root"><link rel="preload" as="image" href="images/skysearch.webp"/><link rel="preload" as="image" href="images/diffusionmodel.webp"/><div id="wrapper"><div class="hamburger-menu hamburger-menu-force-position open"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></div><div id="main"><div class="inner"><header id="header"><a class="logo" style="min-height:44px;display:flex;align-items:center" href="/MyPortfolio" data-discover="true"><strong>Home</strong></a></header><style>
+      /* CRITICAL FIX: Remove blue highlighting from anchor tags wrapping project cards */
+      .project-link {
+        color: inherit !important;
+        text-decoration: none !important;
+        border: none !important;
+        outline: none !important;
+        background: none !important;
+        -webkit-tap-highlight-color: transparent !important;
+      }
+      
+      .project-link:hover,
+      .project-link:focus,
+      .project-link:active,
+      .project-link:visited {
+        color: inherit !important;
+        text-decoration: none !important;
+        border: none !important;
+        border-bottom: none !important;
+        outline: none !important;
+        background: none !important;
+        box-shadow: none !important;
+        -webkit-tap-highlight-color: transparent !important;
+      }
+
+      /* Force card animations to work */
+      .project-card,
+      .repo-card {
+        transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), 
+                    box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+        overflow: hidden !important;
+        will-change: transform, box-shadow !important;
+        backface-visibility: hidden !important;
+        perspective: 1000px !important;
+        transform: translateZ(0) !important;
+      }
+      
+      .project-card:hover,
+      .repo-card:hover {
+        transform: translateY(-5px) !important;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12) !important;
+      }
+      
+      .project-card .project-image,
+      .repo-card .repo-image {
+        overflow: hidden !important;
+      }
+      
+      .project-card .project-image img,
+      .repo-card .repo-image img {
+        transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) !important;
+        will-change: transform !important;
+        backface-visibility: hidden !important;
+      }
+      
+      .project-card:hover .project-image img,
+      .repo-card:hover .repo-image img {
+        transform: scale(1.05) !important;
+      }
+      
+      .project-card .project-image img {
+        transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+        backface-visibility: hidden !important;
+        transform: translateZ(0) !important;
+      }
+      
+      .project-card:hover .project-image img {
+        transform: scale(1.05) !important;
+      }
+      
+      /* Repository cards */
+      .repo-card {
+        transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), 
+                    box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+        will-change: transform, box-shadow !important;
+        backface-visibility: hidden !important;
+        perspective: 1000px !important;
+        transform: translateZ(0) !important;
+      }
+      
+      .repo-card:hover {
+        transform: translateY(-5px) !important;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12) !important;
+      }
+      
+      /* Sidebar mini-posts */
+      .mini-posts article {
+        transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), 
+                    box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+        border-top-color: transparent !important;
+        will-change: transform, box-shadow !important;
+        backface-visibility: hidden !important;
+        perspective: 1000px !important;
+        transform: translateZ(0) !important;
+        border: 1px solid rgba(210, 215, 217, 0.75) !important;
+      }
+      
+      .mini-posts article:hover {
+        transform: translateY(-3px) !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+      }
+      
+      .mini-posts article .image img {
+        transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+        backface-visibility: hidden !important;
+        transform: translateZ(0) !important;
+      }
+      
+      .mini-posts article:hover .image img {
+        transform: scale(1.05) !important;
+      }
+
+      /* Disable text selection highlighting - this causes the blue rectangle */
+      ::selection {
+        background: transparent !important;
+        color: inherit !important;
+      }
+
+      ::-moz-selection {
+        background: transparent !important;
+        color: inherit !important;
+      }
+
+      .project-link::selection,
+      .project-card::selection,
+      .project-card *::selection {
+        background: transparent !important;
+        color: inherit !important;
+      }
+
+      .project-link::-moz-selection,
+      .project-card::-moz-selection,
+      .project-card *::-moz-selection {
+        background: transparent !important;
+        color: inherit !important;
+      }
+
+      /* Disable user selection entirely for project cards */
+      .project-link,
+      .project-card,
+      .project-card * {
+        -webkit-user-select: none !important;
+        -moz-user-select: none !important;
+        -ms-user-select: none !important;
+        user-select: none !important;
+      }
+
+      /* Additional focus outline removal */
+      .project-link:focus,
+      .project-link:focus-visible {
+        outline: none !important;
+        box-shadow: none !important;
+      }
+    </style><section><header class="main"><h1>Beyond the Mean</h1><div class="text-center"><p class="subtitle">Beyond the basics in data science and technology</p></div></header><hr/><div class="blog-container"><div class="blog-card" style="transition:transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);cursor:pointer"><a class="blog-link" href="/MyPortfolio/blog/why-do-we-need-agents" data-discover="true"><h2 class="blog-title">Why Do We Need Agents?</h2></a><p class="blog-description">Understanding the role and importance of AI agents in modern applications</p><div class="blog-meta"><span class="blog-date">July 24, 2025</span><span class="blog-read-time">7 min read</span></div><div class="blog-tags"><span class="tag">#AI</span><span class="tag">#Agents</span><span class="tag">#LlamaIndex</span><span class="tag">#data-science</span></div></div><div class="blog-card" style="transition:transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);cursor:pointer"><a class="blog-link" href="/MyPortfolio/blog/ai-agent-memory" data-discover="true"><h2 class="blog-title">Agentic Memory from Llama Index</h2></a><p class="blog-description">Demystifying the different types of AI agent memory</p><div class="blog-meta"><span class="blog-date">May 30, 2025</span><span class="blog-read-time">4 min read</span></div><div class="blog-tags"><span class="tag">#AI</span><span class="tag">#Research</span><span class="tag">#Agents</span><span class="tag">#data-science</span></div></div></div></section></div></div><div id="sidebar" class=""><div class="inner"><nav id="menu"><header class="major"><h2>Menu</h2></header><ul><li style="--item-index:0"><a class="" href="/MyPortfolio" data-discover="true">Home</a></li><li style="--item-index:1"><a class="" href="/MyPortfolio/projects" data-discover="true">Projects</a></li><li style="--item-index:2"><a class="" href="/MyPortfolio/repositories" data-discover="true">Repositories</a></li><li style="--item-index:3"><a aria-current="page" class="active" href="/MyPortfolio/blog" data-discover="true">Blog</a></li><li style="--item-index:4"><a class="" href="/MyPortfolio/cv" data-discover="true">Curriculum Vitae</a></li></ul></nav><section class="mini-posts"><header><h2>Recent Blog Posts</h2></header><div class="sidebar-blog-posts"><article class="sidebar-blog-post"><a class="sidebar-blog-title" href="/MyPortfolio/blog/why-do-we-need-agents" data-discover="true"><h3>Why Do We Need Agents?</h3></a><div class="sidebar-blog-meta"><span>July 24, 2025</span> · <span>7 min read</span></div></article><article class="sidebar-blog-post"><a class="sidebar-blog-title" href="/MyPortfolio/blog/ai-agent-memory" data-discover="true"><h3>Agentic Memory from Llama Index</h3></a><div class="sidebar-blog-meta"><span>May 30, 2025</span> · <span>4 min read</span></div></article></div><footer><a class="button" href="/MyPortfolio/blog" data-discover="true">View All Posts</a></footer></section><section><header class="major"><h2>Recent Projects</h2></header><div class="mini-posts"><article><a class="image" href="/MyPortfolio/projects#skysearch" data-discover="true"><img src="images/skysearch.webp" alt="SkySearch UAVs" style="width:100%;height:auto;object-fit:cover"/></a><p>Check out SkySearch UAVs</p></article><article><a class="image" href="/MyPortfolio/projects#diffusionmodels" data-discover="true"><img src="images/diffusionmodel.webp" alt="Diffusion Models" style="width:100%;height:auto;object-fit:cover"/></a><p>Image GenAI with Stable Denoising Diffusion models</p></article></div><ul class="actions"><li><a class="button" href="/MyPortfolio/projects" data-discover="true">More</a></li></ul></section><section><header class="major"><h2>Get in touch</h2></header><p></p><ul class="contact"><li class="icon solid fa-envelope"><a href="mailto:zachariah.farahany@gmail.com">zachariah.farahany@gmail.com</a></li><li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/zachariah-farahany-3818aa1bb/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li></ul></section></div></div></div></div>
+    <script src="/MyPortfolio/assets/js/forced-card-transitions.js"></script>
+    <script src="/MyPortfolio/assets/js/animation-smoother.js"></script>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/MyPortfolio/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/MyPortfolio/" />
+    <title>Zachariah Farahany</title>
+    <!-- Single Page Apps for GitHub Pages — https://github.com/rafgraph/spa-github-pages -->
+    <script>
+      (function(l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&');
+          }).join('?');
+          window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location));
+    </script>
+    <!-- Load CSS files directly -->
+    <link rel="stylesheet" href="/MyPortfolio/assets/css/main.css" />
+    <link rel="stylesheet" href="/MyPortfolio/assets/css/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="/MyPortfolio/assets/css/card-animations.css" />
+    <style>
+      /* Professional profile image styling */
+      .image.object img {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+        border-radius: 3px;
+        padding: 5px;
+        background-color: white;
+        transition: all 0.25s ease-in-out;
+      }
+      .image.object img:hover {
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.08);
+        transform: translateY(-1px);
+      }
+    </style>
+    <script type="module" crossorigin src="/MyPortfolio/assets/index-CqkJQEb_.js"></script>
+    <link rel="stylesheet" crossorigin href="/MyPortfolio/assets/index-CKi_dhlH.css">
+  </head>
+  <body>
+    <div id="root"><link rel="preload" as="image" href="images/memory.png"/><link rel="preload" as="image" href="images/skysearch.webp"/><link rel="preload" as="image" href="images/diffusionmodel.webp"/><div id="wrapper"><div class="hamburger-menu hamburger-menu-force-position open"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></div><div id="main"><div class="inner"><header id="header"><a class="logo" style="min-height:44px;display:flex;align-items:center" href="/MyPortfolio" data-discover="true"><strong>Home</strong></a></header><article class="blog-post"><header class="main"><h1>Agentic Memory from Llama Index</h1><p class="blog-subtitle">How To Turn Theory Into A Practical Stack</p><div class="blog-featured-image" style="display:flex;justify-content:center;align-items:center;margin:2rem auto 2.5rem;max-width:90%"><img src="images/memory.png" alt="Illustration of agent memory systems showing short-term and long-term memory components" class="img-fluid" style="max-width:100%;height:auto;border-radius:8px;box-shadow:0 4px 12px rgba(0, 0, 0, 0.1);margin-bottom:0"/></div><div class="blog-meta"><span class="blog-date">Created on May 30, 2025</span></div><div class="blog-tags"><span class="tag">#AI</span><span class="tag">#LlamaIndex</span><span class="tag">#Agents</span><span class="tag">#Memory</span></div></header><div class="blog-content"><h2 class="blog-title">How to Structure Memory</h2><p>As I argued in my earlier post on <a href="/blog/whyagents">AI Agents</a>, memory is the difference between a clever one‑off response and a system that actually learns you: your preferences, your past asks, which tools worked (and which didn&#x27;t). For the high-level theory, see Duncan Calvert&#x27;s <a href="https://duncancalvert.github.io/blog/2025/ai_agent_memory/" target="_blank" rel="noopener noreferrer">&quot;AI Agent Memory&quot;</a>. Here, we&#x27;ll stay pragmatic: short‑term vs. long‑term memory and how LlamaIndex operationalizes both with a clean, composable API.</p><p>Short‑term memory (STM) is the rolling context that keeps the model coherent right now. Long‑term memory (LTM) is slimmer, curated, and retrieved only when relevant. Something must decide what to keep, how to compress it, and when to bring it back. LlamaIndex&#x27;s <code>Memory</code> object plus specialized memory blocks give you exactly that.</p><hr/><h2>Memory</h2><p>In LlamaIndex, <code>Memory</code> is the orchestrator. It owns the plain‑text rolling chat buffer and automatically flushes overflowed tokens into long‑term memory blocks once you exceed a global <code>token_limit</code>. If you don&#x27;t attach any blocks, those tokens are simply dropped. You tune the short‑term buffer&#x27;s protection with <code>chat_history_token_ratio</code> (e.g., 0.7 to reserve 70% of the context for the live chat) and set <code>token_flush_size</code> to control how many tokens get evicted at a time. Conversations are isolated under a <code>session_id</code>, and you can persist memory by pointing <code>async_database_uri</code> to a real database (instead of the default in‑memory SQLite). At inference time, <code>Memory</code> reassembles the prompt by merging the short‑term buffer with whatever long‑term content still fits under <code>token_limit</code>, injected via your chosen <code>insert_method</code> (commonly <code>&quot;system&quot;</code>). Conceptually: <code>memory.put()</code> logs new events; <code>memory.get()</code> returns the token‑bounded context the model will actually see.</p><hr/><h2>StaticMemoryBlock</h2><p><code>StaticMemoryBlock</code> is your non‑negotiable, always‑on context: agent identity, safety policies, core constraints, or stable user profile facts. It never retrieves, ranks, or summarizes; it always gets appended to the LLM context on every call. You typically set <code>priority=0</code>, which effectively says: &quot;don&#x27;t ever truncate this.&quot; It&#x27;s cheap, deterministic, and perfect for what you&#x27;d otherwise hard‑code into a system prompt.</p><hr/><h2>FactExtractionMemoryBlock</h2><p><code>FactExtractionMemoryBlock</code> converts long chats into durable, compact facts. When short‑term memory overflows, this block asks an LLM (<code>llm</code>) to extract salient information: preferences, decisions, constraints, key entities, up to <code>max_facts</code>. If it overgrows, it summarizes itself to stay tight. The result is a lightweight, always‑useful layer you can inject almost every turn. The cost: extra LLM calls and lossy compression. In practice, give it <code>priority=1</code>, so it nearly always survives truncation right after your static policy block.</p><hr/><h2>VectorMemoryBlock</h2><p><code>VectorMemoryBlock</code> is your semantic recall layer. Flushed messages are embedded (<code>embed_model</code>) and written to a vector store (<code>vector_store</code>). On each step, it can pull back the most relevant past snippets (<code>similarity_top_k</code>, <code>retrieval_context_window</code>) and optionally post‑process them. This is ideal when you need to reach way back (&quot;remember that Athena query we debugged last month?&quot;) or when you want verbatim, auditable recovery. Because retrieved spans can be token‑heavy, assign it a lower priority (e.g., <code>priority=2+</code>) so it&#x27;s trimmed first when the context gets tight.</p><hr/><h2>Priority</h2><p>The <code>priority</code> you assign to each block defines your degradation path under strict token budgets. A production‑ready default:</p><ol><li><code>StaticMemoryBlock</code> (<code>priority=0</code>): identity/rules must never drop.</li><li><code>FactExtractionMemoryBlock</code> (<code>priority=1</code>): distilled, low‑cost facts that almost always help.</li><li><code>VectorMemoryBlock</code> (<code>priority=2+</code>): deep semantic recall included only when there&#x27;s space or clear relevance.</li></ol><p>This mirrors the theory: guarantee invariant context, keep a compact evergreen factual spine, and fall back to heavy semantic retrieval when necessary. Need something bespoke (scores, counters, domain state)? Subclass <code>BaseMemoryBlock</code> and <code>Memory</code> will still flush, retrieve, and truncate it under the same rules.</p><hr/><h2>Best Practices</h2><p>Adopt the three‑layer stack with explicit priorities. Set a strict <code>token_limit</code>, keep <code>chat_history_token_ratio</code> high enough for live turns, and flush in coherent chunks (<code>token_flush_size</code>) so long‑term blocks receive meaningful spans. Bound <code>max_facts</code> so facts stay cheap to inject; tighten <code>similarity_top_k</code> / <code>retrieval_context_window</code> to keep vector recalls lean. Use separate <code>session_id</code>s and a persistent <code>async_database_uri</code> when you need continuity beyond process restarts. Prefer <code>insert_method=&quot;system&quot;</code> for clean, deterministic prompt injection.</p><div class="code-cell"><pre><code class="language-python python-code">from llama_index.core.memory import (
+    Memory,
+    StaticMemoryBlock,
+    FactExtractionMemoryBlock,
+    VectorMemoryBlock,
+)
+
+blocks = [
+    StaticMemoryBlock(
+        name=&quot;core_identity&quot;,
+        static_content=&quot;You are Atlas, a finance agent. Always be precise, cite data, no hallucinations.&quot;,
+        priority=0,
+    ),
+    FactExtractionMemoryBlock(
+        name=&quot;facts&quot;,
+        llm=llm,
+        max_facts=100,
+        priority=1,
+    ),
+    VectorMemoryBlock(
+        name=&quot;ltm_vec&quot;,
+        vector_store=vector_store,
+        embed_model=embed_model,
+        priority=2,
+        similarity_top_k=3,
+        retrieval_context_window=5,
+    ),
+]
+
+memory = Memory.from_defaults(
+    session_id=&quot;user-123&quot;,
+    token_limit=32_000,
+    chat_history_token_ratio=0.7,
+    token_flush_size=2_000,
+    memory_blocks=blocks,
+    insert_method=&quot;system&quot;,
+)
+
+response = await agent.run(user_msg, memory=memory)
+</code></pre></div><h2>Conclusion</h2><p>Memory is what turns a clever LLM into a situated agent. LlamaIndex&#x27;s <code>Memory</code> orchestrator plus a layered stack of <code>StaticMemoryBlock (0)</code> for invariants, <code>FactExtractionMemoryBlock (1)</code> for compact durable facts, and <code>VectorMemoryBlock (2)</code> for deep semantic recall maps cleanly onto short‑ vs. long‑term memory theory while staying within strict token limits. Priorities give you a predictable degradation path; knobs like <code>token_limit</code>, <code>chat_history_token_ratio</code>, and <code>token_flush_size</code> keep prompts lean. Start with the three‑block baseline, measure token pressure and retrieval usefulness, and only customize where your workload proves it&#x27;s needed. The payoff is an agent that remembers what matters, forgets what doesn&#x27;t, and scales its recall gracefully as conversations (and stakes) grow.</p><div class="blog-image-citation" style="margin-top:3rem;font-size:0.8rem;color:#666;border-top:1px solid #eee;padding-top:1rem"><p><strong>Image credit:</strong> Created using OpenAI image generation services.</p></div><div class="blog-footer"><a class="button" href="/MyPortfolio/blog" data-discover="true">← Back to All Posts</a></div></div></article></div></div><div id="sidebar" class=""><div class="inner"><nav id="menu"><header class="major"><h2>Menu</h2></header><ul><li style="--item-index:0"><a class="" href="/MyPortfolio" data-discover="true">Home</a></li><li style="--item-index:1"><a class="" href="/MyPortfolio/projects" data-discover="true">Projects</a></li><li style="--item-index:2"><a class="" href="/MyPortfolio/repositories" data-discover="true">Repositories</a></li><li style="--item-index:3"><a aria-current="page" class="active" href="/MyPortfolio/blog" data-discover="true">Blog</a></li><li style="--item-index:4"><a class="" href="/MyPortfolio/cv" data-discover="true">Curriculum Vitae</a></li></ul></nav><section class="mini-posts"><header><h2>Recent Blog Posts</h2></header><div class="sidebar-blog-posts"><article class="sidebar-blog-post"><a class="sidebar-blog-title" href="/MyPortfolio/blog/why-do-we-need-agents" data-discover="true"><h3>Why Do We Need Agents?</h3></a><div class="sidebar-blog-meta"><span>July 24, 2025</span> · <span>7 min read</span></div></article><article class="sidebar-blog-post"><a class="sidebar-blog-title" href="/MyPortfolio/blog/ai-agent-memory" data-discover="true"><h3>Agentic Memory from Llama Index</h3></a><div class="sidebar-blog-meta"><span>May 30, 2025</span> · <span>4 min read</span></div></article></div><footer><a class="button" href="/MyPortfolio/blog" data-discover="true">View All Posts</a></footer></section><section><header class="major"><h2>Recent Projects</h2></header><div class="mini-posts"><article><a class="image" href="/MyPortfolio/projects#skysearch" data-discover="true"><img src="images/skysearch.webp" alt="SkySearch UAVs" style="width:100%;height:auto;object-fit:cover"/></a><p>Check out SkySearch UAVs</p></article><article><a class="image" href="/MyPortfolio/projects#diffusionmodels" data-discover="true"><img src="images/diffusionmodel.webp" alt="Diffusion Models" style="width:100%;height:auto;object-fit:cover"/></a><p>Image GenAI with Stable Denoising Diffusion models</p></article></div><ul class="actions"><li><a class="button" href="/MyPortfolio/projects" data-discover="true">More</a></li></ul></section><section><header class="major"><h2>Get in touch</h2></header><p></p><ul class="contact"><li class="icon solid fa-envelope"><a href="mailto:zachariah.farahany@gmail.com">zachariah.farahany@gmail.com</a></li><li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/zachariah-farahany-3818aa1bb/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li></ul></section></div></div></div></div>
+    <script src="/MyPortfolio/assets/js/forced-card-transitions.js"></script>
+    <script src="/MyPortfolio/assets/js/animation-smoother.js"></script>
+  </body>
+</html>
