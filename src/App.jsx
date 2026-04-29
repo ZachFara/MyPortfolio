@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useEffect } from 'react'
 import './App.css'
 import './styles/transitions.css' // Import our custom transitions
@@ -19,7 +19,8 @@ import Blog from './pages/Blog'
 import AIAgentMemory from './pages/BlogPosts/AIAgentMemory'
 import WhyDoWeNeedAgents from './pages/BlogPosts/WhyDoWeNeedAgents'
 
-function App() {
+// AppContent is the routes + layout without the router — exported for SSR prerendering
+export function AppContent() {
   useEffect(() => {
     // Load scripts from public folder
     const loadScript = (src) => {
@@ -39,13 +40,13 @@ function App() {
       './assets/js/main.js'
       // Card animations are now loaded directly in index.html
     ]
-    
+
     let loadedScripts = []
-    
+
     scripts.forEach(src => {
       loadedScripts.push(loadScript(src))
     })
-    
+
     // Cleanup function to remove scripts when component unmounts
     return () => {
       loadedScripts.forEach(script => {
@@ -57,20 +58,26 @@ function App() {
   }, [])
 
   return (
-    <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/repositories" element={<Repositories />} />
-          <Route path="/cv" element={<CurriculumVitae />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/why-do-we-need-agents" element={<WhyDoWeNeedAgents />} />
-          <Route path="/blog/ai-agent-memory" element={<AIAgentMemory />} />
-          {/* Add a catch-all redirect to home */}
-          <Route path="*" element={<Home />} />
-        </Routes>
-      </Layout>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/repositories" element={<Repositories />} />
+        <Route path="/cv" element={<CurriculumVitae />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/why-do-we-need-agents" element={<WhyDoWeNeedAgents />} />
+        <Route path="/blog/ai-agent-memory" element={<AIAgentMemory />} />
+        {/* Add a catch-all redirect to home */}
+        <Route path="*" element={<Home />} />
+      </Routes>
+    </Layout>
+  )
+}
+
+function App() {
+  return (
+    <Router basename="/MyPortfolio">
+      <AppContent />
     </Router>
   )
 }

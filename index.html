@@ -6,19 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="/MyPortfolio/" />
     <title>Zachariah Farahany</title>
-    <!-- Handle redirects for SPA on GitHub Pages -->
+    <!-- Single Page Apps for GitHub Pages — https://github.com/rafgraph/spa-github-pages -->
     <script>
-      // Redirect from 404.html
-      (function() {
-        if (sessionStorage.redirect) {
-          const redirect = sessionStorage.redirect;
-          delete sessionStorage.redirect;
-          const baseTag = document.querySelector('base');
-          const basePath = baseTag ? baseTag.getAttribute('href') : '/';
-          const path = redirect.replace(location.origin + basePath, '');
-          history.replaceState(null, null, basePath + path);
+      (function(l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&');
+          }).join('?');
+          window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
         }
-      })();
+      }(window.location));
     </script>
     <!-- Load CSS files directly -->
     <link rel="stylesheet" href="/assets/css/main.css" />
@@ -39,22 +38,6 @@
         transform: translateY(-1px);
       }
     </style>
-    <!-- Redirect script for GitHub Pages SPA -->
-    <script>
-      (function() {
-        // Redirect logic for GitHub Pages single-page applications
-        var redirect = sessionStorage.redirect;
-        delete sessionStorage.redirect;
-        if (redirect && redirect !== location.href) {
-          history.replaceState(null, null, redirect);
-        }
-        
-        // For HashRouter: redirect naked URL to hash route
-        if (!location.hash && location.pathname.endsWith('/MyPortfolio/')) {
-          location.replace(location.href + '#/');
-        }
-      })();
-    </script>
   </head>
   <body>
     <div id="root"></div>
