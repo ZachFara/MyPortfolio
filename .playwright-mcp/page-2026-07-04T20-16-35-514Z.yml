@@ -1,0 +1,175 @@
+- generic [ref=f8e3]:
+  - generic [ref=f8e9]:
+    - banner [ref=f8e10]:
+      - link "Home" [ref=f8e11] [cursor=pointer]:
+        - /url: /MyPortfolio
+        - strong [ref=f8e12]: Home
+    - article [ref=f8e13]:
+      - generic [ref=f8e14]:
+        - heading "Why Do We Need Agents?" [level=1] [ref=f8e15]
+        - img "AI Agent Architecture Diagram" [ref=f8e17]
+        - generic [ref=f8e19]: Created on July 24, 2025
+        - generic [ref=f8e20]:
+          - generic [ref=f8e21]: "#AI"
+          - generic [ref=f8e22]: "#Agents"
+          - generic [ref=f8e23]: "#LlamaIndex"
+          - generic [ref=f8e24]: "#data-science"
+      - generic [ref=f8e25]:
+        - paragraph [ref=f8e26]:
+          - text: "Imagine juggling a dozen different dashboards, APIs, and databases to answer a single question, then forgetting what you did ten minutes ago. That's the fate of traditional chatbots without additional capabilities: powerful yet perpetually stateless. An"
+          - strong [ref=f8e27]: AI agent
+          - text: ", by contrast, is truly like having a second brain that can remember context, plan multi-step actions, react to failures, and learn from past interactions."
+        - heading "What Is an AI Agent?" [level=2] [ref=f8e28]
+        - paragraph [ref=f8e29]:
+          - text: An agent is more than a chatbot. It embodies a
+          - strong [ref=f8e30]: cognitive loop
+          - text: ":"
+        - list [ref=f8e31]:
+          - listitem [ref=f8e32]:
+            - strong [ref=f8e33]: Perception
+            - text: ": Grasping user intent and environmental signals."
+          - listitem [ref=f8e34]:
+            - strong [ref=f8e35]: Planning
+            - text: ": Decomposing complex requests into ordered actions."
+          - listitem [ref=f8e36]:
+            - strong [ref=f8e37]: Execution
+            - text: ": Delegating each action to the right service or function."
+          - listitem [ref=f8e38]:
+            - strong [ref=f8e39]: Reflection & Memory
+            - text: ": Storing outcomes and context for future interactions."
+        - paragraph [ref=f8e40]: Without this loop, the tool becomes a static script rigidly following pre-defined branches without adapting to new contexts or learning from past interactions, much like a program without if-else logic or loops.
+        - heading "Core Components & Intuition" [level=2] [ref=f8e41]
+        - heading "Perception" [level=3] [ref=f8e42]
+        - paragraph [ref=f8e43]: Think of this as the agent's "ears" and "eyes." By translating free-form text into structured intents, the agent understands whether you're asking for a database query, a similarity search, or a chart.
+        - heading "Planning" [level=3] [ref=f8e44]
+        - paragraph [ref=f8e45]: This is the step where the agent interprets the desires of the user and then creates a plan to fetch the relevant results, crafting a plan like "First query yesterday's sales in Athena, then fetch related reports from OpenSearch." In addition, after each execution step, the agent reflects on the output and then drafts a new plan, allowing it to course-correct if something goes wrong or respond early if it already has enough information.
+        - heading "Execution" [level=3] [ref=f8e46]
+        - paragraph [ref=f8e47]: During this step, the agent calls the tools that it planned out during the planning stage. Each tool, such as a SQL query engine that prunes your database, a graphing tool that generates visuals, and a vector-based search for RAG, works together. The executor stitches these outputs into a cohesive response.
+        - heading "Memory" [level=3] [ref=f8e48]
+        - paragraph [ref=f8e49]: Memory is the agent’s context store. It captures prior queries, tool outputs, and decisions, then re-injects them when relevant. This makes follow up questions faster and more natural, building continuity across interactions.
+        - 'heading "LlamaIndex: The Glue That Binds" [level=2] [ref=f8e50]'
+        - paragraph [ref=f8e51]:
+          - emphasis [ref=f8e52]: "Note: Some of the modules mentioned are slightly out of date in order to be compatible with external libraries."
+        - paragraph [ref=f8e53]:
+          - strong [ref=f8e54]:
+            - link "LlamaIndex" [ref=f8e55] [cursor=pointer]:
+              - /url: https://docs.llamaindex.ai/
+          - text: is a foundational library for building agentic AI applications. At its core, it provides modular components that make it easy to connect agents with relevant data sources, equip them with memory, and coordinate their behavior through tools and planning logic.
+        - paragraph [ref=f8e56]:
+          - text: When creating an agent, a common first step is to give it access to structured knowledge. LlamaIndex supports this via several types of indices, such as the
+          - strong [ref=f8e57]:
+            - link "VectorStoreIndex" [ref=f8e58] [cursor=pointer]:
+              - /url: https://docs.llamaindex.ai/en/stable/module_guides/indexing/vector_store_index/
+          - text: ", which normalize and structure your data for retrieval. To make this data queryable by an agent, you can wrap the index into a"
+          - strong [ref=f8e59]:
+            - link "Query Engine" [ref=f8e60] [cursor=pointer]:
+              - /url: https://docs.llamaindex.ai/en/stable/module_guides/deploying/query_engine/
+          - text: ", a component that exposes a simple"
+          - code [ref=f8e61]: .query()
+          - text: method for retrieving relevant information. To fine-tune agent behavior, you can use
+          - strong [ref=f8e62]:
+            - link "prompt templates" [ref=f8e63] [cursor=pointer]:
+              - /url: https://docs.llamaindex.ai/en/stable/module_guides/models/prompts/
+          - text: within the query engine. These enable few-shot prompting where the agent is guided by a set of example interactions to improve the quality of its responses.
+        - paragraph [ref=f8e64]:
+          - text: Once the query engine is ready, you'll want to expose it as a tool that the agent can call. LlamaIndex offers a convenient
+          - strong [ref=f8e65]:
+            - link "QueryEngineTool" [ref=f8e66] [cursor=pointer]:
+              - /url: https://docs.llamaindex.ai/en/stable/api_reference/tools/query_engine/
+          - text: to do just that. If you're working with custom logic, say a Python function that performs an action you can wrap it using
+          - strong [ref=f8e67]:
+            - link "FunctionTool" [ref=f8e68] [cursor=pointer]:
+              - /url: https://docs.llamaindex.ai/en/stable/api_reference/tools/function/
+          - text: ", providing both a name and description so the agent knows when and how to use it."
+        - paragraph [ref=f8e69]:
+          - text: After assembling a set of tools, you're ready to bring your agent to life. Pass the tools to the
+          - strong [ref=f8e70]:
+            - link "AgentRunner" [ref=f8e71] [cursor=pointer]:
+              - /url: https://docs.llamaindex.ai/en/v0.10.34/module_guides/deploying/agents/agent_runner/
+          - text: (or newer agent abstractions), and the system will handle chat interactions, tool invocation, and reasoning over steps. Your agent can now field questions and take intelligent action based on the tools and data you've connected.
+        - paragraph [ref=f8e72]:
+          - text: For advanced workflows, LlamaIndex also offers flexible memory options. The default
+          - strong [ref=f8e73]:
+            - link "ChatMemoryBuffer" [ref=f8e74] [cursor=pointer]:
+              - /url: https://docs.llamaindex.ai/en/stable/api_reference/memory/chat_memory_buffer/
+          - text: supports basic conversational memory, while more specialized memory modules are being introduced to better separate short-term memory, long-term recall, and planning context. You can inject or modify memory during runtime, which is useful for updating prompts, injecting prior knowledge, or debugging behavior.
+        - paragraph [ref=f8e75]:
+          - text: LlamaIndex also includes built-in support for live monitoring and instrumentation. With the
+          - strong [ref=f8e76]:
+            - link "BaseCallbackHandler" [ref=f8e77] [cursor=pointer]:
+              - /url: https://docs.llamaindex.ai/en/stable/api_reference/callbacks/
+          - text: ", you can subclass and define your own callbacks to track agent behavior in real time, whether it's logging the current tool, rendering a progress bar, or recording decisions for later analysis."
+        - paragraph [ref=f8e78]: In short, LlamaIndex streamlines the process of building agentic systems by combining core concepts memory, planning, data access, and execution into a cohesive, extensible framework. And this is just scratching the surface. Features like streaming responses, cloud-based connectors, and live execution tracing make it one of the most powerful libraries for anyone building intelligent, multi-step AI workflows.
+        - heading "Conclusion" [level=2] [ref=f8e79]
+        - paragraph [ref=f8e80]:
+          - text: Agents transform static code into
+          - strong [ref=f8e81]: adaptive partners
+          - text: that learn, remember, and coordinate across services. By combining external managed infrastructure, LlamaIndex's modular abstractions, and minimal declarative code, you create a system that not only responds but also evolves turning reactive scripts into proactive problem-solvers.
+        - paragraph [ref=f8e83]:
+          - strong [ref=f8e84]: "Image credit:"
+          - text: "\"Agentic AI: How to Build an AI Agent from Scratch - A Developer's Guide\" by Aman Raghuvanshi. Source:"
+          - link "Medium" [ref=f8e85] [cursor=pointer]:
+            - /url: https://medium.com/@iamanraghuvanshi/agentic-ai-2-how-to-build-an-ai-agent-from-scratch-a-developers-guide-ba2f6ae042c4
+  - generic [ref=f8e87]:
+    - navigation [ref=f8e88]:
+      - heading "Menu" [level=2] [ref=f8e90]
+      - list [ref=f8e91]:
+        - listitem [ref=f8e92]:
+          - link "Home" [ref=f8e93] [cursor=pointer]:
+            - /url: /MyPortfolio
+        - listitem [ref=f8e94]:
+          - link "Projects" [ref=f8e95] [cursor=pointer]:
+            - /url: /MyPortfolio/projects
+        - listitem [ref=f8e96]:
+          - link "Repositories" [ref=f8e97] [cursor=pointer]:
+            - /url: /MyPortfolio/repositories
+        - listitem [ref=f8e98]:
+          - link "Blog" [ref=f8e99] [cursor=pointer]:
+            - /url: /MyPortfolio/blog
+        - listitem [ref=f8e100]:
+          - link "Curriculum Vitae" [ref=f8e101] [cursor=pointer]:
+            - /url: /MyPortfolio/cv
+    - generic [ref=f8e102]:
+      - heading "Recent Blog Posts" [level=2] [ref=f8e104]
+      - generic [ref=f8e105]:
+        - article [ref=f8e106] [cursor=pointer]:
+          - link "Why Do We Need Agents?" [ref=f8e107]:
+            - /url: /MyPortfolio/blog/why-do-we-need-agents
+            - heading "Why Do We Need Agents?" [level=3] [ref=f8e108]
+          - generic [ref=f8e109]: July 24, 2025 · 7 min read
+        - article [ref=f8e110] [cursor=pointer]:
+          - link "Agentic Memory from Llama Index" [ref=f8e111]:
+            - /url: /MyPortfolio/blog/ai-agent-memory
+            - heading "Agentic Memory from Llama Index" [level=3] [ref=f8e112]
+          - generic [ref=f8e113]: May 30, 2025 · 4 min read
+      - link "View All Posts" [ref=f8e115] [cursor=pointer]:
+        - /url: /MyPortfolio/blog
+    - generic [ref=f8e116]:
+      - heading "Recent Projects" [level=2] [ref=f8e118]
+      - generic [ref=f8e119]:
+        - article [ref=f8e120] [cursor=pointer]:
+          - link "SkySearch UAVs" [ref=f8e121]:
+            - /url: /MyPortfolio/projects#skysearch
+            - img "SkySearch UAVs" [ref=f8e122]
+          - paragraph [ref=f8e123]: Check out SkySearch UAVs
+        - article [ref=f8e124] [cursor=pointer]:
+          - link "Diffusion Models" [ref=f8e125]:
+            - /url: /MyPortfolio/projects#diffusionmodels
+            - img "Diffusion Models" [ref=f8e126]
+          - paragraph [ref=f8e127]: Image GenAI with Stable Denoising Diffusion models
+      - list [ref=f8e128]:
+        - listitem [ref=f8e129]:
+          - link "More" [ref=f8e130] [cursor=pointer]:
+            - /url: /MyPortfolio/projects
+    - generic [ref=f8e131]:
+      - heading "Get in touch" [level=2] [ref=f8e133]
+      - paragraph
+      - list [ref=f8e134]:
+        - listitem [ref=f8e135]:
+          - text: 
+          - link "zachariah.farahany@gmail.com" [ref=f8e136] [cursor=pointer]:
+            - /url: mailto:zachariah.farahany@gmail.com
+        - listitem [ref=f8e137]:
+          - text: 
+          - link "LinkedIn" [ref=f8e138] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/zachariah-farahany-3818aa1bb/

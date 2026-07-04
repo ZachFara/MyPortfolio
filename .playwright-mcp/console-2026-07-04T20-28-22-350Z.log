@@ -1,0 +1,18 @@
+[     120ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5174/MyPortfolio/node_modules/.vite/deps/react-dom_client.js?v=bfba221a:17984
+[     125ms] [LOG] HamburgerMenu render: {isOpen: true, isMobile: false, onToggle: true} @ http://localhost:5174/MyPortfolio/src/components/HamburgerMenu.jsx:19
+[     126ms] [LOG] HamburgerMenu render: {isOpen: true, isMobile: false, onToggle: true} @ http://localhost:5174/MyPortfolio/src/components/HamburgerMenu.jsx:19
+[     139ms] [ERROR] Using UNSAFE_componentWillMount in strict mode is not recommended and may indicate bugs in your code. See https://react.dev/link/unsafe-component-lifecycles for details.
+
+* Move code with side effects to componentDidMount, and set initial state in the constructor.
+
+Please update the following components: %s SideEffect(NullComponent2) @ http://localhost:5174/MyPortfolio/node_modules/.vite/deps/react-dom_client.js?v=bfba221a:16350
+[     160ms] [LOG] Mobile check: {windowWidth: 1440, isMobile: false} @ http://localhost:5174/MyPortfolio/src/components/Layout.jsx:33
+[     161ms] [LOG] Mobile check: {windowWidth: 1440, isMobile: false} @ http://localhost:5174/MyPortfolio/src/components/Layout.jsx:33
+[     194ms] ReferenceError: jQuery is not defined
+    at http://localhost:5174/MyPortfolio/assets/js/main.js:262:4
+[     194ms] ReferenceError: jQuery is not defined
+    at http://localhost:5174/MyPortfolio/assets/js/main.js:262:4
+[     194ms] ReferenceError: jQuery is not defined
+    at http://localhost:5174/MyPortfolio/assets/js/util.js:587:4
+[     194ms] ReferenceError: jQuery is not defined
+    at http://localhost:5174/MyPortfolio/assets/js/util.js:587:4

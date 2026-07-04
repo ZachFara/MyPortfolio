@@ -1,0 +1,444 @@
+/*
+ * theme-dark.css — Dark technical redesign (visual overhaul, structure preserved)
+ * ---------------------------------------------------------------------------
+ * Design read: quant/ML developer portfolio, precise "technical documentation"
+ * register. Dark neutrals + a single blue accent used sparingly.
+ * Dials: DESIGN_VARIANCE 7 · MOTION_INTENSITY 3 · VISUAL_DENSITY 4.
+ *
+ * Loaded LAST (see main.jsx) so it wins the cascade over the HTML5UP template
+ * (public/assets/css/main.css) and the src/styles overrides. Uses !important
+ * only where the existing overrides.css / src main.css already do.
+ */
+
+:root {
+  /* Neutrals — off-black, never pure #000 */
+  --bg: #0d0f12;
+  --bg-elevated: #14171b;   /* sidebar */
+  --bg-inset: #0a0b0e;      /* code, wells */
+  --surface: #16191e;       /* cards, framed image, diamond fill */
+
+  /* Hairlines */
+  --hairline: rgba(255, 255, 255, 0.07);
+  --hairline-strong: rgba(255, 255, 255, 0.13);
+
+  /* Text — off-white, never pure #fff */
+  --text-primary: #e9ecf0;
+  --text-body: #a3aab5;
+  --text-muted: #6c7480;
+
+  /* Single accent (blue) */
+  --accent: #4c9aff;
+  --accent-strong: #6fb0ff;
+  --accent-tint: rgba(76, 154, 255, 0.10);
+  --accent-tint-strong: rgba(76, 154, 255, 0.20);
+
+  --radius: 3px;
+
+  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+
+/* ---------------------------------------------------------------- Base --- */
+html,
+body {
+  background: var(--bg) !important;
+}
+
+body,
+input,
+select,
+textarea {
+  color: var(--text-body);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+strong, b { color: var(--text-primary); }
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-strong) !important; border-bottom-color: transparent; }
+
+code {
+  background: var(--bg-inset);
+  border: 1px solid var(--hairline);
+  color: var(--accent-strong);
+  font-family: var(--font-mono);
+}
+
+::selection {
+  background: var(--accent-tint-strong);
+  color: var(--text-primary);
+}
+
+/* Restore an accessible focus ring (overrides.css kills all outlines) */
+a:focus-visible,
+button:focus-visible,
+.button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--accent) !important;
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------- Layout shell --- */
+#main > .inner > section {
+  border-top-color: var(--hairline) !important;
+}
+
+/* Topbar */
+#header {
+  border-bottom: 1px solid var(--hairline-strong);
+  position: relative;
+}
+#header::after {                     /* precise accent marker — wayfinding */
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 3.5em;
+  height: 2px;
+  background: var(--accent);
+}
+#header .logo {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+#header .logo strong { color: inherit; font-weight: 500; }
+#header .logo.active,
+#header .logo:hover { color: var(--accent); }
+
+/* ------------------------------------------------------------- Sidebar --- */
+#sidebar {
+  background-color: var(--bg-elevated) !important;
+  color: var(--text-body);
+}
+#sidebar > .inner > * {
+  border-bottom-color: var(--hairline) !important;
+}
+
+/* Every sidebar section header → small technical mono label
+   (covers both header.major and the plain <header> in BlogSidebar) */
+#sidebar header h2 {
+  font-family: var(--font-mono);
+  font-size: 0.72em !important;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+#sidebar h3 { color: var(--text-primary); font-family: var(--font-display); }
+#sidebar p { color: var(--text-body); }
+
+/* Blog-post links in the sidebar — the <h3> sits inside an <a>, so pin it */
+#sidebar .sidebar-blog-title h3,
+#sidebar .mini-posts article h3 { color: var(--text-primary); }
+#sidebar .sidebar-blog-title:hover h3,
+#sidebar .mini-posts article:hover h3 { color: var(--accent) !important; }
+#sidebar .sidebar-blog-meta { color: var(--text-muted); }
+
+/* Nav menu → mono, precise, accent only on hover/active */
+#menu ul {
+  font-family: var(--font-mono);
+  color: var(--text-body);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+#menu ul a { font-size: 0.82em; color: var(--text-body); }
+#menu > ul > li { border-top-color: var(--hairline) !important; }
+#menu ul a:hover {
+  color: var(--accent) !important;
+  border-left: 3px solid var(--accent) !important;
+  background-color: var(--accent-tint) !important;
+  padding-left: 1em !important;
+}
+
+/* Active states (override src/main.css + overrides.css #2c86c5 !important) */
+a.active,
+#menu ul a.active {
+  color: var(--accent) !important;
+  background-color: var(--accent-tint) !important;
+  border-left-color: var(--accent) !important;
+}
+
+/* Sidebar cards (blog posts + recent projects) — dark surface, not white */
+#sidebar .mini-posts article,
+#sidebar .inner .mini-posts article,
+.sidebar-blog-post {
+  background: var(--surface) !important;
+  border: 1px solid var(--hairline) !important;
+  border-top-color: var(--hairline) !important;
+}
+#sidebar .mini-posts article:hover,
+#sidebar .inner .mini-posts article:hover,
+.sidebar-blog-post:hover {
+  border-color: var(--hairline-strong) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Contact icons */
+#sidebar .contact a { color: var(--text-body); }
+#sidebar .contact a:hover { color: var(--accent) !important; }
+
+/* Hamburger button */
+.hamburger-menu {
+  background: rgba(28, 32, 38, 0.92) !important;
+  border: 1px solid var(--hairline) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45) !important;
+}
+.hamburger-menu:hover { background: rgba(36, 41, 48, 1) !important; }
+.hamburger-menu:focus { box-shadow: 0 0 0 2px var(--accent-tint-strong) !important; }
+.hamburger-line { background-color: var(--text-body) !important; }
+
+/* ---------------------------------------------------- Homepage: banner --- */
+#banner h1 {
+  font-size: 4.25em;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Credential line → technical annotation with an accent tick */
+#banner .content header p {
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  letter-spacing: 0.01em;
+  color: var(--text-muted);
+  border-left: 2px solid var(--accent);
+  padding-left: 0.85em;
+  text-transform: none;
+}
+
+/* Bio paragraph — comfortable measure */
+#banner .content > p {
+  color: var(--text-body);
+  max-width: 40em;
+}
+
+/* Framed portrait — dark mat instead of the white card in index.html */
+.image.object img {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--hairline-strong) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
+  padding: 6px !important;
+}
+.image.object img:hover {
+  box-shadow: 0 10px 40px rgba(76, 154, 255, 0.12),
+              0 0 0 1px var(--accent) !important;
+  transform: translateY(-1px);
+}
+
+/* ------------------------------------------------ Homepage: key skills --- */
+/* Accent underline anchors the section header */
+#main .major h2,
+#main header.major h2 {
+  position: relative;
+  padding-bottom: 0.45em;
+}
+#main .major h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 2.5em;
+  height: 2px;
+  background: var(--accent);
+}
+
+.features article .content h3 {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  font-size: 1.15em;
+  letter-spacing: -0.01em;
+}
+.features article .content p { color: var(--text-body); }
+
+/* Diamond icons — neutral at rest, accent on hover (sparing).
+   The glyph (:before) must sit ABOVE the filled diamond (:after). */
+.features article .icon { position: relative; }
+.features article .icon:after {
+  border: 1px solid var(--hairline-strong);
+  background: var(--surface);
+  z-index: 0;
+}
+.features article .icon:before {
+  position: relative;
+  z-index: 1;
+  color: var(--text-primary);
+}
+.features article:hover .icon:after { border-color: var(--accent); }
+.features article:hover .icon:before { color: var(--accent); }
+
+/* ------------------------------------------------------------ Buttons --- */
+.button {
+  background-color: transparent;
+  border: 1px solid var(--hairline-strong);
+  box-shadow: none !important;                 /* drop the indigo inset ring */
+  color: var(--text-primary) !important;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  border-radius: var(--radius);
+  letter-spacing: 0.1em;
+}
+.button:hover {
+  background-color: var(--accent-tint) !important;
+  border-color: var(--accent);
+  color: var(--accent) !important;
+}
+.button.primary {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg-inset) !important;
+}
+.button.primary:hover { background-color: var(--accent-strong) !important; }
+
+/* ============================================================= INNER PAGES
+   Projects / Repositories / Blog list / CV / blog-post code.
+   These use card/box components with hardcoded light backgrounds
+   (unified-card-animations.css #fff, CV .section #f5f6f7, CodeStyling.css
+   #f5f5f5). Selectors are #main-scoped so they outrank those sources AND any
+   route-imported CSS (CodeStyling.css injects after this file). */
+
+/* Cards — projects, repositories, blog list */
+#main .project-card,
+#main .repo-card,
+#main .blog-card {
+  background: var(--surface) !important;
+  border: 1px solid var(--hairline) !important;
+  color: var(--text-body) !important;
+  border-radius: var(--radius) !important;
+}
+#main .project-card:hover,
+#main .repo-card:hover,
+#main .blog-card:hover {
+  border-color: var(--accent) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55) !important;
+}
+#main .project-info { background: transparent !important; }
+
+/* Card typography */
+#main .repo-title,
+#main .blog-title,
+#main .project-info h2 { color: var(--text-primary) !important; }
+#main .repo-card:hover .repo-title,
+#main .blog-card:hover .blog-title,
+#main .project-card:hover .project-info h2 { color: var(--accent) !important; }
+#main .repo-description,
+#main .blog-description,
+#main .project-info p { color: var(--text-body) !important; }
+#main .repo-meta,
+#main .blog-meta,
+#main .blog-date,
+#main .blog-read-time { color: var(--text-muted) !important; }
+
+/* Repo star / language pills (were light #f1f1f1) */
+#main .repo-stars,
+#main .repo-language {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--hairline) !important;
+  color: var(--text-muted) !important;
+}
+
+/* Card links */
+#main .repo-link,
+#main .project-link,
+#main .blog-link,
+#main .repo-card a,
+#main .project-card a,
+#main .blog-card a { color: var(--accent) !important; border-bottom: 0 !important; }
+
+/* Tag pills */
+#main .tag {
+  background-color: var(--accent-tint) !important;
+  color: var(--accent) !important;
+  font-family: var(--font-mono);
+  border-radius: var(--radius);
+}
+#main .tag:hover { background-color: var(--accent-tint-strong) !important; }
+
+/* CV section boxes */
+#main .section {
+  background: var(--surface) !important;
+  border: 1px solid var(--hairline) !important;
+  border-radius: var(--radius) !important;
+}
+#main .section-title {
+  color: var(--text-primary) !important;
+  font-family: var(--font-display) !important;   /* was Roboto Slab serif */
+  border-bottom-color: var(--hairline-strong) !important;  /* was #2c2f9a indigo */
+}
+
+/* CV text colors — template hardcodes #3d4449 (1.78:1 on dark, fails WCAG) */
+#main .section .label,
+#main .section .job-title,
+#main .section .education-title { color: var(--text-primary) !important; }
+#main .section .job-title,
+#main .section .education-title { font-family: var(--font-display) !important; }  /* was serif */
+#main .section .link { color: var(--accent) !important; }
+#main .date-range {
+  display: inline-block;
+  background: var(--accent-tint) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--accent-tint-strong);
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  font-weight: 500;
+  padding: 0.15em 0.6em;
+}
+
+/* Code — blocks + inline (CodeStyling.css forces a light panel) */
+#main pre,
+#main pre code,
+#main .code-cell,
+#main .code-cell pre,
+#main .language-python,
+#main .python-code {
+  background-color: var(--bg-inset) !important;
+  border: 1px solid var(--hairline) !important;
+  color: #cdd3dd !important;
+  font-family: var(--font-mono) !important;
+}
+#main pre { border-radius: var(--radius) !important; padding: 1em 1.25em !important; }
+#main p code,
+#main li code,
+#main h2 code,
+#main h3 code {
+  background-color: var(--accent-tint) !important;
+  color: var(--accent-strong) !important;
+  border: 1px solid var(--hairline) !important;
+  font-family: var(--font-mono) !important;
+}
+
+/* --------------------------------------------------------- Scrollbars --- */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--hairline-strong) transparent;
+}
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-thumb {
+  background: var(--hairline-strong);
+  border-radius: 999px;
+  border: 3px solid var(--bg);
+}
+
+/* ----------------------------------------------------- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

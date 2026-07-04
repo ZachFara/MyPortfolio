@@ -1,0 +1,22 @@
+[     128ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5174/MyPortfolio/node_modules/.vite/deps/react-dom_client.js?v=bfba221a:17984
+[     134ms] [LOG] HamburgerMenu render: {isOpen: true, isMobile: false, onToggle: true} @ http://localhost:5174/MyPortfolio/src/components/HamburgerMenu.jsx:19
+[     134ms] [LOG] HamburgerMenu render: {isOpen: true, isMobile: false, onToggle: true} @ http://localhost:5174/MyPortfolio/src/components/HamburgerMenu.jsx:19
+[     137ms] [ERROR] Received `%s` for a non-boolean attribute `%s`.
+
+If you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}. true jsx jsx true jsx @ http://localhost:5174/MyPortfolio/node_modules/.vite/deps/react-dom_client.js?v=bfba221a:2470
+[     137ms] [ERROR] Received `%s` for a non-boolean attribute `%s`.
+
+If you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}. true global global true global @ http://localhost:5174/MyPortfolio/node_modules/.vite/deps/react-dom_client.js?v=bfba221a:2470
+[     142ms] [ERROR] Using UNSAFE_componentWillMount in strict mode is not recommended and may indicate bugs in your code. See https://react.dev/link/unsafe-component-lifecycles for details.
+
+* Move code with side effects to componentDidMount, and set initial state in the constructor.
+
+Please update the following components: %s SideEffect(NullComponent2) @ http://localhost:5174/MyPortfolio/node_modules/.vite/deps/react-dom_client.js?v=bfba221a:16350
+[     152ms] [LOG] Mobile check: {windowWidth: 1440, isMobile: false} @ http://localhost:5174/MyPortfolio/src/components/Layout.jsx:33
+[     152ms] [LOG] Mobile check: {windowWidth: 1440, isMobile: false} @ http://localhost:5174/MyPortfolio/src/components/Layout.jsx:33
+[    6112ms] [LOG] Mobile check: {windowWidth: 1, isMobile: true} @ http://localhost:5174/MyPortfolio/src/components/Layout.jsx:33
+[    6113ms] [LOG] HamburgerMenu render: {isOpen: false, isMobile: true, onToggle: true} @ http://localhost:5174/MyPortfolio/src/components/HamburgerMenu.jsx:19
+[    6113ms] [LOG] HamburgerMenu render: {isOpen: false, isMobile: true, onToggle: true} @ http://localhost:5174/MyPortfolio/src/components/HamburgerMenu.jsx:19
+[    6130ms] [LOG] Mobile check: {windowWidth: 1440, isMobile: false} @ http://localhost:5174/MyPortfolio/src/components/Layout.jsx:33
+[    6131ms] [LOG] HamburgerMenu render: {isOpen: true, isMobile: false, onToggle: true} @ http://localhost:5174/MyPortfolio/src/components/HamburgerMenu.jsx:19
+[    6131ms] [LOG] HamburgerMenu render: {isOpen: true, isMobile: false, onToggle: true} @ http://localhost:5174/MyPortfolio/src/components/HamburgerMenu.jsx:19

@@ -1,0 +1,119 @@
+- generic [ref=f11e3]:
+  - generic [ref=f11e9]:
+    - banner [ref=f11e10]:
+      - link "Home" [ref=f11e11] [cursor=pointer]:
+        - /url: /MyPortfolio
+        - strong [ref=f11e12]: Home
+    - generic [ref=f11e13]:
+      - heading "Projects" [level=1] [ref=f11e15]
+      - generic [ref=f11e16]:
+        - separator [ref=f11e17]
+        - heading "Robotics" [level=2] [ref=f11e18]
+        - link "Project Image SkySearch UAVs Multi-modal model powered UAVs" [ref=f11e20] [cursor=pointer]:
+          - /url: https://github.com/ZachFara/SkySearch
+          - generic [ref=f11e21]:
+            - img "Project Image" [ref=f11e23]
+            - generic [ref=f11e24]:
+              - heading "SkySearch UAVs" [level=2] [ref=f11e25]
+              - paragraph [ref=f11e26]: Multi-modal model powered UAVs
+      - generic [ref=f11e27]:
+        - separator [ref=f11e28]
+        - heading "Machine Learning" [level=2] [ref=f11e29]
+        - generic [ref=f11e30]:
+          - link "Project Image Denoising Diffusion Models Optimizing denoising diffusion models" [ref=f11e31] [cursor=pointer]:
+            - /url: https://github.com/ZachFara/Penn-State-REU-2021-DenoisingDiffusionForAdversarialPurification
+            - generic [ref=f11e32]:
+              - img "Project Image" [ref=f11e33]
+              - generic [ref=f11e34]:
+                - heading "Denoising Diffusion Models" [level=2] [ref=f11e35]
+                - paragraph [ref=f11e36]: Optimizing denoising diffusion models
+          - link "Project Image Predicting COVID-19 Length of Stay Enhancing patient outcomes with ML" [ref=f11e37] [cursor=pointer]:
+            - /url: https://github.com/ZachFara/Oversampling-Techniques-for-Predicting-COVID-19-Patient-Length-of-Stay
+            - generic [ref=f11e38]:
+              - img "Project Image" [ref=f11e39]
+              - generic [ref=f11e40]:
+                - heading "Predicting COVID-19 Length of Stay" [level=2] [ref=f11e41]
+                - paragraph [ref=f11e42]: Enhancing patient outcomes with ML
+      - generic [ref=f11e43]:
+        - separator [ref=f11e44]
+        - heading "Distributed Systems" [level=2] [ref=f11e45]
+        - link "Project Image Autonomous Weather based commodity trading Deploying a multi-server trading platform" [ref=f11e47] [cursor=pointer]:
+          - /url: https://github.com/ZachFara/RealTime-AutonamousWeatherTrading
+          - generic [ref=f11e48]:
+            - img "Project Image" [ref=f11e49]
+            - generic [ref=f11e50]:
+              - heading "Autonomous Weather based commodity trading" [level=2] [ref=f11e51]
+              - paragraph [ref=f11e52]: Deploying a multi-server trading platform
+      - generic [ref=f11e53]:
+        - separator [ref=f11e54]
+        - heading "Generative AI" [level=2] [ref=f11e55]
+        - link "Project Image Chartwell Insurance E-Mail chatbot OpenAI based email automation solution" [ref=f11e57] [cursor=pointer]:
+          - /url: https://github.com/ZachFara/Chartwell-Insurance-AI/tree/revamp
+          - generic [ref=f11e58]:
+            - img "Project Image" [ref=f11e59]
+            - generic [ref=f11e60]:
+              - heading "Chartwell Insurance E-Mail chatbot" [level=2] [ref=f11e61]
+              - paragraph [ref=f11e62]: OpenAI based email automation solution
+  - generic [ref=f11e64]:
+    - navigation [ref=f11e65]:
+      - heading "Menu" [level=2] [ref=f11e67]
+      - list [ref=f11e68]:
+        - listitem [ref=f11e69]:
+          - link "Home" [ref=f11e70] [cursor=pointer]:
+            - /url: /MyPortfolio
+        - listitem [ref=f11e71]:
+          - link "Projects" [ref=f11e72] [cursor=pointer]:
+            - /url: /MyPortfolio/projects
+        - listitem [ref=f11e73]:
+          - link "Repositories" [ref=f11e74] [cursor=pointer]:
+            - /url: /MyPortfolio/repositories
+        - listitem [ref=f11e75]:
+          - link "Blog" [ref=f11e76] [cursor=pointer]:
+            - /url: /MyPortfolio/blog
+        - listitem [ref=f11e77]:
+          - link "Curriculum Vitae" [ref=f11e78] [cursor=pointer]:
+            - /url: /MyPortfolio/cv
+    - generic [ref=f11e79]:
+      - heading "Recent Blog Posts" [level=2] [ref=f11e81]
+      - generic [ref=f11e82]:
+        - article [ref=f11e83] [cursor=pointer]:
+          - link "Why Do We Need Agents?" [ref=f11e84]:
+            - /url: /MyPortfolio/blog/why-do-we-need-agents
+            - heading "Why Do We Need Agents?" [level=3] [ref=f11e85]
+          - generic [ref=f11e86]: July 24, 2025 · 7 min read
+        - article [ref=f11e87] [cursor=pointer]:
+          - link "Agentic Memory from Llama Index" [ref=f11e88]:
+            - /url: /MyPortfolio/blog/ai-agent-memory
+            - heading "Agentic Memory from Llama Index" [level=3] [ref=f11e89]
+          - generic [ref=f11e90]: May 30, 2025 · 4 min read
+      - link "View All Posts" [ref=f11e92] [cursor=pointer]:
+        - /url: /MyPortfolio/blog
+    - generic [ref=f11e93]:
+      - heading "Recent Projects" [level=2] [ref=f11e95]
+      - generic [ref=f11e96]:
+        - article [ref=f11e97] [cursor=pointer]:
+          - link "SkySearch UAVs" [ref=f11e98]:
+            - /url: /MyPortfolio/projects#skysearch
+            - img "SkySearch UAVs" [ref=f11e99]
+          - paragraph [ref=f11e100]: Check out SkySearch UAVs
+        - article [ref=f11e101] [cursor=pointer]:
+          - link "Diffusion Models" [ref=f11e102]:
+            - /url: /MyPortfolio/projects#diffusionmodels
+            - img "Diffusion Models" [ref=f11e103]
+          - paragraph [ref=f11e104]: Image GenAI with Stable Denoising Diffusion models
+      - list [ref=f11e105]:
+        - listitem [ref=f11e106]:
+          - link "More" [ref=f11e107] [cursor=pointer]:
+            - /url: /MyPortfolio/projects
+    - generic [ref=f11e108]:
+      - heading "Get in touch" [level=2] [ref=f11e110]
+      - paragraph
+      - list [ref=f11e111]:
+        - listitem [ref=f11e112]:
+          - text: 
+          - link "zachariah.farahany@gmail.com" [ref=f11e113] [cursor=pointer]:
+            - /url: mailto:zachariah.farahany@gmail.com
+        - listitem [ref=f11e114]:
+          - text: 
+          - link "LinkedIn" [ref=f11e115] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/zachariah-farahany-3818aa1bb/
