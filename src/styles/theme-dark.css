@@ -36,10 +36,10 @@
   --f-mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   /* Type scale */
-  --fs-hero:   clamp(3.4rem, 11vw, 9.5rem);
-  --fs-d1:     clamp(2.5rem, 6vw, 5rem);
-  --fs-d2:     clamp(1.9rem, 3.4vw, 3rem);
-  --fs-h:      clamp(1.25rem, 1.8vw, 1.6rem);
+  --fs-hero:   clamp(3rem, 8vw, 7rem);
+  --fs-d1:     clamp(2.25rem, 4.5vw, 4rem);
+  --fs-d2:     clamp(1.7rem, 3vw, 2.4rem);
+  --fs-h:      clamp(1.2rem, 1.6vw, 1.5rem);
   --fs-body:   1.0625rem;
   --fs-sm:     0.9375rem;
   --fs-label:  0.72rem;   /* mono uppercase */
@@ -418,8 +418,8 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
   text-transform: uppercase; color: var(--fg-3);
 }
 .index__title {
-  font-size: clamp(1.6rem, 3.2vw, 2.6rem);
-  margin: 0.35rem 0 0.5rem;
+  font-size: clamp(1.4rem, 2.3vw, 2rem);
+  margin: 0.4rem 0 0.55rem;
   transition: color 0.25s var(--ease);
 }
 .index__row:hover .index__title { color: var(--accent); }
@@ -504,7 +504,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
   text-transform: uppercase; color: var(--fg-3);
 }
 .blog-title {
-  font-size: clamp(1.7rem, 3.4vw, 2.8rem);
+  font-size: clamp(1.5rem, 2.4vw, 2.05rem);
   margin-bottom: 0.75rem;
   transition: color 0.25s var(--ease);
 }
@@ -556,7 +556,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 .cv .job:last-child, .cv .education-item:last-child { border-bottom: 0; margin-bottom: 0; }
 .cv .job-content, .cv .job-details { display: block; }
 .date-range {
-  position: absolute; left: 0; top: 0.35rem; width: 10rem;
+  position: absolute; left: 0; top: 0.15rem; width: 10rem;
   display: block;
   background: none; color: var(--fg-3); padding: 0; margin: 0;
   font-family: var(--f-mono); font-size: var(--fs-sm); letter-spacing: 0.02em;
@@ -574,6 +574,8 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 .cv .job-details > p,
 .cv .education-item > p { color: var(--fg-2); margin-bottom: 0.5rem; font-size: var(--fs-sm); }
 .cv .link { color: var(--accent); word-break: break-word; }
+/* inline contact/venue icons — override the global block-image reset */
+.cv p img, .cv .link img { display: inline-block; vertical-align: middle; }
 
 .education-description, .job-description {
   list-style: none; margin: 1rem 0 0; padding: 0;
@@ -593,10 +595,11 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 }
 .education-description li strong, .job-description li strong { color: var(--fg); }
 
-/* Basics block: definition rows */
+/* Basics block: clean inline definition rows (label: value) */
 .cv .basics > p {
-  display: flex; gap: 0.5rem; align-items: baseline;
   font-size: var(--fs-body);
+  margin-bottom: 0.7rem;
+  line-height: 1.7;
 }
 
 /* ==========================================================================
@@ -608,11 +611,11 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
   padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 4vw, 3.5rem) clamp(4rem, 8vw, 7rem);
 }
 .blog-post .main { text-align: left; margin-bottom: 2.5rem; }
-.blog-post h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 1rem; }
+.blog-post h1 { font-size: clamp(1.9rem, 3.6vw, 2.6rem); line-height: 1.08; margin-bottom: 1rem; }
 .blog-post .blog-subtitle { color: var(--fg-3); font-family: var(--f-mono); font-size: var(--fs-sm); letter-spacing: 0.03em; margin-bottom: 1.5rem; }
 .blog-post .blog-meta { display: flex; gap: 1rem; margin: 1.25rem 0; }
 .blog-post .blog-featured-image img { border-radius: var(--radius); box-shadow: none !important; border: 1px solid var(--line); }
-.blog-post h2, .blog-post h2.blog-title { font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 2.75rem 0 1rem; }
+.blog-post h2, .blog-post h2.blog-title { font-size: clamp(1.35rem, 2.3vw, 1.75rem); line-height: 1.2; margin: 2.75rem 0 1rem; }
 .blog-post h3 { font-size: var(--fs-h); margin: 2rem 0 0.75rem; }
 .blog-post p, .blog-post li { color: var(--fg-2); line-height: 1.75; font-size: 1.05rem; }
 .blog-post p { margin-bottom: 1.25rem; }

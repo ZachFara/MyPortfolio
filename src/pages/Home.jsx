@@ -73,9 +73,8 @@ const Home = () => (
     {/* Selected work */}
     <section>
       <div className="wrap">
-        <div className="page-head__row">
-          <span className="page-head__idx">Selected</span>
-          <h2 style={{ fontSize: 'var(--fs-d2)' }}>Recent work</h2>
+        <div className="cap__head">
+          <p className="eyebrow"><span className="tick">→</span> Selected work</p>
         </div>
         <ol className="index">
           {SELECTED.map((p) => (
