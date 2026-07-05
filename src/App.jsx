@@ -1,13 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { useEffect } from 'react'
 import './App.css'
-import './styles/transitions.css' // Import our custom transitions
-import './styles/overrides.css' // Import overrides to fix red outlines
-import './styles/blog.css' // Import blog styles
-import './styles/sidebar-components.css' // Import our clean sidebar styling
-import './styles/unified-card-animations.css' // Import unified card animations
-import './styles/sidebar-fix.css' // Fix for sidebar disappearing when scrolling
-// Card animations CSS is loaded directly in index.html
+// Legacy HTML5UP override stylesheets removed — the design system in
+// styles/theme-dark.css now owns the cascade.
 import Layout from './components/Layout'
 
 // Pages
@@ -21,42 +15,6 @@ import WhyDoWeNeedAgents from './pages/BlogPosts/WhyDoWeNeedAgents'
 
 // AppContent is the routes + layout without the router — exported for SSR prerendering
 export function AppContent() {
-  useEffect(() => {
-    // Load scripts from public folder
-    const loadScript = (src) => {
-      const script = document.createElement('script')
-      script.src = src
-      script.async = true
-      document.body.appendChild(script)
-      return script
-    }
-
-    // Load scripts in sequence to respect dependencies
-    const scripts = [
-      './assets/js/jquery.min.js',
-      './assets/js/browser.min.js',
-      './assets/js/breakpoints.min.js',
-      './assets/js/util.js',
-      './assets/js/main.js'
-      // Card animations are now loaded directly in index.html
-    ]
-
-    let loadedScripts = []
-
-    scripts.forEach(src => {
-      loadedScripts.push(loadScript(src))
-    })
-
-    // Cleanup function to remove scripts when component unmounts
-    return () => {
-      loadedScripts.forEach(script => {
-        if (script.parentNode) {
-          script.parentNode.removeChild(script)
-        }
-      })
-    }
-  }, [])
-
   return (
     <Layout>
       <Routes>

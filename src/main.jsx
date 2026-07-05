@@ -1,9 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot, hydrateRoot } from 'react-dom/client'
 import './index.css'
-import './styles/main.css'
 import App from './App.jsx'
-import './styles/theme-dark.css' // Dark technical redesign — loaded last to win the cascade
+import './styles/theme-dark.css' // Design system — loaded last to own the cascade
 
 const rootElement = document.getElementById('root')
 if (rootElement.hasChildNodes()) {

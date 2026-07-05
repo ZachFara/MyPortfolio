@@ -1,125 +1,91 @@
 import { useEffect, useState } from 'react';
-import Topbar from './Topbar';
-import Sidebar from './Sidebar';
-import HamburgerMenu from './HamburgerMenu';
-import '../styles/responsive-content.css';
-import '../styles/hide-original-toggle.css';
-import '../styles/mobile-sidebar-fix.css';
-import '../styles/sidebar-spacing.css';
-import '../styles/enhanced-sidebar-transitions.css';
+import { NavLink, useLocation } from 'react-router-dom';
+
+const NAV = [
+  { to: '/', label: 'Index', end: true },
+  { to: '/projects', label: 'Projects' },
+  { to: '/repositories', label: 'Repositories' },
+  { to: '/blog', label: 'Writing' },
+  { to: '/cv', label: 'CV' },
+];
+
+const SOCIAL = [
+  { href: 'https://github.com/ZachFara', icon: 'fab fa-github', label: 'GitHub' },
+  { href: 'https://www.linkedin.com/in/zachariah-farahany-3818aa1bb/', icon: 'fab fa-linkedin', label: 'LinkedIn' },
+  { href: 'mailto:zfarahany193@gmail.com', icon: 'fas fa-envelope', label: 'Email' },
+];
 
 const Layout = ({ children }) => {
-  const [sidebarInactive, setSidebarInactive] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
-  // Check if we're on mobile/tablet
+  // Close the mobile menu on navigation
+  useEffect(() => { setMenuOpen(false); }, [location.pathname]);
+
+  // Lock scroll + allow Escape while the overlay is open
   useEffect(() => {
-    const checkMobile = () => {
-      const mobile = window.innerWidth <= 1280;
-      console.log('Mobile check:', { windowWidth: window.innerWidth, isMobile: mobile });
-      setIsMobile(mobile);
-      if (mobile) {
-        setSidebarInactive(true);
-      } else {
-        setSidebarInactive(false);
-      }
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  // Close sidebar when clicking outside on mobile
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (isMobile && !sidebarInactive) {
-        const sidebar = document.getElementById('sidebar');
-        const hamburger = document.querySelector('.hamburger-menu');
-        
-        if (sidebar && hamburger && 
-            !sidebar.contains(e.target) && 
-            !hamburger.contains(e.target)) {
-          setSidebarInactive(true);
-        }
-      }
-    };
-
-    if (isMobile) {
-      document.addEventListener('click', handleClickOutside);
-      return () => document.removeEventListener('click', handleClickOutside);
-    }
-  }, [isMobile, sidebarInactive]);
-
-  const toggleSidebar = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    // Add a small delay to ensure smooth animation
-    const newState = !sidebarInactive;
-    
-    // On mobile, if we're closing the sidebar, add a slight delay for better UX
-    if (isMobile && !newState) {
-      setTimeout(() => {
-        setSidebarInactive(newState);
-      }, 50);
-    } else {
-      setSidebarInactive(newState);
-    }
-  };
-
-  useEffect(() => {
-    // Add is-preload class to body when component mounts
-    document.body.classList.add('is-preload');
-
-    // Clean up function to remove class when component unmounts
-    return () => {
-      document.body.classList.remove('is-preload');
-    };
-  }, []);
-
-  // Load main.js functionality
-  useEffect(() => {
-    // Import scripts from the public folder
-    const loadScripts = async () => {
-      try {
-        // These scripts are already included in index.html, so we don't need to load them again
-        // But we might need to execute some initialization code from main.js
-        
-        // If there's specific initialization logic needed, we can add it here
-        // For example, to handle sidebar toggles, mobile responsiveness, etc.
-        
-        // Add any browser-specific classes
-        if (navigator.userAgent.match(/(CriOS|FxiOS|EdgiOS)/)) {
-          document.body.classList.add('is-mobile');
-        }
-      } catch (error) {
-        console.error("Error loading scripts:", error);
-      }
-    };
-
-    loadScripts();
-  }, []);
+    const onKey = (e) => { if (e.key === 'Escape') setMenuOpen(false); };
+    document.addEventListener('keydown', onKey);
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.removeEventListener('keydown', onKey); document.body.style.overflow = ''; };
+  }, [menuOpen]);
 
   return (
-    <div id="wrapper">
-      <HamburgerMenu 
-        isOpen={!sidebarInactive}
-        onToggle={toggleSidebar}
-        isMobile={isMobile}
-      />
-      <div id="main">
-        <div className="inner">
-          <Topbar />
-          {children}
+    <div className="shell">
+      {/* Fixed identity rail (desktop) */}
+      <aside className="rail" aria-hidden="true">
+        <NavLink to="/" className="rail__mark">ZF</NavLink>
+        <span className="rail__spine">Z. Farahany — Portfolio</span>
+        <div className="rail__social">
+          {SOCIAL.map((s) => (
+            <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}>
+              <i className={s.icon} />
+            </a>
+          ))}
+        </div>
+      </aside>
+
+      {/* Top bar */}
+      <header className="topbar">
+        <NavLink to="/" className="topbar__brand">Zachariah <b>Farahany</b></NavLink>
+        <nav className="topbar__nav">
+          {NAV.map((n) => (
+            <NavLink key={n.to} to={n.to} end={n.end}
+              className={({ isActive }) => (isActive ? 'active' : undefined)}>
+              {n.label}
+            </NavLink>
+          ))}
+        </nav>
+        <button className="topbar__toggle" onClick={() => setMenuOpen(true)} aria-label="Open menu">
+          <span>MENU</span>
+        </button>
+      </header>
+
+      {/* Full-screen mobile menu */}
+      <div className={`menu-overlay${menuOpen ? ' open' : ''}`}>
+        <div className="menu-overlay__top">
+          <span className="topbar__brand">Zachariah <b>Farahany</b></span>
+          <button className="menu-overlay__close" onClick={() => setMenuOpen(false)} aria-label="Close menu">✕</button>
+        </div>
+        <nav>
+          {NAV.map((n) => (
+            <NavLink key={n.to} to={n.to} end={n.end}
+              className={({ isActive }) => (isActive ? 'active' : undefined)}
+              onClick={() => setMenuOpen(false)}>
+              {n.label}
+            </NavLink>
+          ))}
+        </nav>
+        <div className="menu-overlay__social">
+          {SOCIAL.map((s) => (
+            <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}>
+              <i className={s.icon} />
+            </a>
+          ))}
         </div>
       </div>
-      <Sidebar 
-        isInactive={sidebarInactive} 
-        onToggle={toggleSidebar}
-        isMobile={isMobile}
-      />
+
+      <main className="page">{children}</main>
     </div>
   );
 };
