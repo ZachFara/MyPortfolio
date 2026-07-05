@@ -1,76 +1,104 @@
 import { Helmet } from 'react-helmet';
-import '../styles/profile-picture.css';
+import { Link } from 'react-router-dom';
 
-const Home = () => {
-  return (
-    <>
-      <Helmet>
-        <title>Zachariah Farahany</title>
-      </Helmet>
-      
-      {/* Banner */}
-      <section id="banner">
-        <div className="content">
-          <header style={{ marginBottom: '1.5rem' }}>
-            <h1 style={{ marginBottom: '0.5rem' }}>Zachariah Farahany<br /></h1>
-            <p style={{ marginBottom: '1rem' }}>M.S. Applied Data Science University of Chicago</p>
-          </header>
-          <p>I am a data scientist and machine learning engineer holding an M.S. from the University of Chicago and with 4+ years of experience enhancing the efficiency, scalability, and performance of data processing systems. I am passionate about solving complex problems, implementing innovative machine learning solutions, and continuously learning to stay ahead in the rapidly evolving fields of AI, machine learning, and data science.</p>
-        </div>
-        <span className="image object">
-          <img 
-            src="images/LinkedInImages.jpg" 
-            alt="Zachariah Farahany" 
-            style={{ 
-              width: '100%', 
-              height: '100%', 
-              objectFit: 'cover',
-              objectPosition: 'center top',
-              maxWidth: 'none',
-              maxHeight: 'none'
-            }} 
-          />
-        </span>
-      </section>
+const CAPS = [
+  { n: '01', t: 'Machine Learning', d: 'Credit-risk models, factor models, and time-series forecasting shipped to production — Bayesian tuning, validation, and backtesting.' },
+  { n: '02', t: 'ML Operations', d: 'Automated deployment, testing, and monitoring of models on cloud infrastructure, with resource optimization and MLFlow-based management.' },
+  { n: '03', t: 'Data & Big Data', d: 'Terabyte-scale ETL on Spark and medallion pipelines on AWS — from raw telemetry to production feature stores and warehouses.' },
+  { n: '04', t: 'Generative & Agentic AI', d: 'RAG systems, multi-tool agents, and MLLM evaluation — plus interpretability research into how these models actually work.' },
+];
 
-      {/* Key Skills Section */}
-      <section>
-        <header className="major">
-          <h2>Key Skills</h2>
-        </header>
-        <div className="features">
-          <article>
-            <span className="icon solid fa-database"></span>
-            <div className="content">
-              <h3>Big Data</h3>
-              <p>Skilled in handling large datasets and deploying anomaly detection models. Utilized Hadoop and Spark for efficient data processing and insights.</p>
-            </div>
-          </article>
-          <article>
-            <span className="icon solid fa-cogs"></span>
-            <div className="content">
-              <h3>Machine Learning Operations</h3>
-              <p>Automated deployment, testing, and monitoring of ML models using cloud resources. Experienced in optimizing resource usage and implementing MLFlow for model management.</p>
-            </div>
-          </article>
-          <article>
-            <span className="icon solid fa-signal"></span>
-            <div className="content">
-              <h3>Data Science</h3>
-              <p>Conducted research and developed risk classification models. Presented technical papers at international conferences, proficient in Python, SQL, and various data science libraries.</p>
-            </div>
-          </article>
-          <article>
-            <span className="icon solid fa-brain"></span>
-            <div className="content">
-              <h3>Generative AI</h3>
-              <p>Developed and optimized generative AI models, including transformer-based classifiers and diffusion models, enhancing performance and accuracy.</p>
-            </div>
-          </article>
+const SELECTED = [
+  { num: '01', cat: 'Robotics', title: 'SkySearch UAVs', desc: 'Open-vocabulary autonomous drone search driven by multimodal LLMs. MS thesis; 95% live-flight success.', tech: 'Python · CV · MLLM', href: 'https://github.com/ZachFara/SkySearch', img: 'images/skysearch.webp' },
+  { num: '02', cat: 'Machine Learning', title: 'Denoising Diffusion Models', desc: 'Improving diffusion image generation through optimized noise scheduling.', tech: 'PyTorch · Diffusion', href: 'https://github.com/ZachFara/Penn-State-REU-2021-DenoisingDiffusionForAdversarialPurification', img: 'images/diffusionmodel.webp' },
+  { num: '03', cat: 'Distributed Systems', title: 'Autonomous Weather Trading', desc: 'A multi-server platform trading commodities on weather-derived signals.', tech: 'Distributed · Signals', href: 'https://github.com/ZachFara/RealTime-AutonamousWeatherTrading', img: 'images/server.webp' },
+];
+
+const Home = () => (
+  <>
+    <Helmet>
+      <title>Zachariah Farahany — Quantitative ML Engineer</title>
+    </Helmet>
+
+    {/* Hero */}
+    <section className="hero">
+      <div className="hero__grid">
+        <div className="hero__lead">
+          <p className="eyebrow hero__eyebrow"><span className="tick">/</span> Quantitative ML · Interpretability · Agents</p>
+          <h1 className="hero__title">
+            <span className="l1">Zachariah</span>
+            <span className="l2">Farahany</span>
+          </h1>
+          <p className="hero__intro">
+            I build and deploy production ML and agentic systems, and I care about the science of how they work.
+          </p>
+          <dl className="hero__meta">
+            <div><dt>Now</dt><dd>Quantitative Analytics @ Wells Fargo</dd></div>
+            <div><dt>Focus</dt><dd>Credit-risk ML · Factor models · Interpretability</dd></div>
+            <div><dt>Studied</dt><dd>M.S. Applied Data Science, UChicago</dd></div>
+          </dl>
+          <div className="hero__actions">
+            <Link to="/projects" className="btn btn--solid">Selected work</Link>
+            <Link to="/cv" className="btn">Curriculum vitae</Link>
+          </div>
         </div>
-      </section>
-    </>
-  );
-};
+
+        <div className="hero__portrait">
+          <figure>
+            <img src="images/LinkedInImages.jpg" alt="Zachariah Farahany" />
+          </figure>
+          <span className="hero__cap"><b>Fig.01</b> — Z. Farahany</span>
+        </div>
+      </div>
+    </section>
+
+    {/* Capabilities */}
+    <section>
+      <div className="wrap">
+        <div className="cap__head">
+          <p className="eyebrow"><span className="tick">◇</span> Capabilities</p>
+        </div>
+        <div className="caps">
+          {CAPS.map((c) => (
+            <article className="cap" key={c.n}>
+              <span className="cap__num">{c.n}</span>
+              <h3>{c.t}</h3>
+              <p>{c.d}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Selected work */}
+    <section>
+      <div className="wrap">
+        <div className="page-head__row">
+          <span className="page-head__idx">Selected</span>
+          <h2 style={{ fontSize: 'var(--fs-d2)' }}>Recent work</h2>
+        </div>
+        <ol className="index">
+          {SELECTED.map((p) => (
+            <li className="index__row" key={p.num}>
+              <span className="index__num">{p.num}</span>
+              <div className="index__body">
+                <span className="index__cat">{p.cat}</span>
+                <a href={p.href} target="_blank" rel="noopener noreferrer">
+                  <h3 className="index__title">{p.title}</h3>
+                </a>
+                <p className="index__desc">{p.desc}</p>
+                <span className="index__tech">{p.tech}</span>
+              </div>
+              <div className="index__media"><img src={p.img} alt={p.title} /></div>
+            </li>
+          ))}
+        </ol>
+        <div style={{ marginTop: '2.5rem' }}>
+          <Link to="/projects" className="arrow-link">All projects <span className="arw">↗</span></Link>
+        </div>
+      </div>
+    </section>
+  </>
+);
 
 export default Home;

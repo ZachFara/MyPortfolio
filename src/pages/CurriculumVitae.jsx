@@ -7,10 +7,13 @@ const CurriculumVitae = () => {
         <title>Curriculum Vitae - Zachariah Farahany</title>
       </Helmet>
 
-      <section>
-        <header className="main">
-          <h1>Curriculum Vitae</h1>
-        </header>
+      <section className="cv">
+        <div className="wrap">
+          <header className="page-head">
+            <div className="page-head__row"><span className="page-head__idx">05 / CV</span></div>
+            <h1>Curriculum Vitae</h1>
+            <p className="page-head__desc">Quantitative ML practitioner — publications, production systems, and research.</p>
+          </header>
 
         <div className="section basics">
           <h2 className="section-title">Basics</h2>
@@ -276,6 +279,7 @@ const CurriculumVitae = () => {
             <li><span className="label">Vector DBs</span>: Pinecone</li>
             <li><span className="label">Dev Tools</span>: Git/GitHub, Docker, Weights &amp; Biases, Streamlit, Dev Containers, pytest</li>
           </ul>
+        </div>
         </div>
       </section>
     </>

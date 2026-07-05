@@ -1,70 +1,58 @@
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import CardTransitionStyles from '../components/CardTransitionStyles';
 
-const Blog = () => {
-  return (
-    <>
-      <Helmet>
-        <title>Blog - Zachariah Farahany</title>
-      </Helmet>
-      <CardTransitionStyles />
-      
-      <section>
-        <header className="main">
+const POSTS = [
+  {
+    to: '/blog/why-do-we-need-agents',
+    title: 'Why Do We Need Agents?',
+    desc: 'Understanding the role and importance of AI agents in modern applications.',
+    date: 'Jul 24, 2025', read: '7 min',
+    tags: ['#AI', '#Agents', '#LlamaIndex', '#data-science'],
+  },
+  {
+    to: '/blog/ai-agent-memory',
+    title: 'Agentic Memory from Llama Index',
+    desc: 'Demystifying the different types of AI agent memory.',
+    date: 'May 30, 2025', read: '4 min',
+    tags: ['#AI', '#Research', '#Agents', '#data-science'],
+  },
+];
+
+const Blog = () => (
+  <>
+    <Helmet>
+      <title>Writing — Zachariah Farahany</title>
+    </Helmet>
+
+    <section>
+      <div className="wrap">
+        <header className="page-head">
+          <div className="page-head__row"><span className="page-head__idx">04 / Writing</span></div>
           <h1>Beyond the Mean</h1>
-          <div className="text-center">
-            <p className="subtitle">Beyond the basics in data science and technology</p>
-          </div>
+          <p className="page-head__desc">Notes on data science, machine learning, and the systems in between.</p>
         </header>
-        <hr />
-        <div className="blog-container">
-          {/* Blog Post 1 */}
-          <div className="blog-card" style={{
-            transition: "transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1)",
-            cursor: "pointer"
-          }}>
-            <Link to="/blog/why-do-we-need-agents" className="blog-link">
-              <h2 className="blog-title">Why Do We Need Agents?</h2>
-            </Link>
-            <p className="blog-description">Understanding the role and importance of AI agents in modern applications</p>
-            <div className="blog-meta">
-              <span className="blog-date">July 24, 2025</span>
-              <span className="blog-read-time">7 min read</span>
-            </div>
-            <div className="blog-tags">
-              <span className="tag">#AI</span>
-              <span className="tag">#Agents</span>
-              <span className="tag">#LlamaIndex</span>
-              <span className="tag">#data-science</span>
-            </div>
-          </div>
-          
-          {/* Blog Post 2 */}
-          <div className="blog-card" style={{
-            transition: "transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1)",
-            cursor: "pointer"
-          }}>
-            <Link to="/blog/ai-agent-memory" className="blog-link">
-              <h2 className="blog-title">Agentic Memory from Llama Index</h2>
-            </Link>
-            <p className="blog-description">Demystifying the different types of AI agent memory</p>
-            <div className="blog-meta">
-              <span className="blog-date">May 30, 2025</span>
-              <span className="blog-read-time">4 min read</span>
-            </div>
-            <div className="blog-tags">
-              <span className="tag">#AI</span>
-              <span className="tag">#Research</span>
-              <span className="tag">#Agents</span>
-              <span className="tag">#data-science</span>
-            </div>
-          </div>
 
+        <div className="blog-container">
+          {POSTS.map((p) => (
+            <article className="blog-card" key={p.to}>
+              <div className="blog-meta">
+                <span className="blog-date">{p.date}</span>
+                <span className="blog-read-time">{p.read}</span>
+              </div>
+              <div className="blog-card__body">
+                <Link to={p.to} className="blog-link"><h2 className="blog-title">{p.title}</h2></Link>
+                <p className="blog-description">{p.desc}</p>
+                <div className="blog-tags">
+                  {p.tags.map((t) => <span className="tag" key={t}>{t}</span>)}
+                </div>
+                <Link to={p.to} className="arrow-link blog-card__go">Read <span className="arw">↗</span></Link>
+              </div>
+            </article>
+          ))}
         </div>
-      </section>
-    </>
-  );
-};
+      </div>
+    </section>
+  </>
+);
 
 export default Blog;
