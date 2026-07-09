@@ -1,0 +1,54 @@
+# ---- Dependencies ----
+node_modules/
+.pnp
+.pnp.js
+
+# ---- Build output ----
+dist/
+dist-ssr/
+*.local
+
+# ---- Local working directory (notes, screenshots, scratch — never committed) ----
+/local/
+
+# ---- Browser automation / Playwright MCP artifacts ----
+.playwright-mcp/
+playwright-report/
+test-results/
+
+# ---- Loose image/screenshot exports at the repo root ----
+# (real site assets live in public/ and src/assets and are NOT affected)
+/*.png
+/*.jpg
+/*.jpeg
+/*.webp
+/*.gif
+
+# ---- Agent / skill tooling (local install) ----
+.agents/
+skills-lock.json
+
+# ---- Logs ----
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---- Env files ----
+.env
+.env.*
+!.env.example
+
+# ---- Coverage / test output ----
+coverage/
+
+# ---- Editor / OS cruft ----
+.DS_Store
+Thumbs.db
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
