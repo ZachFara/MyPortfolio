@@ -89,6 +89,21 @@ const WORK = [
       demo: null,
     },
   },
+  {
+    num: '07',
+    cat: 'Machine Learning',
+    title: 'Transformer Translation',
+    desc: 'Custom Transformer architectures for language translation, implemented in both PyTorch and TensorFlow with NVIDIA T4-backed training workflows.',
+    tech: 'PyTorch · TensorFlow · Transformers · NLP',
+    lang: 'Jupyter Notebook',
+    repo: 'ZachFara/TransformerTranslation',
+    links: {
+      github: 'https://github.com/ZachFara/TransformerTranslation',
+      paper: null,
+      blog: null,
+      demo: null,
+    },
+  },
 ];
 
 export default WORK;
