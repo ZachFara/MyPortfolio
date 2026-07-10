@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CodeBlock from '../../components/CodeBlock';
+import BlogTOC from '../../components/BlogTOC';
 
 const SECTIONS = [
   { id: 'structure', label: 'How to Structure Memory' },
@@ -15,63 +15,6 @@ const SECTIONS = [
 ];
 
 const AIAgentMemory = () => {
-  const [activeId, setActiveId] = useState('');
-
-  useEffect(() => {
-    const OFFSET = 140; // topbar height + a little breathing room
-    let raf = 0;
-
-    const update = () => {
-      raf = 0;
-      const headings = SECTIONS
-        .map((s) => document.getElementById(s.id))
-        .filter(Boolean);
-      if (!headings.length) return;
-
-      // Near the page bottom the last section can't reach the offset line,
-      // so force it active once we've scrolled to the end.
-      const atBottom =
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 2;
-      if (atBottom) {
-        setActiveId(headings[headings.length - 1].id);
-        return;
-      }
-
-      // Otherwise: the last heading whose top has crossed the offset line.
-      let current = headings[0].id;
-      for (const h of headings) {
-        if (h.getBoundingClientRect().top <= OFFSET) current = h.id;
-        else break;
-      }
-      setActiveId(current);
-    };
-
-    const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(update);
-    };
-
-    update();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-      if (raf) cancelAnimationFrame(raf);
-    };
-  }, []);
-
-  // A <base> tag makes bare "#id" links resolve against the base URL (the
-  // homepage), so scroll manually and set the hash with an explicit path.
-  const handleTocClick = (e, id) => {
-    e.preventDefault();
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.scrollIntoView({ behavior: 'smooth' });
-    window.history.replaceState(null, '', `${window.location.pathname}#${id}`);
-    setActiveId(id);
-  };
-
   return (
     <>
       <Helmet>
@@ -243,18 +186,7 @@ response = await agent.run(user_msg, memory=memory)
         </div>
         </article>
 
-        <aside className="blog-toc" aria-label="Table of contents">
-          <p className="blog-toc__label">On this page</p>
-          <nav>
-            <ol>
-              {SECTIONS.map((s) => (
-                <li key={s.id}>
-                  <a href={`#${s.id}`} onClick={(e) => handleTocClick(e, s.id)} className={activeId === s.id ? 'is-active' : undefined}>{s.label}</a>
-                </li>
-              ))}
-            </ol>
-          </nav>
-        </aside>
+        <BlogTOC sections={SECTIONS} />
       </div>
     </>
   );

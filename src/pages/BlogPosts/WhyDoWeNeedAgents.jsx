@@ -1,5 +1,13 @@
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
+import BlogTOC from '../../components/BlogTOC';
+
+const SECTIONS = [
+  { id: 'what-is-an-agent', label: 'What Is an AI Agent?' },
+  { id: 'core-components', label: 'Core Components & Intuition' },
+  { id: 'llamaindex', label: 'LlamaIndex: The Glue That Binds' },
+  { id: 'conclusion', label: 'Conclusion' },
+];
 
 const WhyDoWeNeedAgents = () => {
   return (
@@ -8,7 +16,8 @@ const WhyDoWeNeedAgents = () => {
         <title>Why Do We Need Agents? - Zachariah Farahany</title>
       </Helmet>
 
-      <article className="blog-post">
+      <div className="blog-shell">
+        <article className="blog-post">
         <header className="main">
           <h1>Why Do We Need Agents?</h1>
           
@@ -50,7 +59,7 @@ const WhyDoWeNeedAgents = () => {
             Imagine juggling a dozen different dashboards, APIs, and databases to answer a single question, then forgetting what you did ten minutes ago. That's the fate of traditional chatbots without additional capabilities: powerful yet perpetually stateless. An <strong>AI agent</strong>, by contrast, is truly like having a second brain that can remember context, plan multi-step actions, react to failures, and learn from past interactions.
           </p>
 
-          <h2>What Is an AI Agent?</h2>
+          <h2 id="what-is-an-agent">What Is an AI Agent?</h2>
           <p>
             An agent is more than a chatbot. It embodies a <strong>cognitive loop</strong>:
           </p>
@@ -64,7 +73,7 @@ const WhyDoWeNeedAgents = () => {
             Without this loop, the tool becomes a static script rigidly following pre-defined branches without adapting to new contexts or learning from past interactions, much like a program without if-else logic or loops.
           </p>
 
-          <h2>Core Components & Intuition</h2>
+          <h2 id="core-components">Core Components & Intuition</h2>
 
           <h3>Perception</h3>
           <p>
@@ -85,7 +94,7 @@ const WhyDoWeNeedAgents = () => {
             Memory is the agent’s context store. It captures prior queries, tool outputs, and decisions, then re-injects them when relevant. This makes follow up questions faster and more natural, building continuity across interactions.
           </p>
 
-          <h2>LlamaIndex: The Glue That Binds</h2>
+          <h2 id="llamaindex">LlamaIndex: The Glue That Binds</h2>
           <p>
             <em>Note: Some of the modules mentioned are slightly out of date in order to be compatible with external libraries.</em>
           </p>
@@ -118,7 +127,7 @@ const WhyDoWeNeedAgents = () => {
             In short, LlamaIndex streamlines the process of building agentic systems by combining core concepts memory, planning, data access, and execution into a cohesive, extensible framework. And this is just scratching the surface. Features like streaming responses, cloud-based connectors, and live execution tracing make it one of the most powerful libraries for anyone building intelligent, multi-step AI workflows.
           </p>
 
-          <h2>Conclusion</h2>
+          <h2 id="conclusion">Conclusion</h2>
           <p>
             Agents transform static code into <strong>adaptive partners</strong> that learn, remember, and coordinate across services. By combining external managed infrastructure, LlamaIndex's modular abstractions, and minimal declarative code, you create a system that not only responds but also evolves turning reactive scripts into proactive problem-solvers.
           </p>
@@ -129,7 +138,10 @@ const WhyDoWeNeedAgents = () => {
             </p>
           </div>
         </div>
-      </article>
+        </article>
+
+        <BlogTOC sections={SECTIONS} />
+      </div>
     </>
   );
 };
