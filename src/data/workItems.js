@@ -23,6 +23,8 @@ const WORK = [
     tech: 'PyTorch · Diffusion Models',
     lang: 'Python',
     repo: 'ZachFara/Penn-State-REU-2021-DenoisingDiffusionForAdversarialPurification',
+    image: 'images/diffusion-noise.gif',
+    imageAttribution: 'Stable Diffusion visualization from https://medium.com/@ps.cs.engg/getting-started-with-stable-diffusion-535648ac0ce2',
     links: {
       github: 'https://github.com/ZachFara/Penn-State-REU-2021-DenoisingDiffusionForAdversarialPurification',
       paper: null,
@@ -38,6 +40,7 @@ const WORK = [
     tech: 'ANN · SMOTE · Bayesian Optimization',
     lang: 'Python',
     repo: 'ZachFara/Oversampling-Techniques-for-Predicting-COVID-19-Patient-Length-of-Stay',
+    image: null,
     links: {
       github: 'https://github.com/ZachFara/Oversampling-Techniques-for-Predicting-COVID-19-Patient-Length-of-Stay',
       paper: 'https://arxiv.org/abs/2511.15048',
@@ -53,6 +56,7 @@ const WORK = [
     tech: 'Distributed Systems · Signals',
     lang: 'Python',
     repo: 'ZachFara/RealTime-AutonamousWeatherTrading',
+    image: null,
     links: {
       github: 'https://github.com/ZachFara/RealTime-AutonamousWeatherTrading',
       paper: null,
@@ -68,6 +72,7 @@ const WORK = [
     tech: 'GPT-4 · Pinecone · RAG',
     lang: 'Python',
     repo: 'ZachFara/Chartwell-Insurance-AI',
+    image: null,
     links: {
       github: 'https://github.com/ZachFara/Chartwell-Insurance-AI/tree/revamp',
       paper: null,
@@ -99,6 +104,7 @@ const WORK = [
     tech: 'PyTorch · TensorFlow · Transformers · NLP',
     lang: 'Jupyter Notebook',
     repo: 'ZachFara/TransformerTranslation',
+    image: null,
     links: {
       github: 'https://github.com/ZachFara/TransformerTranslation',
       paper: null,
