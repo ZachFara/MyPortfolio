@@ -27,10 +27,14 @@ const LINK_LABELS = [
 
 const Work = () => {
   const [filter, setFilter] = useState('All');
+  const [imageLoadErrors, setImageLoadErrors] = useState({});
   const items = useMemo(
     () => (filter === 'All' ? WORK : WORK.filter((w) => w.cat === filter)),
     [filter],
   );
+  const onImageError = (workId) => {
+    setImageLoadErrors((prev) => ({ ...prev, [workId]: true }));
+  };
 
   return (
     <>
@@ -98,9 +102,14 @@ const Work = () => {
                     })}
                   </div>
                 </div>
-                <div className={`index__media${p.image ? '' : ' index__media--ph'}`} aria-hidden="true">
-                  {p.image ? (
-                    <img src={p.image} alt={`${p.title} preview`} loading="lazy" />
+                <div className={`index__media${p.image && !imageLoadErrors[p.num] ? '' : ' index__media--ph'}`} aria-hidden="true">
+                  {p.image && !imageLoadErrors[p.num] ? (
+                    <img
+                      src={p.image}
+                      alt={`${p.title} preview`}
+                      loading="lazy"
+                      onError={() => onImageError(p.num)}
+                    />
                   ) : (
                     <span className="index__media-num">{p.num}</span>
                   )}

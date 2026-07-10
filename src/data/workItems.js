@@ -7,7 +7,7 @@ const WORK = [
     tech: 'Python · Computer Vision · MLLM · DJI Tello',
     lang: 'Python',
     repo: 'ZachFara/SkySearch',
-    image: '/images/skysearch.webp',
+    image: 'images/skysearch-local.png',
     links: {
       github: 'https://github.com/ZachFara/SkySearch',
       paper: null,
@@ -23,7 +23,6 @@ const WORK = [
     tech: 'PyTorch · Diffusion Models',
     lang: 'Python',
     repo: 'ZachFara/Penn-State-REU-2021-DenoisingDiffusionForAdversarialPurification',
-    image: '/images/diffusionmodel.webp',
     links: {
       github: 'https://github.com/ZachFara/Penn-State-REU-2021-DenoisingDiffusionForAdversarialPurification',
       paper: null,
@@ -39,7 +38,6 @@ const WORK = [
     tech: 'ANN · SMOTE · Bayesian Optimization',
     lang: 'Python',
     repo: 'ZachFara/Oversampling-Techniques-for-Predicting-COVID-19-Patient-Length-of-Stay',
-    image: '/images/covid.webp',
     links: {
       github: 'https://github.com/ZachFara/Oversampling-Techniques-for-Predicting-COVID-19-Patient-Length-of-Stay',
       paper: 'https://arxiv.org/abs/2511.15048',
@@ -55,7 +53,6 @@ const WORK = [
     tech: 'Distributed Systems · Signals',
     lang: 'Python',
     repo: 'ZachFara/RealTime-AutonamousWeatherTrading',
-    image: '/images/server.webp',
     links: {
       github: 'https://github.com/ZachFara/RealTime-AutonamousWeatherTrading',
       paper: null,
@@ -71,7 +68,6 @@ const WORK = [
     tech: 'GPT-4 · Pinecone · RAG',
     lang: 'Python',
     repo: 'ZachFara/Chartwell-Insurance-AI',
-    image: '/images/genai.webp',
     links: {
       github: 'https://github.com/ZachFara/Chartwell-Insurance-AI/tree/revamp',
       paper: null,
@@ -87,6 +83,7 @@ const WORK = [
     tech: 'TypeScript · Obsidian Plugin API · 3D Graph Visualization',
     lang: 'TypeScript',
     repo: 'ZachFara/galaxy-graph',
+    image: 'images/galaxygraphs-local.png',
     links: {
       github: 'https://github.com/ZachFara/galaxy-graph',
       paper: null,
