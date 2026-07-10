@@ -1,0 +1,85 @@
+/* ==========================================================================
+   BLOG POST (reading view) — refine typography + dark code
+   ========================================================================== */
+.blog-post {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 4vw, 3.5rem) clamp(4rem, 8vw, 7rem);
+}
+.blog-post .main { text-align: left; margin-bottom: 2.5rem; }
+.blog-post h1 { font-size: clamp(1.9rem, 3.6vw, 2.6rem); line-height: 1.08; margin-bottom: 1rem; }
+.blog-post .blog-subtitle { color: var(--fg-3); font-family: var(--f-mono); font-size: var(--fs-sm); letter-spacing: 0.03em; margin-bottom: 1.5rem; }
+.blog-post .blog-meta { display: flex; gap: 1rem; margin: 1.25rem 0; }
+.blog-post .blog-featured-image img { border-radius: var(--radius); box-shadow: none !important; border: 1px solid var(--line); }
+.blog-post h2, .blog-post h2.blog-title { font-size: clamp(1.35rem, 2.3vw, 1.75rem); line-height: 1.2; margin: 2.75rem 0 1rem; }
+.blog-post h3 { font-size: var(--fs-h); margin: 2rem 0 0.75rem; }
+.blog-post p, .blog-post li { color: var(--fg-2); line-height: 1.75; font-size: 1.05rem; }
+.blog-post p { margin-bottom: 1.25rem; }
+.blog-post ul, .blog-post ol { margin: 0 0 1.5rem; padding-left: 1.25rem; }
+.blog-post li { margin-bottom: 0.5rem; }
+.blog-post strong { color: var(--fg); }
+
+/* Layout shell: reading column + sticky table of contents in the right gutter */
+.blog-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 48rem) 15rem;
+  gap: clamp(2rem, 5vw, 5rem);
+  justify-content: center;
+  align-items: start;
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 4vw, 3.5rem) clamp(4rem, 8vw, 7rem);
+}
+.blog-shell .blog-post { max-width: none; margin: 0; padding: 0; min-width: 0; }
+.blog-shell .blog-content h2 { scroll-margin-top: 5rem; }
+
+.blog-toc { position: sticky; top: 8.5rem; align-self: start; }
+.blog-toc__label {
+  font-family: var(--f-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  margin-bottom: 1rem;
+}
+.blog-toc ol { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--line); }
+.blog-toc li { margin: 0; }
+.blog-toc a {
+  display: block;
+  padding: 0.4rem 0 0.4rem 1rem;
+  margin-left: -1px;
+  border-left: 1px solid transparent;
+  color: var(--fg-3);
+  font-size: var(--fs-sm);
+  line-height: 1.35;
+  text-decoration: none;
+  word-break: break-word;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.blog-toc a:hover { color: var(--fg); }
+.blog-toc a.is-active { color: var(--accent); border-left-color: var(--accent); }
+
+/* Code — Shiki-highlighted block. Token colors are inline-styled by the
+   custom theme (shikiTheme.js); here we only own the frame + typography. */
+.blog-post .code-block { margin: 0 0 1.75rem; }
+.blog-post .code-block pre.shiki {
+  background: var(--inset) !important;   /* track the token, not Shiki's literal */
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.1em 1.3em;
+  overflow-x: auto;
+  white-space: pre;
+  font-family: var(--f-mono);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.blog-post .code-block pre.shiki code { font-family: inherit; background: transparent; }
+.blog-post :not(pre) > code {
+  background: var(--accent-tint) !important;
+  color: var(--accent-2) !important;
+  font-family: var(--f-mono) !important;
+  font-size: 0.9em !important;
+  padding: 0.12em 0.4em !important;
+  border-radius: 3px !important;
+  border: 0 !important;
+}

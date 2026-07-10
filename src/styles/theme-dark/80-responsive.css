@@ -1,0 +1,60 @@
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 900px) {
+  :root { --rail-w: 0px; }
+  .rail { display: none; }
+  .topbar { left: 0; }
+  .topbar__nav { display: none; }
+  .topbar__toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 42px; height: 42px; border: 1px solid var(--line-2); border-radius: var(--radius);
+    background: transparent; color: var(--fg); cursor: pointer;
+  }
+  .topbar__toggle span { font-family: var(--f-mono); font-size: var(--fs-label); letter-spacing: 0.12em; }
+
+  .hero__grid { grid-template-columns: 1fr; }
+  .hero__lead { grid-column: 1; }
+  .hero__portrait {
+    grid-column: 1; grid-row: 2; min-height: 52vh; margin-top: 2rem;
+  }
+  .hero__portrait::after {
+    background: linear-gradient(to bottom, transparent 60%, var(--bg) 100%);
+  }
+  .caps { grid-template-columns: 1fr; }
+  .repo-container { grid-template-columns: 1fr; }
+  .repo-card:first-child { grid-column: auto; }
+  .blog-shell { grid-template-columns: minmax(0, 48rem); }
+  .blog-toc { display: none; }
+  .blog-card { grid-template-columns: 1fr; gap: 0.75rem; }
+  .blog-meta { flex-direction: row; gap: 1rem; }
+  .index__row { grid-template-columns: 2.5rem 1fr; }
+  .index__media, .index__go { display: none; }
+  .cv .job, .cv .education-item { padding-left: 0; padding-top: 2.25rem; }
+  .date-range { position: static; width: auto; margin-bottom: 0.5rem; }
+
+  /* Full-screen mobile menu */
+  .menu-overlay {
+    position: fixed; inset: 0; z-index: 60;
+    background: var(--bg-2);
+    display: flex; flex-direction: column;
+    padding: clamp(1.25rem,5vw,2rem);
+    opacity: 0; visibility: hidden; transform: translateY(-8px);
+    transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), visibility 0.3s;
+  }
+  .menu-overlay.open { opacity: 1; visibility: visible; transform: none; }
+  .menu-overlay__top { display: flex; justify-content: space-between; align-items: center; height: var(--topbar-h); }
+  .menu-overlay__close { background: none; border: 0; color: var(--fg); font-family: var(--f-mono); font-size: 1.5rem; cursor: pointer; }
+  .menu-overlay nav { display: flex; flex-direction: column; gap: 0.5rem; margin-top: auto; margin-bottom: auto; }
+  .menu-overlay nav a {
+    font-family: var(--f-display); font-size: clamp(2rem, 9vw, 3.5rem);
+    color: var(--fg); letter-spacing: -0.02em;
+  }
+  .menu-overlay nav a.active { color: var(--accent); }
+  .menu-overlay__social { display: flex; gap: 1.5rem; font-size: 1.25rem; }
+  .menu-overlay__social a { color: var(--fg-3); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}

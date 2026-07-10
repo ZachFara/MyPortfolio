@@ -1,0 +1,36 @@
+/* ==========================================================================
+   REPOSITORIES — bordered cells, featured first
+   ========================================================================== */
+.repo-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.repo-card {
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.5rem, 2.6vw, 2.4rem);
+  transition: background 0.3s var(--ease);
+}
+.repo-card:hover { background: var(--surface); }
+.repo-card:first-child { grid-column: 1 / -1; }
+.repo-title { font-size: var(--fs-h); margin-bottom: 0.75rem; }
+.repo-card:hover .repo-title { color: var(--accent); }
+.repo-description { color: var(--fg-2); font-size: var(--fs-sm); max-width: 60ch; }
+.repo-link {
+  order: 4; margin-top: 1.5rem;
+  font-family: var(--f-mono); font-size: var(--fs-label); letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent);
+}
+.repo-link::after { content: " ↗"; }
+.repo-meta {
+  order: 3; display: flex; gap: 1.5rem; margin-top: 1.25rem;
+  padding-top: 1.25rem; border-top: 1px solid var(--line);
+  font-family: var(--f-mono); font-size: var(--fs-label); letter-spacing: 0.1em;
+  color: var(--fg-3);
+}
+.repo-stars, .repo-language { display: inline-flex; align-items: center; gap: 0.4em; }
+.repo-language i { color: var(--accent); }

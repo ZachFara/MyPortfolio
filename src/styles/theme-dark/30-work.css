@@ -1,0 +1,68 @@
+/* ==========================================================================
+   WORK — merged projects + repositories; reuses .index with filters
+   ========================================================================== */
+.work-index { margin-top: 0; }
+
+/* Category filter chips */
+.filters {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+.chip {
+  display: inline-flex; align-items: center; gap: 0.5em;
+  font-family: var(--f-mono); font-size: var(--fs-label); letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--fg-3);
+  background: transparent; border: 1px solid var(--line-2); border-radius: 999px;
+  padding: 0.55em 1em; cursor: pointer;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.chip:hover { color: var(--fg); border-color: var(--fg-3); }
+.chip--active { color: var(--inset); background: var(--accent); border-color: var(--accent); }
+.chip__count { font-size: 0.85em; opacity: 0.7; }
+
+/* Repo meta line inside a work entry */
+.work-repo {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 1.25rem; margin-top: 1rem;
+  font-family: var(--f-mono); font-size: var(--fs-label); letter-spacing: 0.1em;
+  color: var(--fg-3);
+}
+.work-repo__stat { display: inline-flex; align-items: center; gap: 0.4em; }
+.work-repo__stat i { color: var(--accent); }
+.work-repo__updated { color: var(--fg-3); }
+
+.work-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+}
+.work-link {
+  position: relative;
+  font-family: var(--f-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.work-link + .work-link::before {
+  content: "·";
+  color: var(--fg-3);
+  margin-right: 0.8rem;
+}
+
+/* Monochrome placeholder media (real thumbnails to be added later) */
+.index__media--ph {
+  display: grid; place-items: center;
+  opacity: 1; filter: none;
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 10px),
+    linear-gradient(160deg, var(--surface-2), var(--inset));
+}
+.index__media-num {
+  font-family: var(--f-mono); font-size: 1.4rem; letter-spacing: 0.1em;
+  color: var(--fg-3); opacity: 0.55;
+  transition: color 0.3s var(--ease), opacity 0.3s var(--ease);
+}
+.index__row:hover .index__media--ph { opacity: 1; filter: none; }
+.index__row:hover .index__media-num { color: var(--accent); opacity: 0.85; }

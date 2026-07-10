@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "sync:repo-updates": "node scripts/sync-github-repo-updates.mjs",
+    "build": "npm run sync:repo-updates && vite build",
     "postbuild": "vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.mjs",
     "lint": "eslint . --max-warnings=0",
     "preview": "vite preview",

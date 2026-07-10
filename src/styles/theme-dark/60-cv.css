@@ -1,0 +1,99 @@
+/* ==========================================================================
+   CV — editorial resume: section counters + left date gutter, no boxes
+   ========================================================================== */
+.cv { counter-reset: cvsec; }
+.cv .section { padding: clamp(2.5rem, 5vw, 4rem) 0; border-top: 1px solid var(--line); }
+.cv .section:first-of-type { border-top: 0; padding-top: clamp(1rem,2vw,1.5rem); }
+.section-title {
+  position: relative;
+  display: flex; align-items: baseline; gap: 1rem;
+  font-family: var(--f-display);
+  font-size: var(--fs-d2);
+  color: var(--fg);
+  border: 0;
+  padding: 0;
+  margin-bottom: clamp(1.75rem, 3vw, 2.75rem);
+}
+.section-title::before {
+  counter-increment: cvsec;
+  content: counter(cvsec, decimal-leading-zero);
+  font-family: var(--f-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  align-self: flex-start;
+  padding-top: 0.4em;
+}
+
+/* Entry: date pulled into a left gutter */
+.cv .job, .cv .education-item {
+  position: relative;
+  padding: 0 0 clamp(2rem,3.5vw,3rem) 12rem;
+  margin-bottom: clamp(2rem,3.5vw,3rem);
+  border-bottom: 1px solid var(--line);
+}
+.cv .job:last-child, .cv .education-item:last-child { border-bottom: 0; margin-bottom: 0; }
+/* Date-less entries drop the gutter so they align flush-left (no empty margin) */
+.cv .publications .job,
+.cv .projects .job { padding-left: 0; }
+.cv .job-content, .cv .job-details { display: block; }
+.date-range {
+  position: absolute; left: 0; top: 0.15rem; width: 10rem;
+  display: block;
+  background: none; color: var(--fg-3); padding: 0; margin: 0;
+  font-family: var(--f-mono); font-size: var(--fs-sm); letter-spacing: 0.02em;
+}
+.job-title, .education-title {
+  font-family: var(--f-display);
+  font-size: var(--fs-h);
+  color: var(--fg);
+  margin-bottom: 0.75rem;
+}
+.job-title span { color: var(--fg-3); }
+
+.cv .label { color: var(--accent); font-weight: 500; }
+.cv .section > p,
+.cv .job-details > p,
+.cv .education-item > p { color: var(--fg-2); margin-bottom: 0.5rem; font-size: var(--fs-sm); }
+.cv .link { color: var(--accent); word-break: break-word; }
+/* inline contact/venue icons — override the global block-image reset */
+.cv p img, .cv .link img { display: inline-block; vertical-align: middle; }
+
+.education-description, .job-description {
+  list-style: none; margin: 1rem 0 0; padding: 0;
+  max-width: 74ch;
+}
+.education-description li, .job-description li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.6rem;
+  color: var(--fg-2);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+}
+.education-description li::before {
+  content: ""; position: absolute; left: 0; top: 0.65em;
+  width: 5px; height: 5px; background: var(--accent); opacity: 0.6; border-radius: 1px;
+}
+.education-description li strong, .job-description li strong { color: var(--fg); }
+
+/* Aligned definition grid (Basics, Skills) — labels share one fixed column */
+.cv .def-grid {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.75rem 1.5rem;
+  align-items: baseline;
+  margin: 0;
+  max-width: 74ch;
+}
+.cv .def-grid dt {
+  color: var(--accent);
+  font-weight: 500;
+  font-size: var(--fs-sm);
+}
+.cv .def-grid dd {
+  margin: 0;
+  color: var(--fg-2);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+}
