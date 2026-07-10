@@ -79,7 +79,7 @@ const Work = () => {
                   <p className="index__desc">{p.desc}</p>
                   <span className="index__tech">{p.tech}</span>
                   <div className="work-repo">
-                    <span className="work-repo__stat"><i className="fab fa-python" /> {p.lang}</span>
+                    <span className="work-repo__stat">{p.lang}</span>
                     {p.repo && repoUpdates[p.repo]?.updatedAt && (
                       <span className="work-repo__updated">
                         Updated {formatUpdatedDate(repoUpdates[p.repo].updatedAt)}

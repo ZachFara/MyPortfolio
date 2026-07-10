@@ -74,6 +74,21 @@ const WORK = [
       demo: null,
     },
   },
+  {
+    num: '06',
+    cat: 'Developer Tools',
+    title: 'Galaxy Graph',
+    desc: 'An Obsidian plugin that renders an entire vault as a navigable 3D force-directed graph with orbit, zoom, inspector, and timeline replay modes.',
+    tech: 'TypeScript · Obsidian Plugin API · 3D Graph Visualization',
+    lang: 'TypeScript',
+    repo: 'ZachFara/galaxy-graph',
+    links: {
+      github: 'https://github.com/ZachFara/galaxy-graph',
+      paper: null,
+      blog: null,
+      demo: null,
+    },
+  },
 ];
 
 export default WORK;
