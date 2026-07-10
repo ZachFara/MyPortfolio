@@ -98,8 +98,12 @@ const Work = () => {
                     })}
                   </div>
                 </div>
-                <div className="index__media index__media--ph" aria-hidden="true">
-                  <span className="index__media-num">{p.num}</span>
+                <div className={`index__media${p.image ? '' : ' index__media--ph'}`} aria-hidden="true">
+                  {p.image ? (
+                    <img src={p.image} alt={`${p.title} preview`} loading="lazy" />
+                  ) : (
+                    <span className="index__media-num">{p.num}</span>
+                  )}
                 </div>
               </li>
             ))}
