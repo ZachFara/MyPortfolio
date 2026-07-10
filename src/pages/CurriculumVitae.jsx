@@ -46,7 +46,7 @@ const CurriculumVitae = () => {
             </dd>
 
             <dt>Summary</dt>
-            <dd>Quantitative ML practitioner with a research thread. I build and deploy production ML and agentic systems, and I research how they actually work. My background spans the full stack from data pipelines and model development to agentic LLM architectures and interpretability research, with first and co-author IEEE publications and production deployments across finance, insurance, and industrial IoT. Currently a Quantitative Analytics Associate at Wells Fargo working on production credit risk models and quantitative risk systems.</dd>
+            <dd>Quantitative ML practitioner with a research thread. I build, deploy, then research production ML and agentic systems to understand how they actually work. My background spans the full stack from data pipelines and model development to agentic LLM architectures and interpretability research, with first and co-author IEEE publications and production deployments across finance, insurance, and industrial IoT. Currently a Quantitative Analytics Associate at Wells Fargo working on production credit risk models and quantitative risk systems.</dd>
           </dl>
         </div>
 
@@ -242,10 +242,10 @@ const CurriculumVitae = () => {
                 <h3 className="job-title">SkySearch: Open-Vocabulary UAV Object Search (MS Thesis)</h3>
                 <p><span className="label">GitHub</span>: <a className="link" href="https://github.com/ZachFara/SkySearch" target="_blank" rel="noopener noreferrer">ZachFara/SkySearch</a></p>
                 <ul className="education-description">
-                  <li>Multimodal LLM system for autonomous drone search that handles open-vocabulary and reasoning-based target descriptions, going beyond fixed-class detectors like YOLO.</li>
+                  <li>Multimodal LLM system for autonomous drone search that handles open-vocabulary and reasoning-based target descriptions, going beyond fixed-class detectors like YOLO (You Only Look Once).</li>
                   <li>MLLM-agnostic architecture (tested GPT-4o, Gemini 1.5, Claude 3 Haiku) querying a 3×3×3 spatial grid to resolve target direction across left/right, up/down, and near/far axes.</li>
                   <li>Built GLAD, a custom anti-contamination benchmark of 100 campus images with spatial annotations and paired negatives, to evaluate spatial localization on novel data.</li>
-                  <li>Live flights reached 95% success (90% true zero-shot, first attempt) across 20 courses, including abstract targets like "the most recent cover of the film adaptation" (Dune) and "a textbook to prepare for a coding interview at Meta."</li>
+                  <li>Live flights reached 95% success (90% true zero-shot, first attempt) across 20 courses, including abstract targets like "the most recent cover of the film adaptation" (the Dune novel) and "a textbook to prepare for a coding interview at Meta."</li>
                   <li>Total live-flight inference cost under $1. Writeup available on GitHub.</li>
                   <li>Stack: Python, OpenAI/Google/Anthropic APIs, DJI Tello SDK.</li>
                 </ul>

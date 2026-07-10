@@ -1,35 +1,34 @@
-import { Highlight, Prism } from 'prism-react-renderer';
+import { createHighlighterCoreSync } from 'shiki/core';
+import { createJavaScriptRegexEngine } from 'shiki/engine/javascript';
+import python from 'shiki/langs/python.mjs';
+import shikiTheme from './shikiTheme';
 
 /*
  * Syntax-highlighted code block used inside blog posts.
  *
- * Uses prism-react-renderer, which tokenizes at render time (works with the
- * SSR prerender — no flaky CDN <script> tags). We pass an empty theme so the
- * renderer only emits Prism token classNames; the actual colors come from the
- * `.blog-post .token.*` rules in theme-dark.css, keeping code on the site's
- * dark palette instead of shipping a light Prism theme.
+ * Editor-grade highlighting via Shiki (TextMate grammars, same as VS Code)
+ * themed to the site palette (see shikiTheme.js). Built synchronously with the
+ * JS RegExp engine so it renders identically during SSR/prerender and client
+ * hydration — no async, no WASM. Shiki emits inline-styled spans, so colors
+ * come from the theme, not from CSS token classes.
  */
-const emptyTheme = { plain: {}, styles: [] };
+const highlighter = createHighlighterCoreSync({
+  themes: [shikiTheme],
+  langs: [python],
+  engine: createJavaScriptRegexEngine({ forgiving: true }),
+});
 
-const CodeBlock = ({ code, language = 'python' }) => (
-  <Highlight prism={Prism} code={code.trim()} language={language} theme={emptyTheme}>
-    {({ className, tokens, getLineProps, getTokenProps }) => (
-      <pre className={`code-block ${className}`}>
-        <code>
-          {tokens.map((line, i) => {
-            const lineProps = getLineProps({ line });
-            return (
-              <span key={i} {...lineProps} className={`code-line ${lineProps.className || ''}`}>
-                {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token })} />
-                ))}
-              </span>
-            );
-          })}
-        </code>
-      </pre>
-    )}
-  </Highlight>
-);
+const CodeBlock = ({ code, language = 'python' }) => {
+  const html = highlighter.codeToHtml(code.trim(), {
+    lang: language,
+    theme: 'zf-editorial',
+  });
+  return (
+    <div
+      className="code-block"
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  );
+};
 
 export default CodeBlock;

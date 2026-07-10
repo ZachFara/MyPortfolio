@@ -723,48 +723,21 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 .blog-toc a:hover { color: var(--fg); }
 .blog-toc a.is-active { color: var(--accent); border-left-color: var(--accent); }
 
-/* Code — override the post's inline light styles + light Prism theme */
-.blog-post pre,
-.blog-post .code-cell {
-  background: var(--inset) !important;
-  border: 1px solid var(--line) !important;
-  border-radius: var(--radius) !important;
-  padding: 1.1em 1.3em !important;
+/* Code — Shiki-highlighted block. Token colors are inline-styled by the
+   custom theme (shikiTheme.js); here we only own the frame + typography. */
+.blog-post .code-block { margin: 0 0 1.75rem; }
+.blog-post .code-block pre.shiki {
+  background: var(--inset) !important;   /* track the token, not Shiki's literal */
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.1em 1.3em;
   overflow-x: auto;
-  margin: 0 0 1.75rem !important;
-}
-.blog-post pre,
-.blog-post pre code,
-.blog-post .code-cell,
-.blog-post .code-cell pre,
-.blog-post .code-cell code {
-  color: #cdd3dd !important;
-  font-family: var(--f-mono) !important;
-  background-color: transparent;
-}
-.blog-post pre, .blog-post .code-cell { background-color: var(--inset) !important; }
-/* the inner <code> ships an inline #f5f5f5 !important bg — neutralize it */
-.blog-post pre code,
-.blog-post .code-cell code,
-.blog-post code.python-code,
-.blog-post code.language-python {
-  background: transparent !important;
-  display: block;
   white-space: pre;
+  font-family: var(--f-mono);
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
-/* prism-react-renderer emits one span per line; make each its own row */
-.blog-post .code-block { font-size: 0.9rem; line-height: 1.6; }
-.blog-post .code-block .code-line { display: block; }
-.blog-post .token.comment { color: var(--fg-3) !important; font-style: italic; }
-.blog-post .token.keyword,
-.blog-post .token.operator,
-.blog-post .token.builtin,
-.blog-post .token.class-name { color: var(--accent) !important; }
-.blog-post .token.string,
-.blog-post .token.number { color: var(--accent-2) !important; }
-.blog-post .token.function { color: var(--fg) !important; }
-.blog-post .token.punctuation,
-.blog-post .token.parameter { color: var(--fg-2) !important; }
+.blog-post .code-block pre.shiki code { font-family: inherit; background: transparent; }
 .blog-post :not(pre) > code {
   background: var(--accent-tint) !important;
   color: var(--accent-2) !important;

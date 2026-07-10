@@ -30,7 +30,7 @@ const Home = () => (
             <span className="l2">Farahany</span>
           </h1>
           <p className="hero__intro">
-            I build and deploy production ML and agentic systems, and I research how they actually work.
+            I build, deploy, then research production ML and agentic systems to understand how they actually work.
           </p>
           <dl className="hero__meta">
             <div><dt>Now</dt><dd>Quantitative Analytics @ Wells Fargo</dd></div>
