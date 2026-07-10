@@ -7,8 +7,7 @@ const rootDir = join(__dirname, '..')
 
 const routes = [
   '/',
-  '/projects',
-  '/repositories',
+  '/work',
   '/cv',
   '/blog',
   '/blog/why-do-we-need-agents',

@@ -6,11 +6,8 @@ a {
   color: inherit;
 }
 
-/* Override default focus styles for better accessibility */
-a:focus, button:focus {
-  outline: 2px solid #f56a6a;
-  outline-offset: 2px;
-}
+/* Focus styling is owned by the design system (theme-dark.css :focus-visible).
+   The old template's red (#f56a6a) focus ring has been removed. */
 
 /* Ensure image paths work correctly */
 .image img {

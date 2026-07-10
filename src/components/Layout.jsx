@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
 const NAV = [
-  { to: '/', label: 'Index', end: true },
-  { to: '/projects', label: 'Projects' },
-  { to: '/repositories', label: 'Repositories' },
-  { to: '/blog', label: 'Writing' },
+  { to: '/', label: 'Home', end: true },
+  { to: '/work', label: 'Work' },
+  { to: '/blog', label: 'Blog' },
   { to: '/cv', label: 'CV' },
 ];
 
@@ -35,7 +34,7 @@ const Layout = ({ children }) => {
       {/* Fixed identity rail (desktop) */}
       <aside className="rail" aria-hidden="true">
         <NavLink to="/" className="rail__mark">ZF</NavLink>
-        <span className="rail__spine">Z. Farahany — Portfolio</span>
+        <span className="rail__spine">Z. Farahany · Portfolio</span>
         <div className="rail__social">
           {SOCIAL.map((s) => (
             <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}>

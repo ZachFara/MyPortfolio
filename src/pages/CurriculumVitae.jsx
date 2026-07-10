@@ -10,36 +10,44 @@ const CurriculumVitae = () => {
       <section className="cv">
         <div className="wrap">
           <header className="page-head">
-            <div className="page-head__row"><span className="page-head__idx">05 / CV</span></div>
+            <div className="page-head__row"><span className="page-head__idx">04 / CV</span></div>
             <h1>Curriculum Vitae</h1>
-            <p className="page-head__desc">Quantitative ML practitioner — publications, production systems, and research.</p>
+            <p className="page-head__desc">Quantitative ML practitioner: publications, production systems, and research.</p>
           </header>
 
         <div className="section basics">
           <h2 className="section-title">Basics</h2>
-          <p><span className="label">Name</span>: Zachariah Farahany</p>
-          <p>
-            <span className="label">Email</span>: &nbsp;&nbsp;
-            <a className="link" href="mailto:zfarahany193@gmail.com">
-              <img src="images/Gmail logo.png" alt="Gmail Icon" style={{width:'16px', height:'16px', verticalAlign:'middle', marginRight:'5px'}} />
-              zfarahany193@gmail.com
-            </a>
-          </p>
-          <p>
-            <span className="label">LinkedIn</span>: &nbsp;&nbsp;
-            <a className="link" href="https://www.linkedin.com/in/zachariah-farahany-3818aa1bb/" target="_blank" rel="noopener noreferrer">
-              <img src="images/Linkedin icon.png" alt="LinkedIn Icon" style={{width:'16px', height:'16px', verticalAlign:'middle', marginRight:'5px'}} />
-              LinkedIn
-            </a>
-          </p>
-          <p>
-            <span className="label">GitHub</span>: &nbsp;&nbsp;
-            <a className="link" href="https://github.com/ZachFara" target="_blank" rel="noopener noreferrer">
-              <img src="images/GitHub logo.png" alt="GitHub Icon" style={{width:'16px', height:'16px', verticalAlign:'middle', marginRight:'5px'}} />
-              ZachFara
-            </a>
-          </p>
-          <p><span className="label">Summary</span>: Quantitative ML practitioner with a research thread. I build and deploy production ML and agentic systems, and I care about the science of how they work. My background spans the full stack from data pipelines and model development to agentic LLM architectures and interpretability research, with first and co-author IEEE publications and production deployments across finance, insurance, and industrial IoT. Currently a Quantitative Analytics Associate at Wells Fargo working on production credit risk models and quantitative risk systems.</p>
+          <dl className="def-grid">
+            <dt>Name</dt>
+            <dd>Zachariah Farahany</dd>
+
+            <dt>Email</dt>
+            <dd>
+              <a className="link" href="mailto:zfarahany193@gmail.com">
+                <img src="images/Gmail logo.png" alt="Gmail Icon" style={{width:'16px', height:'16px', verticalAlign:'middle', marginRight:'5px'}} />
+                zfarahany193@gmail.com
+              </a>
+            </dd>
+
+            <dt>LinkedIn</dt>
+            <dd>
+              <a className="link" href="https://www.linkedin.com/in/zachariah-farahany-3818aa1bb/" target="_blank" rel="noopener noreferrer">
+                <img src="images/Linkedin icon.png" alt="LinkedIn Icon" style={{width:'16px', height:'16px', verticalAlign:'middle', marginRight:'5px'}} />
+                LinkedIn
+              </a>
+            </dd>
+
+            <dt>GitHub</dt>
+            <dd>
+              <a className="link" href="https://github.com/ZachFara" target="_blank" rel="noopener noreferrer">
+                <img src="images/GitHub logo.png" alt="GitHub Icon" style={{width:'16px', height:'16px', verticalAlign:'middle', marginRight:'5px'}} />
+                ZachFara
+              </a>
+            </dd>
+
+            <dt>Summary</dt>
+            <dd>Quantitative ML practitioner with a research thread. I build and deploy production ML and agentic systems, and I research how they actually work. My background spans the full stack from data pipelines and model development to agentic LLM architectures and interpretability research, with first and co-author IEEE publications and production deployments across finance, insurance, and industrial IoT. Currently a Quantitative Analytics Associate at Wells Fargo working on production credit risk models and quantitative risk systems.</dd>
+          </dl>
         </div>
 
         <div className="section publications">
@@ -270,15 +278,28 @@ const CurriculumVitae = () => {
 
         <div className="section skills">
           <h2 className="section-title">Skills</h2>
-          <ul className="education-description">
-            <li><span className="label">Languages</span>: Python, R, SQL, Java, C++, JavaScript/React</li>
-            <li><span className="label">ML / AI</span>: PyTorch, TensorFlow/Keras, Scikit-learn, HuggingFace Transformers, XGBoost, neural networks, Bayesian hyperparameter optimization, SMOTE/oversampling, factor models, time-series modeling, model validation and backtesting</li>
-            <li><span className="label">LLM / Agentic</span>: RAG design and tuning, agentic system design (tool registries, orchestration), MLLM evaluation and benchmarking, few-shot prompting, LlamaIndex, AWS Bedrock, OpenAI / Anthropic / Google Cloud Model Garden APIs</li>
-            <li><span className="label">Data Engineering</span>: Apache Spark (AWS EMR), AWS Lambda, AWS Glue, S3, Delta Lake/Parquet, DynamoDB, medallion architecture, Snowflake, GCP/BigQuery, ETL design</li>
-            <li><span className="label">Interpretability</span>: activation analysis, concept-geometry/subspace analysis, ablation studies, behavioral readout</li>
-            <li><span className="label">Vector DBs</span>: Pinecone</li>
-            <li><span className="label">Dev Tools</span>: Git/GitHub, Docker, Weights &amp; Biases, Streamlit, Dev Containers, pytest</li>
-          </ul>
+          <dl className="def-grid">
+            <dt>Languages</dt>
+            <dd>Python, R, SQL, Java, C++, JavaScript/React</dd>
+
+            <dt>ML / AI</dt>
+            <dd>PyTorch, TensorFlow/Keras, Scikit-learn, HuggingFace Transformers, XGBoost, neural networks, Bayesian hyperparameter optimization, SMOTE/oversampling, factor models, time-series modeling, model validation and backtesting</dd>
+
+            <dt>LLM / Agentic</dt>
+            <dd>RAG design and tuning, agentic system design (tool registries, orchestration), MLLM evaluation and benchmarking, few-shot prompting, LlamaIndex, AWS Bedrock, OpenAI / Anthropic / Google Cloud Model Garden APIs</dd>
+
+            <dt>Data Engineering</dt>
+            <dd>Apache Spark (AWS EMR), AWS Lambda, AWS Glue, S3, Delta Lake/Parquet, DynamoDB, medallion architecture, Snowflake, GCP/BigQuery, ETL design</dd>
+
+            <dt>Interpretability</dt>
+            <dd>activation analysis, concept-geometry/subspace analysis, ablation studies, behavioral readout</dd>
+
+            <dt>Vector DBs</dt>
+            <dd>Pinecone</dd>
+
+            <dt>Dev Tools</dt>
+            <dd>Git/GitHub, Docker, Weights &amp; Biases, Streamlit, Dev Containers, pytest</dd>
+          </dl>
         </div>
         </div>
       </section>

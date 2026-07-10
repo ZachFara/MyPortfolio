@@ -21,13 +21,13 @@ const POSTS = [
 const Blog = () => (
   <>
     <Helmet>
-      <title>Writing — Zachariah Farahany</title>
+      <title>Blog - Zachariah Farahany</title>
     </Helmet>
 
     <section>
       <div className="wrap">
         <header className="page-head">
-          <div className="page-head__row"><span className="page-head__idx">04 / Writing</span></div>
+          <div className="page-head__row"><span className="page-head__idx">03 / Blog</span></div>
           <h1>Beyond the Mean</h1>
           <p className="page-head__desc">Notes on data science, machine learning, and the systems in between.</p>
         </header>

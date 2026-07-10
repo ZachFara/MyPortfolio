@@ -2,22 +2,22 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
 const CAPS = [
-  { n: '01', t: 'Machine Learning', d: 'Credit-risk models, factor models, and time-series forecasting shipped to production — Bayesian tuning, validation, and backtesting.' },
+  { n: '01', t: 'Machine Learning', d: 'Credit-risk models, factor models, and time-series forecasting shipped to production, with Bayesian tuning, validation, and backtesting.' },
   { n: '02', t: 'ML Operations', d: 'Automated deployment, testing, and monitoring of models on cloud infrastructure, with resource optimization and MLFlow-based management.' },
-  { n: '03', t: 'Data & Big Data', d: 'Terabyte-scale ETL on Spark and medallion pipelines on AWS — from raw telemetry to production feature stores and warehouses.' },
-  { n: '04', t: 'Generative & Agentic AI', d: 'RAG systems, multi-tool agents, and MLLM evaluation — plus interpretability research into how these models actually work.' },
+  { n: '03', t: 'Data & Big Data', d: 'Terabyte-scale ETL on Spark and medallion pipelines on AWS, taking raw telemetry through to production feature stores and warehouses.' },
+  { n: '04', t: 'Generative & Agentic AI', d: 'RAG systems, multi-tool agents, and MLLM evaluation, plus interpretability research into how these models actually work.' },
 ];
 
 const SELECTED = [
-  { num: '01', cat: 'Robotics', title: 'SkySearch UAVs', desc: 'Open-vocabulary autonomous drone search driven by multimodal LLMs. MS thesis; 95% live-flight success.', tech: 'Python · CV · MLLM', href: 'https://github.com/ZachFara/SkySearch', img: 'images/skysearch.webp' },
-  { num: '02', cat: 'Machine Learning', title: 'Denoising Diffusion Models', desc: 'Improving diffusion image generation through optimized noise scheduling.', tech: 'PyTorch · Diffusion', href: 'https://github.com/ZachFara/Penn-State-REU-2021-DenoisingDiffusionForAdversarialPurification', img: 'images/diffusionmodel.webp' },
-  { num: '03', cat: 'Distributed Systems', title: 'Autonomous Weather Trading', desc: 'A multi-server platform trading commodities on weather-derived signals.', tech: 'Distributed · Signals', href: 'https://github.com/ZachFara/RealTime-AutonamousWeatherTrading', img: 'images/server.webp' },
+  { num: '01', cat: 'Robotics', title: 'SkySearch UAVs', desc: 'Open-vocabulary autonomous drone search driven by multimodal LLMs. MS thesis; 95% live-flight success.', tech: 'Python · CV · MLLM', href: 'https://github.com/ZachFara/SkySearch' },
+  { num: '02', cat: 'Machine Learning', title: 'Denoising Diffusion Models', desc: 'Improving diffusion image generation through optimized noise scheduling.', tech: 'PyTorch · Diffusion', href: 'https://github.com/ZachFara/Penn-State-REU-2021-DenoisingDiffusionForAdversarialPurification' },
+  { num: '03', cat: 'Distributed Systems', title: 'Autonomous Weather Trading', desc: 'A multi-server platform trading commodities on weather-derived signals.', tech: 'Distributed · Signals', href: 'https://github.com/ZachFara/RealTime-AutonamousWeatherTrading' },
 ];
 
 const Home = () => (
   <>
     <Helmet>
-      <title>Zachariah Farahany — Quantitative ML Engineer</title>
+      <title>Zachariah Farahany - Quantitative ML Engineer</title>
     </Helmet>
 
     {/* Hero */}
@@ -30,7 +30,7 @@ const Home = () => (
             <span className="l2">Farahany</span>
           </h1>
           <p className="hero__intro">
-            I build and deploy production ML and agentic systems, and I care about the science of how they work.
+            I build and deploy production ML and agentic systems, and I research how they actually work.
           </p>
           <dl className="hero__meta">
             <div><dt>Now</dt><dd>Quantitative Analytics @ Wells Fargo</dd></div>
@@ -38,7 +38,7 @@ const Home = () => (
             <div><dt>Studied</dt><dd>M.S. Applied Data Science, UChicago</dd></div>
           </dl>
           <div className="hero__actions">
-            <Link to="/projects" className="btn btn--solid">Selected work</Link>
+            <Link to="/work" className="btn btn--solid">Selected work</Link>
             <Link to="/cv" className="btn">Curriculum vitae</Link>
           </div>
         </div>
@@ -47,7 +47,6 @@ const Home = () => (
           <figure>
             <img src="images/LinkedInImages.jpg" alt="Zachariah Farahany" />
           </figure>
-          <span className="hero__cap"><b>Fig.01</b> — Z. Farahany</span>
         </div>
       </div>
     </section>
@@ -88,12 +87,14 @@ const Home = () => (
                 <p className="index__desc">{p.desc}</p>
                 <span className="index__tech">{p.tech}</span>
               </div>
-              <div className="index__media"><img src={p.img} alt={p.title} /></div>
+              <div className="index__media index__media--ph" aria-hidden="true">
+                <span className="index__media-num">{p.num}</span>
+              </div>
             </li>
           ))}
         </ol>
         <div style={{ marginTop: '2.5rem' }}>
-          <Link to="/projects" className="arrow-link">All projects <span className="arw">↗</span></Link>
+          <Link to="/work" className="arrow-link">All work <span className="arw">↗</span></Link>
         </div>
       </div>
     </section>

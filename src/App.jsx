@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import './App.css'
 // Legacy HTML5UP override stylesheets removed — the design system in
 // styles/theme-dark.css now owns the cascade.
@@ -6,8 +6,7 @@ import Layout from './components/Layout'
 
 // Pages
 import Home from './pages/Home'
-import Projects from './pages/Projects'
-import Repositories from './pages/Repositories'
+import Work from './pages/Work'
 import CurriculumVitae from './pages/CurriculumVitae'
 import Blog from './pages/Blog'
 import AIAgentMemory from './pages/BlogPosts/AIAgentMemory'
@@ -19,8 +18,10 @@ export function AppContent() {
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/repositories" element={<Repositories />} />
+        <Route path="/work" element={<Work />} />
+        {/* Projects + Repositories were merged into Work — keep old links alive */}
+        <Route path="/projects" element={<Navigate to="/work" replace />} />
+        <Route path="/repositories" element={<Navigate to="/work" replace />} />
         <Route path="/cv" element={<CurriculumVitae />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/why-do-we-need-agents" element={<WhyDoWeNeedAgents />} />

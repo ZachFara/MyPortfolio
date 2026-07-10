@@ -444,9 +444,52 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 .index__go { justify-self: end; }
 
 /* ==========================================================================
-   PROJECTS — reuses .index
+   WORK — merged projects + repositories; reuses .index with filters
    ========================================================================== */
-.projects-page .index { margin-top: 0; }
+.work-index { margin-top: 0; }
+
+/* Category filter chips */
+.filters {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+.chip {
+  display: inline-flex; align-items: center; gap: 0.5em;
+  font-family: var(--f-mono); font-size: var(--fs-label); letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--fg-3);
+  background: transparent; border: 1px solid var(--line-2); border-radius: 999px;
+  padding: 0.55em 1em; cursor: pointer;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.chip:hover { color: var(--fg); border-color: var(--fg-3); }
+.chip--active { color: var(--inset); background: var(--accent); border-color: var(--accent); }
+.chip__count { font-size: 0.85em; opacity: 0.7; }
+
+/* Repo meta line inside a work entry */
+.work-repo {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 1.25rem; margin-top: 1rem;
+  font-family: var(--f-mono); font-size: var(--fs-label); letter-spacing: 0.1em;
+  color: var(--fg-3);
+}
+.work-repo__stat { display: inline-flex; align-items: center; gap: 0.4em; }
+.work-repo__stat i { color: var(--accent); }
+.work-repo__link { color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; }
+
+/* Monochrome placeholder media (real thumbnails to be added later) */
+.index__media--ph {
+  display: grid; place-items: center;
+  opacity: 1; filter: none;
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 10px),
+    linear-gradient(160deg, var(--surface-2), var(--inset));
+}
+.index__media-num {
+  font-family: var(--f-mono); font-size: 1.4rem; letter-spacing: 0.1em;
+  color: var(--fg-3); opacity: 0.55;
+  transition: color 0.3s var(--ease), opacity 0.3s var(--ease);
+}
+.index__row:hover .index__media--ph { opacity: 1; filter: none; }
+.index__row:hover .index__media-num { color: var(--accent); opacity: 0.85; }
 
 /* ==========================================================================
    REPOSITORIES — bordered cells, featured first
@@ -554,6 +597,9 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
   border-bottom: 1px solid var(--line);
 }
 .cv .job:last-child, .cv .education-item:last-child { border-bottom: 0; margin-bottom: 0; }
+/* Date-less entries drop the gutter so they align flush-left (no empty margin) */
+.cv .publications .job,
+.cv .projects .job { padding-left: 0; }
 .cv .job-content, .cv .job-details { display: block; }
 .date-range {
   position: absolute; left: 0; top: 0.15rem; width: 10rem;
@@ -595,11 +641,25 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 }
 .education-description li strong, .job-description li strong { color: var(--fg); }
 
-/* Basics block: clean inline definition rows (label: value) */
-.cv .basics > p {
-  font-size: var(--fs-body);
-  margin-bottom: 0.7rem;
-  line-height: 1.7;
+/* Aligned definition grid (Basics, Skills) — labels share one fixed column */
+.cv .def-grid {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.75rem 1.5rem;
+  align-items: baseline;
+  margin: 0;
+  max-width: 74ch;
+}
+.cv .def-grid dt {
+  color: var(--accent);
+  font-weight: 500;
+  font-size: var(--fs-sm);
+}
+.cv .def-grid dd {
+  margin: 0;
+  color: var(--fg-2);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
 }
 
 /* ==========================================================================
@@ -622,6 +682,46 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 .blog-post ul, .blog-post ol { margin: 0 0 1.5rem; padding-left: 1.25rem; }
 .blog-post li { margin-bottom: 0.5rem; }
 .blog-post strong { color: var(--fg); }
+
+/* Layout shell: reading column + sticky table of contents in the right gutter */
+.blog-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 48rem) 15rem;
+  gap: clamp(2rem, 5vw, 5rem);
+  justify-content: center;
+  align-items: start;
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 4vw, 3.5rem) clamp(4rem, 8vw, 7rem);
+}
+.blog-shell .blog-post { max-width: none; margin: 0; padding: 0; min-width: 0; }
+.blog-shell .blog-content h2 { scroll-margin-top: 5rem; }
+
+.blog-toc { position: sticky; top: 8.5rem; align-self: start; }
+.blog-toc__label {
+  font-family: var(--f-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  margin-bottom: 1rem;
+}
+.blog-toc ol { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--line); }
+.blog-toc li { margin: 0; }
+.blog-toc a {
+  display: block;
+  padding: 0.4rem 0 0.4rem 1rem;
+  margin-left: -1px;
+  border-left: 1px solid transparent;
+  color: var(--fg-3);
+  font-size: var(--fs-sm);
+  line-height: 1.35;
+  text-decoration: none;
+  word-break: break-word;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.blog-toc a:hover { color: var(--fg); }
+.blog-toc a.is-active { color: var(--accent); border-left-color: var(--accent); }
 
 /* Code — override the post's inline light styles + light Prism theme */
 .blog-post pre,
@@ -652,6 +752,9 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
   display: block;
   white-space: pre;
 }
+/* prism-react-renderer emits one span per line; make each its own row */
+.blog-post .code-block { font-size: 0.9rem; line-height: 1.6; }
+.blog-post .code-block .code-line { display: block; }
 .blog-post .token.comment { color: var(--fg-3) !important; font-style: italic; }
 .blog-post .token.keyword,
 .blog-post .token.operator,
@@ -698,6 +801,8 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
   .caps { grid-template-columns: 1fr; }
   .repo-container { grid-template-columns: 1fr; }
   .repo-card:first-child { grid-column: auto; }
+  .blog-shell { grid-template-columns: minmax(0, 48rem); }
+  .blog-toc { display: none; }
   .blog-card { grid-template-columns: 1fr; gap: 0.75rem; }
   .blog-meta { flex-direction: row; gap: 1rem; }
   .index__row { grid-template-columns: 2.5rem 1fr; }
