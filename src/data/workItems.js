@@ -23,7 +23,7 @@ const WORK = [
     tech: 'PyTorch · Diffusion Models',
     lang: 'Python',
     repo: 'ZachFara/Penn-State-REU-2021-DenoisingDiffusionForAdversarialPurification',
-    image: 'images/diffusion-noise.gif',
+    image: 'images/diffusion-noise.webp',
     imageAttribution: 'Stable Diffusion visualization from https://medium.com/@ps.cs.engg/getting-started-with-stable-diffusion-535648ac0ce2',
     links: {
       github: 'https://github.com/ZachFara/Penn-State-REU-2021-DenoisingDiffusionForAdversarialPurification',
