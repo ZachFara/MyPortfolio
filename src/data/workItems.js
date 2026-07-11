@@ -40,7 +40,8 @@ const WORK = [
     tech: 'ANN · SMOTE · Bayesian Optimization',
     lang: 'Python',
     repo: 'ZachFara/Oversampling-Techniques-for-Predicting-COVID-19-Patient-Length-of-Stay',
-    image: null,
+    image: 'images/covid-transparent.png',
+    imageFit: 'contain',
     links: {
       github: 'https://github.com/ZachFara/Oversampling-Techniques-for-Predicting-COVID-19-Patient-Length-of-Stay',
       paper: 'https://arxiv.org/abs/2511.15048',
@@ -56,7 +57,8 @@ const WORK = [
     tech: 'Distributed Systems · Signals',
     lang: 'Python',
     repo: 'ZachFara/RealTime-AutonamousWeatherTrading',
-    image: null,
+    image: 'images/distributed-computing.png',
+    imageFit: 'contain',
     links: {
       github: 'https://github.com/ZachFara/RealTime-AutonamousWeatherTrading',
       paper: null,
@@ -72,7 +74,7 @@ const WORK = [
     tech: 'GPT-4 · Pinecone · RAG',
     lang: 'Python',
     repo: 'ZachFara/Chartwell-Insurance-AI',
-    image: null,
+    image: 'images/chartwell-tile.png',
     links: {
       github: 'https://github.com/ZachFara/Chartwell-Insurance-AI/tree/revamp',
       paper: null,
@@ -88,7 +90,8 @@ const WORK = [
     tech: 'TypeScript · Obsidian Plugin API · 3D Graph Visualization',
     lang: 'TypeScript',
     repo: 'ZachFara/galaxy-graph',
-    image: 'images/galaxygraphs-local.png',
+    image: 'images/galaxygraph-transparent.png',
+    imageFit: 'contain',
     links: {
       github: 'https://github.com/ZachFara/galaxy-graph',
       paper: null,
@@ -104,7 +107,8 @@ const WORK = [
     tech: 'PyTorch · TensorFlow · Transformers · NLP',
     lang: 'Jupyter Notebook',
     repo: 'ZachFara/TransformerTranslation',
-    image: null,
+    image: 'images/translate-transparent.png',
+    imageFit: 'contain',
     links: {
       github: 'https://github.com/ZachFara/TransformerTranslation',
       paper: null,

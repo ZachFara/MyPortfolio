@@ -51,6 +51,17 @@
   margin-right: 0.8rem;
 }
 
+/* Logo/icon thumbnails: letterbox on an inset tile instead of crop-filling */
+.index__media--contain {
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 10px),
+    linear-gradient(160deg, var(--surface-2), var(--inset));
+}
+.index__media--contain img {
+  object-fit: contain;
+  padding: 9%;
+}
+
 /* Monochrome placeholder media (real thumbnails to be added later) */
 .index__media--ph {
   display: grid; place-items: center;

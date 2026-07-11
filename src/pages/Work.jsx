@@ -102,7 +102,7 @@ const Work = () => {
                     })}
                   </div>
                 </div>
-                <div className={`index__media${p.image && !imageLoadErrors[p.num] ? '' : ' index__media--ph'}`} aria-hidden="true">
+                <div className={`index__media${p.image && !imageLoadErrors[p.num] ? '' : ' index__media--ph'}${p.imageFit === 'contain' ? ' index__media--contain' : ''}`} aria-hidden="true">
                   {p.image && !imageLoadErrors[p.num] ? (
                     <img
                       src={p.image}
