@@ -1,183 +1,109 @@
-# Zachariah Farahany - Portfolio Website
+# Zachariah Farahany — Portfolio
 
-A modern, responsive portfolio website built with React and Vite, showcasing projects, blog posts, and professional experience in data science and AI development.
+Personal portfolio site: selected work, blog posts, and CV. Built as a React single-page app that is prerendered to static HTML at build time and served from GitHub Pages.
 
-**Live Site**: [View Portfolio](https://zfara.github.io/MyPortfolio/)
+**Live site**: [zachfara.github.io/MyPortfolio](https://zachfara.github.io/MyPortfolio/)
 
-## Architecture Overview
+## Tech Stack
 
-### Tech Stack
-- **Frontend**: React 19.1.0 with modern hooks and functional components
-- **Routing**: React Router 7.7.0 with HashRouter for GitHub Pages compatibility
-- **Build Tool**: Vite 4.6.0 for fast development and optimized production builds
-- **Styling**: Custom CSS with SCSS preprocessor, responsive design system
-- **Testing**: Vitest with React Testing Library for component testing
-- **SEO**: React Helmet for dynamic meta tags and page titles
+- **React 19** with functional components and hooks
+- **React Router 7** — `BrowserRouter` with a `/MyPortfolio` basename; a `404.html` [SPA redirect](https://github.com/rafgraph/spa-github-pages) keeps deep links working on GitHub Pages
+- **Vite 7** for dev server and production builds
+- **Shiki** for build-free syntax highlighting in blog posts
+- **React Helmet** for per-page meta tags and titles
+- **Vitest + React Testing Library** for tests; **ESLint 9** (flat config, zero-warnings policy)
+- Plain CSS design system — no preprocessor
 
-### Project Structure
+## Routes
+
+| Path | Page |
+|------|------|
+| `/` | Home — intro plus featured work |
+| `/work` | All projects and repositories (the former `/projects` and `/repositories` pages, now merged; both old paths redirect here) |
+| `/cv` | Curriculum vitae |
+| `/blog` | Blog index |
+| `/blog/why-do-we-need-agents`, `/blog/ai-agent-memory` | Blog posts (React components in `src/pages/BlogPosts/`) |
+
+Unknown paths fall back to Home.
+
+## Project Structure
 
 ```
 src/
-├── components/          # Reusable UI components
-│   ├── Layout.jsx       # Main layout wrapper with sidebar
-│   ├── Sidebar.jsx      # Navigation sidebar with mobile hamburger
-│   ├── BlogSidebar.jsx  # Blog-specific sidebar component
-│   ├── HamburgerMenu.jsx # Mobile navigation toggle
-│   └── CardTransitionStyles.jsx # Animation utilities
-├── pages/               # Route-based page components
-│   ├── Home.jsx         # Landing page with introduction
-│   ├── Projects.jsx     # Project showcase with categories
-│   ├── Blog.jsx         # Blog post listing
-│   ├── Repositories.jsx # GitHub repositories display
-│   ├── CurriculumVitae.jsx # Professional experience
-│   └── BlogPosts/       # Individual blog post components
-│       ├── AIAgentMemory.jsx
-│       └── WhyDoWeNeedAgents.jsx
-├── styles/              # Modular CSS organization
-│   ├── main.css         # Base styles and typography
-│   ├── blog.css         # Blog-specific styling
-│   ├── mobile-*.css     # Responsive design breakpoints
-│   └── sidebar-*.css    # Navigation and layout styles
-└── utils/               # JavaScript utilities
-    └── hamburgerMenu.js # Mobile menu interaction logic
+├── main.jsx                # Entry point; hydrates prerendered HTML (or mounts fresh in dev)
+├── entry-server.jsx        # SSR entry used by the prerender step
+├── App.jsx                 # Router + route table
+├── components/
+│   ├── Layout.jsx          # App shell: sidebar + topbar + content
+│   ├── Sidebar.jsx         # Desktop navigation sidebar
+│   ├── Topbar.jsx          # Top bar
+│   ├── HamburgerMenu.jsx   # Mobile navigation toggle
+│   ├── BlogSidebar.jsx     # Blog-specific sidebar
+│   ├── BlogTOC.jsx         # Table of contents for blog posts
+│   └── CodeBlock.jsx       # Shiki-highlighted code blocks (theme in shikiTheme.js)
+├── pages/
+│   ├── Home.jsx
+│   ├── Work.jsx
+│   ├── Blog.jsx
+│   ├── CurriculumVitae.jsx
+│   └── BlogPosts/
+├── data/
+│   ├── workItems.js        # Single source of truth for project cards (Home + Work)
+│   └── generated/
+│       └── github-repo-updates.json  # Last-updated timestamps, synced at build time
+└── styles/
+    ├── theme-dark.css      # Design-system entrypoint (imported last, owns the cascade)
+    └── theme-dark/         # Ordered layers: 00-tokens-base … 90-scrollbars
+scripts/
+├── sync-github-repo-updates.mjs  # Fetches repo last-push dates from the GitHub API
+└── prerender.mjs                 # Renders each route to static HTML after the build
 ```
 
-### Design System
+## Styling
 
-**Layout Philosophy**:
-- **Sidebar Navigation**: Fixed sidebar with smooth transitions and mobile-responsive hamburger menu
-- **Card-Based Design**: Project cards with hover animations and consistent spacing
-- **Typography Hierarchy**: Clean typography with proper heading structure and readability
-- **Responsive Breakpoints**: Mobile-first design with tablet and desktop optimizations
-
-**Animation System**:
-- Smooth transitions using cubic-bezier easing functions
-- Card hover effects with elevation and shadow changes
-- Sidebar slide animations for mobile navigation
-- Page transition effects for improved user experience
+All visual styling lives in the dark design system under `src/styles/theme-dark/`, split into numbered layers (`00-tokens-base.css` through `90-scrollbars.css`) that `theme-dark.css` imports in order. It is loaded last in `main.jsx` so it owns the cascade. A handful of standalone stylesheets remain for the sidebar and hamburger menu; the other files in `src/styles/` are retired legacy overrides that are no longer imported.
 
 ## Getting Started
 
-### Prerequisites
-- Node.js (v16+)
-- npm or yarn package manager
+Requires Node.js 20+.
 
-### Installation
+```bash
+git clone https://github.com/ZachFara/MyPortfolio.git
+cd MyPortfolio
+npm install          # or: npm ci --legacy-peer-deps
+npm run dev          # http://localhost:5173
+```
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/zfara/MyPortfolio.git
-   cd MyPortfolio
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or with legacy peer deps if needed
-   npm ci --legacy-peer-deps
-   ```
-
-3. **Start development server**
-   ```bash
-   npm run dev
-   ```
-   The site will be available at `http://localhost:5173`
-
-### Available Scripts
+### Scripts
 
 | Command | Description |
 |---------|-------------|
-| `npm run dev` | Start development server with hot reload |
-| `npm run build` | Build production-optimized bundle |
-| `npm run preview` | Preview production build locally |
-| `npm run test` | Run test suite once |
+| `npm run dev` | Start the dev server with hot reload |
+| `npm run build` | Sync GitHub repo metadata, build the production bundle, then prerender all routes (via `postbuild`) |
+| `npm run preview` | Serve the production build locally |
+| `npm test` | Run the test suite once |
 | `npm run test:watch` | Run tests in watch mode |
-| `npm run test:coverage` | Generate test coverage report |
-| `npm run lint` | Run ESLint with zero warnings policy |
+| `npm run test:coverage` | Generate a coverage report |
+| `npm run lint` | ESLint with `--max-warnings=0` |
+| `npm run sync:repo-updates` | Refresh `github-repo-updates.json` from the GitHub API (set `GITHUB_TOKEN` to avoid rate limits) |
+
+## Build & Prerendering
+
+`npm run build` does three things:
+
+1. `sync:repo-updates` fetches the last-push date for every repo referenced in `workItems.js` and writes it to `src/data/generated/github-repo-updates.json`.
+2. Vite builds the client bundle to `dist/`.
+3. The `postbuild` hook builds an SSR bundle from `entry-server.jsx` and `scripts/prerender.mjs` renders each route to a static `index.html` under `dist/`, so pages arrive as real HTML and React hydrates on load.
 
 ## Testing
 
-The project uses **Vitest** as the testing framework with **React Testing Library** for component testing:
-
-```
-tests/
-├── components/          # Component unit tests
-│   ├── Layout.test.jsx
-│   └── Sidebar.test.jsx
-├── pages/               # Page component tests
-│   ├── Blog.test.jsx
-│   ├── Projects.test.jsx
-│   └── AIAgentMemory.test.jsx
-└── setup.js            # Test configuration
-```
-
-**Testing Strategy**:
-- Component rendering validation
-- User interaction testing
-- Accessibility compliance checks
-- Route navigation testing
-
-## Styling Architecture
-
-### CSS Organization
-- **Base Layer**: Typography, reset, and foundational styles
-- **Components**: Reusable component-specific styles
-- **Layout**: Page layout and grid systems
-- **Utilities**: Animation helpers and responsive utilities
-
-### Mobile-First Responsive Design
-- **Breakpoints**: Custom breakpoint system for consistent responsive behavior
-- **Sidebar Behavior**: Desktop fixed sidebar transforms to mobile hamburger menu
-- **Touch Interactions**: Optimized for mobile touch interactions and gestures
+Vitest with React Testing Library; tests live in `tests/` mirroring `src/` (components, pages, and a Shiki code-styling test). The approach is smoke-test focused — render without crashing, key elements present — rather than asserting on styling or implementation details. See [TESTING.md](TESTING.md) for details.
 
 ## Deployment
 
-### GitHub Pages Deployment
-The site is configured for GitHub Pages deployment with:
-- **Base Path**: `/MyPortfolio/` for GitHub Pages subdirectory
-- **HashRouter**: Ensures proper routing on static hosting
-- **404 Handling**: Custom 404.html with SPA redirect logic
-- **Asset Optimization**: Vite build optimization for production
+GitHub Actions deploys to GitHub Pages on pushes to `master`:
 
-### Deployment Process
-```bash
-npm run build      # Build production bundle
-# Push to gh-pages branch or deploy dist/ folder
-```
+- **`ci-cd.yml`** — lints and tests on every push and PR; on `master`, builds and deploys `dist/` to the `gh-pages` branch.
+- **`static.yml`** — a simpler build-and-deploy workflow, also triggered on `master` pushes (and manually via `workflow_dispatch`).
 
-## Content Management
-
-### Blog Posts
-Blog posts are React components in `src/pages/BlogPosts/`:
-- **SEO Optimized**: Each post includes proper meta tags via React Helmet
-- **Code Highlighting**: Syntax highlighting for technical content
-- **Responsive Images**: Optimized image loading and display
-- **Navigation**: Breadcrumb navigation and "Back to Blog" links
-
-### Project Showcase
-Projects are organized by category (Robotics, Machine Learning, etc.):
-- **Interactive Cards**: Hover effects and smooth transitions
-- **External Links**: Direct links to GitHub repositories and live demos
-- **Image Optimization**: WebP format images for faster loading
-
-## Configuration Files
-
-| File | Purpose |
-|------|---------|
-| `vite.config.js` | Vite build configuration and plugins |
-| `vitest.config.js` | Test framework configuration |
-| `eslint.config.js` | Code linting rules and standards |
-| `package.json` | Dependencies and npm scripts |
-
-## Contributing
-
-While this is a personal portfolio, suggestions and feedback are welcome! Please feel free to:
-- Open issues for bugs or suggestions
-- Submit pull requests for improvements
-- Share feedback on design or functionality
-
-## License
-
-This project is open source and available under standard web development practices for portfolio sites.
-
----
+The Vite `base` is `/MyPortfolio/` to match the Pages subdirectory, and `public/404.html` redirects unknown paths back into the SPA router.
