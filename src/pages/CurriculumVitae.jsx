@@ -46,7 +46,7 @@ const CurriculumVitae = () => {
             </dd>
 
             <dt>Summary</dt>
-            <dd>Quantitative ML practitioner with a research thread. I build, deploy, then research production ML and agentic systems to understand how they actually work. My background spans the full stack from data pipelines and model development to agentic LLM architectures and interpretability research, with first and co-author IEEE publications and production deployments across finance, insurance, and industrial IoT. Currently a Quantitative Analytics Associate at Wells Fargo working on production credit risk models and quantitative risk systems.</dd>
+            <dd>Quantitative ML practitioner with a research thread. I build, deploy, and research production ML and agentic systems. My background spans the full stack from data pipelines and model development to agentic LLM architectures and interpretability research, with first and co-author IEEE publications and production deployments across finance, insurance, and industrial IoT. Currently a Quantitative Analytics Associate at Wells Fargo working on production credit risk models and quantitative risk systems.</dd>
           </dl>
         </div>
 
@@ -99,11 +99,12 @@ const CurriculumVitae = () => {
                 <ul className="education-description">
                   <li>Selected into a competitive rotational development program rotating across lines of business, with formal training in banking, finance, and regulation.</li>
                   <li><strong>WIM Model Risk (Jan 2026 – Jul 2026):</strong> Validated the tracking-error prediction model used for risk projection across Wells Fargo wealth-management client portfolios, benchmarked against BlackRock Aladdin.</li>
-                  <li>Implemented and compared multiple factor models (Fama-French 5-factor, a 12-factor model, full sample covariance, experimental PCA factors) from research papers, with research-based extensions including market-cap covariance scaling, EWMA weighting, and Barra-style GARCH/GJR-GARCH volatility scaling that improved tracking-error accuracy.</li>
+                  <li>Implemented and compared multiple factor models (Fama-French 5-factor, a 12-factor model, full sample covariance, experimental PCA factors) from research papers, with research-based extensions focused on covariance and volatility scaling — market-cap covariance scaling, EWMA weighting, and Barra-style GARCH/GJR-GARCH and MF2-GARCH volatility scaling — that improved tracking-error accuracy.</li>
                   <li>Built a full backtesting engine supporting fixed and varying benchmark/portfolio configurations, plus a Dirichlet-based testing-portfolio construction method that holds portfolios market-cap weighted on average while modeling realistic variance across the client base.</li>
                   <li><strong>Risk Modeling Group, Auto Decisioning (Jul 2025 – Dec 2025):</strong> Built and shipped to production the second-stage Eagle model, a probability-of-charge-off model that makes the final approve/decline decision on all Wells Fargo auto originations.</li>
                   <li>Handled variable selection for fairness compliance, monotonicity validation against drivers like FICO, and segment-level error analysis on realized vs. predicted charge-off.</li>
-                  <li>Separately built an automated auditing tool for credit-bureau attributes that replaced a manual process requiring a team of ten analysts working multiple weeks: the tool parses the attribute specification sheet, applies its rules to applicant credit histories, and reconciles against the data provider, raising validated coverage from under 1% of applicants to 25%+ in a single day.</li>
+                  <li>Separately built an automated auditing tool for credit-bureau attributes, replacing a manual process that required a team of ten analysts working multiple weeks.</li>
+                  <li>The tool parses the attribute specification sheet, applies its rules to applicant credit histories, and reconciles against the data provider, raising validated coverage from under 1% of applicants to 25%+ in a single day.</li>
                 </ul>
               </div>
             </div>
@@ -117,10 +118,10 @@ const CurriculumVitae = () => {
                 <p><span className="label">Company</span>: Seyon Solutions</p>
                 <ul className="education-description">
                   <li>Architected and built from scratch an agentic LlamaIndex assistant for a chemical-processing client operating two plants (650+ employees), letting managers query worker performance and plant operations in natural language.</li>
-                  <li>Designed a multi-tool agent: a primary few-shot SQL tool (~100 pre-written CTEs stored with natural-language descriptions in a vector database, similarity-matched at query time and passed as few-shot examples to a SQL-writing LLM with schema context), a Pinecone vector-search fallback, and a graphing tool that produced charts directly from natural-language queries.</li>
+                  <li>Designed a multi-tool agent: a primary few-shot SQL tool (~100 pre-written CTEs stored with natural-language descriptions in a vector database, similarity-matched at query time and passed as few-shot examples to a SQL-writing LLM with schema context), an AWS OpenSearch vector-search fallback, and a graphing tool that produced charts directly from natural-language queries.</li>
                   <li>Designed and implemented a bronze-silver-gold medallion pipeline on AWS: append-only event JSON landed via Lambda into a terabyte-scale bronze store, a Lambda-triggered silver layer maintaining active state and full history via Delta Lake, and a Glue job aggregating to production gold tables every five minutes.</li>
                   <li>Deployed to real users with ~90% query accuracy by end of engagement.</li>
-                  <li>Stack: LlamaIndex, Pinecone, Streamlit, AWS Lambda, AWS Glue, Delta Lake, SQL.</li>
+                  <li>Stack: LlamaIndex, AWS OpenSearch, Streamlit, AWS Lambda, AWS Glue, Delta Lake, SQL.</li>
                 </ul>
               </div>
             </div>
@@ -245,7 +246,7 @@ const CurriculumVitae = () => {
                   <li>Multimodal LLM system for autonomous drone search that handles open-vocabulary and reasoning-based target descriptions, going beyond fixed-class detectors like YOLO (You Only Look Once).</li>
                   <li>MLLM-agnostic architecture (tested GPT-4o, Gemini 1.5, Claude 3 Haiku) querying a 3×3×3 spatial grid to resolve target direction across left/right, up/down, and near/far axes.</li>
                   <li>Built GLAD, a custom anti-contamination benchmark of 100 campus images with spatial annotations and paired negatives, to evaluate spatial localization on novel data.</li>
-                  <li>Live flights reached 95% success (90% true zero-shot, first attempt) across 20 courses, including abstract targets like "the most recent cover of the film adaptation" (the Dune novel) and "a textbook to prepare for a coding interview at Meta."</li>
+                  <li>Live flights reached 95% success (90% true zero-shot, first attempt) across 20 courses, including abstract targets like "a book by Frank Herbert receiving a film adaptation" and "a textbook to prepare for a coding interview at Meta."</li>
                   <li>Total live-flight inference cost under $1. Writeup available on GitHub.</li>
                   <li>Stack: Python, OpenAI/Google/Anthropic APIs, DJI Tello SDK.</li>
                 </ul>
@@ -280,22 +281,19 @@ const CurriculumVitae = () => {
           <h2 className="section-title">Skills</h2>
           <dl className="def-grid">
             <dt>Languages</dt>
-            <dd>Python, R, SQL, Java, C++, JavaScript/React</dd>
+            <dd>Python, R, SQL, JavaScript/TypeScript</dd>
 
             <dt>ML / AI</dt>
-            <dd>PyTorch, TensorFlow/Keras, Scikit-learn, HuggingFace Transformers, XGBoost, neural networks, Bayesian hyperparameter optimization, SMOTE/oversampling, factor models, time-series modeling, model validation and backtesting</dd>
+            <dd>PyTorch, TensorFlow/Keras, Scikit-learn, HuggingFace Transformers, XGBoost, Neural networks, Reinforcement learning, Computer vision, Bayesian hyperparameter optimization, SMOTE/oversampling, Time-series modeling, Model validation</dd>
 
             <dt>LLM / Agentic</dt>
-            <dd>RAG design and tuning, agentic system design (tool registries, orchestration), MLLM evaluation and benchmarking, few-shot prompting, LlamaIndex, AWS Bedrock, OpenAI / Anthropic / Google Cloud Model Garden APIs</dd>
+            <dd>RAG design and tuning, Agentic system design (tool registries, orchestration), Memory management, MLLM evaluation and benchmarking, Few-shot prompting, LlamaIndex, AWS Bedrock, OpenAI / Anthropic / Google Cloud Model Garden APIs</dd>
 
-            <dt>Data Engineering</dt>
-            <dd>Apache Spark (AWS EMR), AWS Lambda, AWS Glue, S3, Delta Lake/Parquet, DynamoDB, medallion architecture, Snowflake, GCP/BigQuery, ETL design</dd>
+            <dt>Data Engineering &amp; Cloud</dt>
+            <dd>Apache Spark (AWS EMR), AWS Lambda, AWS Glue, S3, Delta Lake/Parquet, DynamoDB, Pinecone, AWS OpenSearch, Medallion architecture, Snowflake, GCP/BigQuery, ETL design</dd>
 
             <dt>Interpretability</dt>
-            <dd>activation analysis, concept-geometry/subspace analysis, ablation studies, behavioral readout</dd>
-
-            <dt>Vector DBs</dt>
-            <dd>Pinecone</dd>
+            <dd>Activation analysis, Concept-geometry/subspace analysis, Ablation studies, Behavioral readout</dd>
 
             <dt>Dev Tools</dt>
             <dd>Git/GitHub, Docker, Weights &amp; Biases, Streamlit, Dev Containers, pytest</dd>

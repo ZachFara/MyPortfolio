@@ -17,7 +17,7 @@ const WORK = [
   },
   {
     num: '02',
-    cat: 'Machine Learning',
+    cat: 'Generative AI',
     title: 'Denoising Diffusion Models',
     desc: 'Improving denoising-diffusion image generation through optimized noise scheduling for adversarial purification.',
     tech: 'PyTorch · Diffusion Models',
@@ -84,7 +84,7 @@ const WORK = [
   },
   {
     num: '06',
-    cat: 'Developer Tools',
+    cat: 'Visualization',
     title: 'Galaxy Graph',
     desc: 'An Obsidian plugin that renders an entire vault as a navigable 3D force-directed graph with orbit, zoom, inspector, and timeline replay modes.',
     tech: 'TypeScript · Obsidian Plugin API · 3D Graph Visualization',

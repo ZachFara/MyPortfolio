@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import WORK from '../data/workItems';
 
 const CAPS = [
-  { n: '01', t: 'Machine Learning', d: 'Credit-risk models, factor models, and time-series forecasting shipped to production, with Bayesian tuning, validation, and backtesting.' },
-  { n: '02', t: 'ML Operations', d: 'Automated deployment, testing, and monitoring of models on cloud infrastructure, with resource optimization and MLFlow-based management.' },
-  { n: '03', t: 'Data & Big Data', d: 'Terabyte-scale ETL on Spark and medallion pipelines on AWS, taking raw telemetry through to production feature stores and warehouses.' },
-  { n: '04', t: 'Generative & Agentic AI', d: 'RAG systems, multi-tool agents, and MLLM evaluation, plus interpretability research into how these models actually work.' },
+  { n: '01', t: 'Machine Learning', d: 'Credit-risk models shipped to production, with Bayesian tuning, validation, and segment-level error analysis.' },
+  { n: '02', t: 'Generative & Agentic AI', d: 'RAG systems, multi-tool agents, and MLLM evaluation, plus LLM interpretability research.' },
+  { n: '03', t: 'ML Operations', d: 'Automated deployment, testing, and monitoring of models on cloud infrastructure, with resource optimization and MLFlow-based management.' },
+  { n: '04', t: 'Big Data', d: 'Terabyte-scale ETL on Spark and medallion pipelines on AWS, taking raw telemetry through to production feature stores and warehouses.' },
 ];
 
-const SELECTED = ['01', '02', '04']
+const SELECTED = ['03', '01', '05']
   .map((num) => WORK.find((p) => p.num === num))
   .map((p, i) => ({ ...p, num: String(i + 1).padStart(2, '0') }));
 
@@ -29,11 +29,11 @@ const Home = () => (
             <span className="l2">Farahany</span>
           </h1>
           <p className="hero__intro">
-            I build, deploy, then research production ML and agentic systems to understand how they actually work.
+            I build, deploy, and research production ML and agentic systems.
           </p>
           <dl className="hero__meta">
             <div><dt>Now</dt><dd>Quantitative Analytics @ Wells Fargo</dd></div>
-            <div><dt>Focus</dt><dd>Credit-risk ML · Factor models · Interpretability</dd></div>
+            <div><dt>Focus</dt><dd>LLM interpretability · Credit-risk ML · Factor models</dd></div>
             <div><dt>Studied</dt><dd>M.S. Applied Data Science, UChicago</dd></div>
           </dl>
           <div className="hero__actions">
