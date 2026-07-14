@@ -1,34 +1,32 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import Projects from '../../src/pages/Projects';
+import Work from '../../src/pages/Work';
 
 // Mock Helmet to avoid errors
 vi.mock('react-helmet', () => ({
   Helmet: ({ children }) => <div data-testid="helmet">{children}</div>
 }));
 
-describe('Projects Page', () => {
+describe('Work Page', () => {
   it('renders without crashing', () => {
-    // This test simply checks if the component renders without throwing an error
     expect(() => {
       render(
         <MemoryRouter>
-          <Projects />
+          <Work />
         </MemoryRouter>
       );
     }).not.toThrow();
   });
-  
-  it('displays project content', () => {
-    render(
+
+  it('displays work content', () => {
+    const { container } = render(
       <MemoryRouter>
-        <Projects />
+        <Work />
       </MemoryRouter>
     );
-    
-    // Check for projects section - update selector based on your actual Projects component
-    const projectsSection = document.querySelector('.projects') || document.querySelector('section') || document.querySelector('div.content');
-    expect(projectsSection).toBeDefined();
+
+    const content = container.querySelector('main, section, [class]');
+    expect(content).toBeDefined();
   });
 });

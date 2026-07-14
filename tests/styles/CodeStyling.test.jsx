@@ -30,7 +30,7 @@ describe('Code Styling Test', () => {
       </MemoryRouter>
     );
     
-    const codeCells = document.querySelectorAll('.code-cell');
+    const codeCells = document.querySelectorAll('.code-block');
     expect(codeCells.length).toBeGreaterThan(0);
     
     // This test simply verifies the presence of the elements

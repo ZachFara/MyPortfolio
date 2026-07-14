@@ -40,7 +40,7 @@ describe('AIAgentMemory Blog Post', () => {
     expect(codeElements.length).toBeGreaterThan(0);
     
     // Check for the main code cell
-    const codeCells = document.querySelectorAll('.code-cell');
+    const codeCells = document.querySelectorAll('.code-block');
     expect(codeCells.length).toBeGreaterThan(0);
   });
   
