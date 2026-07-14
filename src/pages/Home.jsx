@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
+import WORK from '../data/workItems';
 
 const CAPS = [
   { n: '01', t: 'Machine Learning', d: 'Credit-risk models, factor models, and time-series forecasting shipped to production, with Bayesian tuning, validation, and backtesting.' },
@@ -8,11 +9,9 @@ const CAPS = [
   { n: '04', t: 'Generative & Agentic AI', d: 'RAG systems, multi-tool agents, and MLLM evaluation, plus interpretability research into how these models actually work.' },
 ];
 
-const SELECTED = [
-  { num: '01', cat: 'Robotics', title: 'SkySearch UAVs', desc: 'Open-vocabulary autonomous drone search driven by multimodal LLMs. MS thesis; 95% live-flight success.', tech: 'Python · CV · MLLM', href: 'https://github.com/ZachFara/SkySearch' },
-  { num: '02', cat: 'Machine Learning', title: 'Denoising Diffusion Models', desc: 'Improving diffusion image generation through optimized noise scheduling.', tech: 'PyTorch · Diffusion', href: 'https://github.com/ZachFara/Penn-State-REU-2021-DenoisingDiffusionForAdversarialPurification' },
-  { num: '03', cat: 'Distributed Systems', title: 'Autonomous Weather Trading', desc: 'A multi-server platform trading commodities on weather-derived signals.', tech: 'Distributed · Signals', href: 'https://github.com/ZachFara/RealTime-AutonamousWeatherTrading' },
-];
+const SELECTED = ['01', '02', '04']
+  .map((num) => WORK.find((p) => p.num === num))
+  .map((p, i) => ({ ...p, num: String(i + 1).padStart(2, '0') }));
 
 const Home = () => (
   <>
@@ -81,14 +80,14 @@ const Home = () => (
               <span className="index__num">{p.num}</span>
               <div className="index__body">
                 <span className="index__cat">{p.cat}</span>
-                <a href={p.href} target="_blank" rel="noopener noreferrer">
+                <a href={p.links.github} target="_blank" rel="noopener noreferrer">
                   <h3 className="index__title">{p.title}</h3>
                 </a>
                 <p className="index__desc">{p.desc}</p>
                 <span className="index__tech">{p.tech}</span>
               </div>
-              <div className="index__media index__media--ph" aria-hidden="true">
-                <span className="index__media-num">{p.num}</span>
+              <div className={`index__media${p.imageFit === 'contain' ? ' index__media--contain' : ''}`} aria-hidden="true">
+                <img src={p.image} alt={`${p.title} preview`} loading="lazy" />
               </div>
             </li>
           ))}
