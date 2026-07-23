@@ -26,6 +26,7 @@ test-results/
 
 # ---- Agent / skill tooling (local install) ----
 .agents/
+.claude/
 skills-lock.json
 
 # ---- Logs ----
