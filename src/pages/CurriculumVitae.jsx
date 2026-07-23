@@ -13,6 +13,9 @@ const CurriculumVitae = () => {
             <div className="page-head__row"><span className="page-head__idx">04 / CV</span></div>
             <h1>Curriculum Vitae</h1>
             <p className="page-head__desc">Quantitative ML practitioner: publications, production systems, and research.</p>
+            <div className="page-head__actions">
+              <a className="btn" href="Zachariah-Farahany-Resume.pdf" target="_blank" rel="noopener noreferrer">Download résumé <span className="arw">↓</span></a>
+            </div>
           </header>
 
         <div className="section basics">

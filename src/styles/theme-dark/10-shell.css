@@ -113,6 +113,10 @@
 }
 .page-head h1 { font-size: var(--fs-d1); }
 .page-head__desc { color: var(--fg-2); max-width: 46ch; margin-top: 1.25rem; }
+.page-head__actions { margin-top: clamp(1.5rem, 3vw, 2rem); display: flex; gap: 0.9rem; flex-wrap: wrap; }
+/* down-arrow glyph inside .btn shares the arrow-link nudge on hover */
+.btn .arw { transition: transform 0.2s var(--ease); }
+.btn:hover .arw { transform: translateY(3px); }
 
 /* Mobile menu overlay */
 .menu-overlay { display: none; }
