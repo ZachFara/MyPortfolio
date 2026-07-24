@@ -150,3 +150,22 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 }
 .arrow-link .arw { transition: transform 0.25s var(--ease); }
 .arrow-link:hover .arw { transform: translate(3px, -3px); }
+
+/* Subordinate file-download link — one tier below .btn.
+   Keeps the mono/uppercase family but drops the border so a PDF grab
+   never reads as a peer of the CV / work navigation buttons. */
+.dl-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--f-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-2);
+  padding: 0.85em 0.2em;   /* vertical padding matches .btn so it sits level in the row */
+  transition: color 0.2s var(--ease);
+}
+.dl-link:hover { color: var(--accent); }
+.dl-link .arw { transition: transform 0.2s var(--ease); }
+.dl-link:hover .arw { transform: translateY(3px); }

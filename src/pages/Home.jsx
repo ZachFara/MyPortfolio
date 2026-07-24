@@ -39,7 +39,7 @@ const Home = () => (
           <div className="hero__actions">
             <Link to="/work" className="btn btn--solid">Selected work</Link>
             <Link to="/cv" className="btn">Curriculum vitae</Link>
-            <a className="btn" href="Zachariah-Farahany-Resume.pdf" target="_blank" rel="noopener noreferrer">Résumé <span className="arw">↓</span></a>
+            <a className="dl-link" href="Zachariah-Farahany-Resume.pdf" target="_blank" rel="noopener noreferrer">Résumé PDF <span className="arw">↓</span></a>
           </div>
         </div>
 
