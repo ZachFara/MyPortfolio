@@ -4,16 +4,18 @@
 */
 
 /* Remove all outlines for better aesthetics */
-*:focus, *:active, *:hover {
+*:focus,
+*:active,
+*:hover {
   outline: none !important;
 }
 
 /* Override any red backgrounds or borders with blue */
 ul.pagination li > .page.active:hover,
 ul.pagination li > .page.active:active,
-input[type="submit"].primary:active,
-input[type="reset"].primary:active,
-input[type="button"].primary:active,
+input[type='submit'].primary:active,
+input[type='reset'].primary:active,
+input[type='button'].primary:active,
 button.primary:active,
 .button.primary:active {
   background-color: #2c86c5 !important;
@@ -22,24 +24,38 @@ button.primary:active,
 }
 
 /* Ensure smoother transitions on all interactive elements */
-a, button, .button, input, select, textarea,
-.project-card, .repo-card, .mini-posts article,
-#menu ul a, #menu ul span,
-.image, img {
+a,
+button,
+.button,
+input,
+select,
+textarea,
+.project-card,
+.repo-card,
+.mini-posts article,
+#menu ul a,
+#menu ul span,
+.image,
+img {
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
 }
 
 /* Common card styles for consistency across the site */
-.project-card, .repo-card, .mini-posts article {
+.project-card,
+.repo-card,
+.mini-posts article {
   transform: translateY(0);
-  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
-              box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
-              border-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  transition:
+    transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    border-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
-.project-card:hover, .repo-card:hover, .mini-posts article:hover {
+.project-card:hover,
+.repo-card:hover,
+.mini-posts article:hover {
   transform: translateY(-5px) !important;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
   border-color: transparent !important;
@@ -55,26 +71,30 @@ a, button, .button, input, select, textarea,
 }
 
 /* Image hover effects */
-.project-card .project-image img, 
-.repo-card img, 
+.project-card .project-image img,
+.repo-card img,
 .mini-posts article .image img {
   transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
 }
 
-.project-card:hover .project-image img, 
-.repo-card:hover img, 
+.project-card:hover .project-image img,
+.repo-card:hover img,
 .mini-posts article:hover .image img {
   transform: scale(1.05) !important;
 }
 
 /* Override browser default focus styles */
-input:focus, select:focus, textarea:focus {
+input:focus,
+select:focus,
+textarea:focus {
   border-color: #2c86c5 !important;
   box-shadow: 0 0 0 1px rgba(44, 134, 197, 0.3) !important;
 }
 
 /* Ensure links don't have the default outline */
-a:focus, a:active, a:hover {
+a:focus,
+a:active,
+a:hover {
   outline: none !important;
   border-color: #2c86c5 !important;
 }
@@ -104,10 +124,11 @@ a:focus, a:active, a:hover {
 
 /* Improved menu transitions */
 #menu ul a {
-  transition: color 0.3s ease-in-out, 
-              background-color 0.3s ease-in-out, 
-              border-left 0.3s ease-in-out, 
-              padding-left 0.3s ease-in-out !important;
+  transition:
+    color 0.3s ease-in-out,
+    background-color 0.3s ease-in-out,
+    border-left 0.3s ease-in-out,
+    padding-left 0.3s ease-in-out !important;
   border-left: 3px solid transparent !important;
 }
 

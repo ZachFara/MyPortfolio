@@ -2,7 +2,7 @@
 .project-card,
 .repo-card {
   border: 1px solid #ddd !important;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
   background: #fff !important;
   color: #222 !important;
 }
@@ -13,7 +13,7 @@
 .repo-card:focus,
 .repo-card:active {
   border: 1.5px solid #bbb !important;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15) !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
   background: #fff !important;
   color: #222 !important;
 }
@@ -49,7 +49,7 @@
 
 /* Profile picture: always show shadow and border radius, all breakpoints */
 #banner .image img {
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
   border-radius: 12px !important;
   width: 100% !important;
   height: auto !important;

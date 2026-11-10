@@ -1,10 +1,10 @@
 /* Base styles that apply before specific component styles */
 
 :root {
-  font-family: "Open Sans", Helvetica, sans-serif;
+  font-family: 'Open Sans', Helvetica, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -27,7 +27,16 @@ body {
 }
 
 /* Remove default margin and padding that might interfere with imported styles */
-h1, h2, h3, h4, h5, h6, p, ol, ul, li {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul,
+li {
   margin: 0;
   padding: 0;
 }

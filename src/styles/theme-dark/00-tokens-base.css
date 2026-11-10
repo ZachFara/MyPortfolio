@@ -9,48 +9,55 @@
 /* ------------------------------------------------------------------ TOKENS */
 :root {
   /* Neutrals — off-black, never pure #000 */
-  --bg:            #0b0d10;
-  --bg-2:          #0e1116;   /* rail / topbar */
-  --surface:       #12151b;
-  --surface-2:     #171b22;
-  --inset:         #08090c;
+  --bg: #0b0d10;
+  --bg-2: #0e1116; /* rail / topbar */
+  --surface: #12151b;
+  --surface-2: #171b22;
+  --inset: #08090c;
 
   /* Hairlines */
-  --line:          rgba(255,255,255,0.08);
-  --line-2:        rgba(255,255,255,0.14);
+  --line: rgba(255, 255, 255, 0.08);
+  --line-2: rgba(255, 255, 255, 0.14);
 
   /* Text — off-white */
-  --fg:            #eceef2;
-  --fg-2:          #a7aeba;   /* body */
-  --fg-3:          #6b7280;   /* muted / meta */
+  --fg: #eceef2;
+  --fg-2: #a7aeba; /* body */
+  --fg-3: #6b7280; /* muted / meta */
 
   /* Single accent */
-  --accent:        #4c9aff;
-  --accent-2:      #7ab3ff;
-  --accent-tint:   rgba(76,154,255,0.10);
-  --accent-tint-2: rgba(76,154,255,0.20);
+  --accent: #4c9aff;
+  --accent-2: #7ab3ff;
+  --accent-tint: rgba(76, 154, 255, 0.1);
+  --accent-tint-2: rgba(76, 154, 255, 0.2);
 
   /* Fonts */
-  --f-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
-  --f-body:    "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --f-mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --f-display: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --f-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
   /* Type scale */
-  --fs-hero:   clamp(3rem, 8vw, 7rem);
-  --fs-d1:     clamp(2.25rem, 4.5vw, 4rem);
-  --fs-d2:     clamp(1.7rem, 3vw, 2.4rem);
-  --fs-h:      clamp(1.2rem, 1.6vw, 1.5rem);
-  --fs-body:   1.0625rem;
-  --fs-sm:     0.9375rem;
-  --fs-label:  0.72rem;   /* mono uppercase */
+  --fs-hero: clamp(3rem, 8vw, 7rem);
+  --fs-d1: clamp(2.25rem, 4.5vw, 4rem);
+  --fs-d2: clamp(1.7rem, 3vw, 2.4rem);
+  --fs-h: clamp(1.2rem, 1.6vw, 1.5rem);
+  --fs-body: 1.0625rem;
+  --fs-sm: 0.9375rem;
+  --fs-label: 0.72rem; /* mono uppercase */
 
   /* Spacing scale */
-  --s-1: 0.25rem;  --s-2: 0.5rem;  --s-3: 0.75rem; --s-4: 1rem;
-  --s-6: 1.5rem;   --s-8: 2rem;    --s-12: 3rem;   --s-16: 4rem;
-  --s-24: 6rem;    --s-32: 8rem;
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-6: 1.5rem;
+  --s-8: 2rem;
+  --s-12: 3rem;
+  --s-16: 4rem;
+  --s-24: 6rem;
+  --s-32: 8rem;
 
   /* Shell metrics */
-  --rail-w:   72px;
+  --rail-w: 72px;
   --topbar-h: 68px;
 
   --radius: 3px;
@@ -58,9 +65,12 @@
 }
 
 /* -------------------------------------------------------------------- BASE */
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html, body {
+html,
+body {
   background: var(--bg);
   margin: 0;
 }
@@ -72,9 +82,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-#root { min-height: 100vh; }
+#root {
+  min-height: 100vh;
+}
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--fg);
   font-family: var(--f-display);
   font-weight: 600;
@@ -82,14 +99,37 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
   margin: 0;
 }
-p { margin: 0; }
-a { color: var(--accent); text-decoration: none; border-bottom: 0; transition: color 0.2s var(--ease); }
-a:hover { color: var(--accent-2); }
-strong, b { color: var(--fg); font-weight: 600; }
-img { max-width: 100%; display: block; }
-hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
+p {
+  margin: 0;
+}
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 0;
+  transition: color 0.2s var(--ease);
+}
+a:hover {
+  color: var(--accent-2);
+}
+strong,
+b {
+  color: var(--fg);
+  font-weight: 600;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 0;
+}
 
-::selection { background: var(--accent-tint-2); color: var(--fg); }
+::selection {
+  background: var(--accent-tint-2);
+  color: var(--fg);
+}
 
 :focus-visible {
   outline: 2px solid var(--accent);
@@ -106,9 +146,13 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
   color: var(--fg-3);
   margin: 0;
 }
-.eyebrow .tick { color: var(--accent); }
+.eyebrow .tick {
+  color: var(--accent);
+}
 
-.mono { font-family: var(--f-mono); }
+.mono {
+  font-family: var(--f-mono);
+}
 .wrap {
   width: 100%;
   max-width: 1220px;
@@ -134,11 +178,26 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
   border: 1px solid var(--line-2);
   border-radius: var(--radius);
   padding: 0.85em 1.3em;
-  transition: border-color 0.2s var(--ease), color 0.2s var(--ease), background 0.2s var(--ease);
+  transition:
+    border-color 0.2s var(--ease),
+    color 0.2s var(--ease),
+    background 0.2s var(--ease);
 }
-.btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-tint); }
-.btn--solid { background: var(--accent); border-color: var(--accent); color: var(--inset); }
-.btn--solid:hover { background: var(--accent-2); border-color: var(--accent-2); color: var(--inset); }
+.btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-tint);
+}
+.btn--solid {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--inset);
+}
+.btn--solid:hover {
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+  color: var(--inset);
+}
 
 .arrow-link {
   display: inline-flex;
@@ -148,8 +207,12 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
   font-size: var(--fs-sm);
   color: var(--accent);
 }
-.arrow-link .arw { transition: transform 0.25s var(--ease); }
-.arrow-link:hover .arw { transform: translate(3px, -3px); }
+.arrow-link .arw {
+  transition: transform 0.25s var(--ease);
+}
+.arrow-link:hover .arw {
+  transform: translate(3px, -3px);
+}
 
 /* Subordinate file-download link — one tier below .btn.
    Keeps the mono/uppercase family but drops the border so a PDF grab
@@ -163,9 +226,15 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--fg-2);
-  padding: 0.85em 0.2em;   /* vertical padding matches .btn so it sits level in the row */
+  padding: 0.85em 0.2em; /* vertical padding matches .btn so it sits level in the row */
   transition: color 0.2s var(--ease);
 }
-.dl-link:hover { color: var(--accent); }
-.dl-link .arw { transition: transform 0.2s var(--ease); }
-.dl-link:hover .arw { transform: translateY(3px); }
+.dl-link:hover {
+  color: var(--accent);
+}
+.dl-link .arw {
+  transition: transform 0.2s var(--ease);
+}
+.dl-link:hover .arw {
+  transform: translateY(3px);
+}

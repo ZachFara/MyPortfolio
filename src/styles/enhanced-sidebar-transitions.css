@@ -5,7 +5,7 @@
   #sidebar {
     /* Removed all transitions for instant movement */
   }
-  
+
   #sidebar.inactive {
     opacity: 0.8;
   }
@@ -14,7 +14,7 @@
   #main {
     /* No transition - instant adjustment */
   }
-  
+
   /* When sidebar is inactive, adjust main content */
   #wrapper:has(#sidebar.inactive) #main {
     margin-left: 0 !important;
@@ -25,19 +25,20 @@
 @media screen and (max-width: 1280px) {
   #sidebar {
     transform: translateX(-100%) !important;
-    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
-                opacity 0.4s ease,
-                visibility 0.4s ease !important;
+    transition:
+      transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+      opacity 0.4s ease,
+      visibility 0.4s ease !important;
     opacity: 0 !important;
     visibility: hidden !important;
   }
-  
+
   #sidebar:not(.inactive) {
     transform: translateX(0) !important;
     opacity: 1 !important;
     visibility: visible !important;
   }
-  
+
   /* Add backdrop blur effect when sidebar is open */
   #wrapper::before {
     content: '';
@@ -50,10 +51,11 @@
     backdrop-filter: blur(0px);
     z-index: 9999;
     pointer-events: none;
-    transition: background 0.4s ease,
-                backdrop-filter 0.4s ease;
+    transition:
+      background 0.4s ease,
+      backdrop-filter 0.4s ease;
   }
-  
+
   #wrapper:has(#sidebar:not(.inactive))::before {
     background: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(2px);
@@ -75,7 +77,9 @@
 #sidebar nav#menu ul li {
   opacity: 1;
   transform: translateX(0);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
   transition-delay: calc(var(--item-index, 0) * 0.05s + 0.2s);
 }
 
@@ -87,9 +91,10 @@
 
 /* Smooth hamburger position transition */
 .hamburger-menu {
-  transition: left 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
-              background 0.3s ease,
-              box-shadow 0.3s ease !important;
+  transition:
+    left 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+    background 0.3s ease,
+    box-shadow 0.3s ease !important;
 }
 
 /* Prevent sidebar content flash */

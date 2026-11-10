@@ -16,13 +16,13 @@ Personal portfolio site: selected work, blog posts, and CV. Built as a React sin
 
 ## Routes
 
-| Path | Page |
-|------|------|
-| `/` | Home — intro plus featured work |
-| `/work` | All projects and repositories (the former `/projects` and `/repositories` pages, now merged; both old paths redirect here) |
-| `/cv` | Curriculum vitae |
-| `/blog` | Blog index |
-| `/blog/why-do-we-need-agents`, `/blog/ai-agent-memory` | Blog posts (React components in `src/pages/BlogPosts/`) |
+| Path                                                   | Page                                                                                                                       |
+| ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
+| `/`                                                    | Home — intro plus featured work                                                                                            |
+| `/work`                                                | All projects and repositories (the former `/projects` and `/repositories` pages, now merged; both old paths redirect here) |
+| `/cv`                                                  | Curriculum vitae                                                                                                           |
+| `/blog`                                                | Blog index                                                                                                                 |
+| `/blog/why-do-we-need-agents`, `/blog/ai-agent-memory` | Blog posts (React components in `src/pages/BlogPosts/`)                                                                    |
 
 Unknown paths fall back to Home.
 
@@ -34,11 +34,7 @@ src/
 ├── entry-server.jsx        # SSR entry used by the prerender step
 ├── App.jsx                 # Router + route table
 ├── components/
-│   ├── Layout.jsx          # App shell: sidebar + topbar + content
-│   ├── Sidebar.jsx         # Desktop navigation sidebar
-│   ├── Topbar.jsx          # Top bar
-│   ├── HamburgerMenu.jsx   # Mobile navigation toggle
-│   ├── BlogSidebar.jsx     # Blog-specific sidebar
+│   ├── Layout.jsx          # App shell: identity rail, top bar, mobile menu overlay
 │   ├── BlogTOC.jsx         # Table of contents for blog posts
 │   └── CodeBlock.jsx       # Shiki-highlighted code blocks (theme in shikiTheme.js)
 ├── pages/
@@ -56,7 +52,8 @@ src/
     └── theme-dark/         # Ordered layers: 00-tokens-base … 90-scrollbars
 scripts/
 ├── sync-github-repo-updates.mjs  # Fetches repo last-push dates from the GitHub API
-└── prerender.mjs                 # Renders each route to static HTML after the build
+├── prerender.mjs                 # Renders each route to static HTML after the build
+└── check-layout.mjs              # Layout check used by `npm run check`
 ```
 
 ## Styling
@@ -65,27 +62,32 @@ All visual styling lives in the dark design system under `src/styles/theme-dark/
 
 ## Getting Started
 
-Requires Node.js 20+.
+Requires Node.js 24 (see `.nvmrc`).
 
 ```bash
 git clone https://github.com/ZachFara/MyPortfolio.git
 cd MyPortfolio
-npm install          # or: npm ci --legacy-peer-deps
+npm ci --legacy-peer-deps   # also installs the git hooks
 npm run dev          # http://localhost:5173
 ```
 
 ### Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start the dev server with hot reload |
-| `npm run build` | Sync GitHub repo metadata, build the production bundle, then prerender all routes (via `postbuild`) |
-| `npm run preview` | Serve the production build locally |
-| `npm test` | Run the test suite once |
-| `npm run test:watch` | Run tests in watch mode |
-| `npm run test:coverage` | Generate a coverage report |
-| `npm run lint` | ESLint with `--max-warnings=0` |
-| `npm run sync:repo-updates` | Refresh `github-repo-updates.json` from the GitHub API (set `GITHUB_TOKEN` to avoid rate limits) |
+| Command                     | Description                                                                                              |
+| --------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `npm run dev`               | Start the dev server with hot reload                                                                     |
+| `npm run build`             | Sync GitHub repo metadata, build the production bundle, then prerender all routes (via `postbuild`)      |
+| `npm run preview`           | Serve the production build locally                                                                       |
+| `npm test`                  | Run the test suite once                                                                                  |
+| `npm run test:watch`        | Run tests in watch mode                                                                                  |
+| `npm run test:coverage`     | Generate a coverage report                                                                               |
+| `npm run check`             | **The gate**: format, lint, types, dead code, module boundaries, layout, tests. Pre-commit and CI run it |
+| `npm run lint`              | ESLint with `--max-warnings=0`                                                                           |
+| `npm run sync:repo-updates` | Refresh `github-repo-updates.json` from the GitHub API (set `GITHUB_TOKEN` to avoid rate limits)         |
+
+## Contributing
+
+All work follows [AGENTS.md](AGENTS.md): branch per task, conventional commits, PRs into `master` with a green `npm run check`. What to build is in [DESIGN.md](DESIGN.md); how, in [docs/decisions/](docs/decisions/); current status and the task list, in [PROGRESS.md](PROGRESS.md).
 
 ## Build & Prerendering
 
@@ -103,7 +105,7 @@ Vitest with React Testing Library; tests live in `tests/` mirroring `src/` (comp
 
 GitHub Actions deploys to GitHub Pages on pushes to `master`:
 
-- **`ci-cd.yml`** — lints and tests on every push and PR; on `master`, builds and deploys `dist/` to the `gh-pages` branch.
+- **`ci-cd.yml`** — runs `npm run check` on every push and PR (plus commitlint on PRs); on `master`, builds and deploys `dist/` to the `gh-pages` branch.
 - **`static.yml`** — a simpler build-and-deploy workflow, also triggered on `master` pushes (and manually via `workflow_dispatch`).
 
 The Vite `base` is `/MyPortfolio/` to match the Pages subdirectory, and `public/404.html` redirects unknown paths back into the SPA router.

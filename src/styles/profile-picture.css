@@ -30,7 +30,7 @@
     flex-basis: 32% !important;
     max-width: 420px !important;
   }
-  
+
   #banner .image img {
     border-radius: 10px !important;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35) !important;
@@ -44,7 +44,7 @@
     flex-basis: 35% !important;
     max-width: 380px !important;
   }
-  
+
   #banner .image img {
     border-radius: 8px !important;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
@@ -58,7 +58,7 @@
     flex-basis: 38% !important;
     max-width: 350px !important;
   }
-  
+
   #banner .image img {
     border-radius: 8px !important;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
@@ -74,7 +74,7 @@
     border-radius: 50% !important;
     overflow: hidden !important;
   }
-  
+
   #banner .image img {
     width: 100% !important;
     height: 100% !important;
@@ -94,7 +94,7 @@
     border-radius: 50% !important;
     overflow: hidden !important;
   }
-  
+
   #banner .image img {
     width: 100% !important;
     height: 100% !important;
@@ -114,7 +114,7 @@
     border-radius: 50% !important;
     overflow: hidden !important;
   }
-  
+
   #banner .image img {
     width: 100% !important;
     height: 100% !important;
@@ -134,7 +134,7 @@
     border-radius: 50% !important;
     overflow: hidden !important;
   }
-  
+
   #banner .image img {
     width: 100% !important;
     height: 100% !important;
@@ -150,15 +150,14 @@
   #banner .image {
     align-self: center !important;
   }
-  
+
   #banner .image img {
     border-radius: 50% !important;
   }
 }
 
 /* High DPI displays */
-@media screen and (-webkit-min-device-pixel-ratio: 2), 
-       screen and (min-resolution: 192dpi) {
+@media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi) {
   #banner .image img {
     image-rendering: -webkit-optimize-contrast !important;
     image-rendering: crisp-edges !important;

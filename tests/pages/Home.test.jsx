@@ -1,12 +1,7 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Home from '../../src/pages/Home';
-
-// Mock Helmet to avoid errors
-vi.mock('react-helmet', () => ({
-  Helmet: ({ children }) => <div data-testid="helmet">{children}</div>
-}));
 
 describe('Home Page', () => {
   it('renders without crashing', () => {
@@ -15,18 +10,18 @@ describe('Home Page', () => {
       render(
         <MemoryRouter>
           <Home />
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     }).not.toThrow();
   });
-  
+
   it('contains essential homepage elements', () => {
     render(
       <MemoryRouter>
         <Home />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
-    
+
     // Check for presence of key sections - update these selectors based on your actual Home component
     const mainSection = document.querySelector('section') || document.querySelector('div.content');
     expect(mainSection).toBeDefined();

@@ -1,0 +1,9 @@
+# Generated / installed
+node_modules/
+dist/
+dist-ssr/
+coverage/
+package-lock.json
+
+# Vendored third-party assets (not authored here; see ADR 0004)
+public/assets/

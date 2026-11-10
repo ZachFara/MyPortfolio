@@ -13,7 +13,9 @@ section .blog-container .blog-card,
 html body .project-card,
 html body .repo-card,
 html body .blog-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease !important;
   animation: none !important;
   position: relative;
   border: 1px solid #e8e8e8 !important;

@@ -10,10 +10,7 @@ export default defineConfig({
     css: true,
     coverage: {
       reporter: ['text', 'json', 'html'],
-      exclude: [
-        'node_modules/',
-        'tests/setup.js',
-      ],
+      exclude: ['node_modules/', 'tests/setup.js'],
     },
   },
 });

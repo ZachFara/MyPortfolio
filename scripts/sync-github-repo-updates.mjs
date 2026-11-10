@@ -7,6 +7,7 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const rootDir = join(__dirname, '..');
 const outputPath = join(rootDir, 'src', 'data', 'generated', 'github-repo-updates.json');
 
+/** @type {Record<string, string>} */
 const apiHeaders = {
   Accept: 'application/vnd.github+json',
   'User-Agent': 'myportfolio-build-sync',

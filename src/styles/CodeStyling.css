@@ -47,7 +47,10 @@ code *:focus {
 }
 
 /* Ensure inline code elements don't change on hover */
-p code, li code, h2 code, h3 code {
+p code,
+li code,
+h2 code,
+h3 code {
   background-color: rgba(175, 184, 193, 0.2) !important;
   color: #444 !important;
   padding: 0.1em 0.4em !important;
@@ -57,7 +60,10 @@ p code, li code, h2 code, h3 code {
   border: none !important;
 }
 
-p code:hover, li code:hover, h2 code:hover, h3 code:hover {
+p code:hover,
+li code:hover,
+h2 code:hover,
+h3 code:hover {
   background-color: rgba(175, 184, 193, 0.2) !important;
   color: #444 !important;
 }

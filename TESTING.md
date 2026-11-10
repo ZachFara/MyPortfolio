@@ -18,31 +18,23 @@ Tests are organized in the `tests` directory:
 ## Testing Philosophy
 
 Our tests focus on:
+
 1. **Smoke tests**: Ensuring components render without crashing
 2. **Basic functionality**: Verifying that key elements are present
 3. **Component interaction**: Testing that components work together properly
 
 We intentionally avoid testing:
+
 - Styling and CSS details
 - Implementation details that might change frequently
 - Third-party library functionality
 
 ## CI/CD Pipeline
 
-The project uses GitHub Actions for continuous integration and deployment:
-
-1. **Test Stage**:
-   - When you push to any branch or create a pull request to `master`
-   - Tests are run automatically
-   - Linting checks are performed
-
-2. **Build Stage**:
-   - Runs when tests pass on the `master` branch
-   - The site is built and artifacts are stored
-
-3. **Deploy Stage**:
-   - Deploys the built artifacts to production
-   - Only runs after successful build on `master` branch
+On every PR and on every push to `master`, the `check` job runs `npm run check`, which is the same
+command the pre-commit hook runs. PRs also run `commitlint` over their commits. After a push to
+`master` passes `check`, the site is built, prerendered, and deployed to GitHub Pages. See
+`docs/decisions/0005-git-workflow-ci.md`.
 
 ## Adding New Tests
 
@@ -50,16 +42,12 @@ When adding new features, please include corresponding tests:
 
 - For components: Add tests in `tests/components`
 - For pages: Add tests in `tests/pages`
+- For scripts: Add tests in `tests/scripts` (export pure functions; guard the CLI entry)
 
 ## Mocking
 
-Use Vitest's mocking capabilities to mock external dependencies:
+Test against the real thing. Mock only what cannot run locally, such as the GitHub API that the
+build-time sync script calls. Pages render with real `react-helmet` and React Router (wrap them
+in `MemoryRouter`), and `tests/smoke.test.jsx` renders every route through the real SSR entry.
 
-```js
-import { vi } from 'vitest';
-
-// Example mock
-vi.mock('react-helmet', () => ({
-  Helmet: ({ children }) => <div data-testid="helmet">{children}</div>
-}));
-```
+Run `npm run check` before committing. It is the same gate that CI and the pre-commit hook run.

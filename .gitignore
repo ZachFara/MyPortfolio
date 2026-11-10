@@ -53,3 +53,6 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+
+# ---- Agent scratch space: the only place for throwaway scripts/notes (see AGENTS.md) ----
+.scratch/

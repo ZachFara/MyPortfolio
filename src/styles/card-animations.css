@@ -2,8 +2,9 @@
 
 /* Project Cards - Direct targeting with higher specificity */
 section .projects-container .project-card {
-  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
-              box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  transition:
+    transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
   border: 1px solid rgba(210, 215, 217, 0.75) !important;
   overflow: hidden !important;
 }
@@ -38,9 +39,10 @@ section .projects-container .project-card:hover .project-info {
 
 /* Repository Cards - Direct targeting with higher specificity */
 section .repo-container .repo-card {
-  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
-              box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
-              border-color 0.3s ease-in-out !important;
+  transition:
+    transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    border-color 0.3s ease-in-out !important;
   border: 1px solid rgba(210, 215, 217, 0.75) !important;
 }
 

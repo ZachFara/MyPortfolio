@@ -2,10 +2,10 @@
 
 /* Improve touch targets */
 @media (hover: none) and (pointer: coarse) {
-  button, 
-  a, 
-  input[type="submit"], 
-  input[type="button"] {
+  button,
+  a,
+  input[type='submit'],
+  input[type='button'] {
     min-height: 44px;
     min-width: 44px;
   }
@@ -16,10 +16,10 @@
   #sidebar > .inner {
     -webkit-overflow-scrolling: touch;
   }
-  
+
   /* Fix iOS input zoom */
-  input[type="text"],
-  input[type="email"],
+  input[type='text'],
+  input[type='email'],
   textarea {
     font-size: 16px !important;
   }
@@ -33,16 +33,16 @@
     display: block !important;
     visibility: visible !important;
   }
-  
+
   /* Ensure sidebar content is accessible */
   #sidebar.inactive {
     pointer-events: none;
   }
-  
+
   #sidebar:not(.inactive) {
     pointer-events: all;
   }
-  
+
   #sidebar .toggle {
     pointer-events: all !important;
   }
@@ -62,10 +62,12 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
+
   /* Keep sidebar transition for usability */
   #sidebar {
-    transition: margin-left 0.3s ease, box-shadow 0.3s ease !important;
+    transition:
+      margin-left 0.3s ease,
+      box-shadow 0.3s ease !important;
   }
 }
 
@@ -94,15 +96,15 @@
   #sidebar {
     width: 20em !important;
   }
-  
+
   #sidebar > .inner {
     width: 20em !important;
   }
-  
+
   #sidebar .toggle {
     left: 20em !important;
   }
-  
+
   #sidebar.inactive {
     margin-left: -20em !important;
   }
@@ -113,15 +115,15 @@
   #sidebar {
     width: 22em !important;
   }
-  
+
   #sidebar > .inner {
     width: 22em !important;
   }
-  
+
   #sidebar .toggle {
     left: 22em !important;
   }
-  
+
   #sidebar.inactive {
     margin-left: -22em !important;
   }
