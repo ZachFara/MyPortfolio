@@ -1,15 +1,23 @@
 import { useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import WORK from '../data/workItems';
-import repoUpdates from '../data/generated/github-repo-updates.json';
+import repoUpdatesJson from '../data/generated/github-repo-updates.json';
+
+/** @type {Record<string, { updatedAt: string | null } | undefined>} */
+const repoUpdates = repoUpdatesJson;
 
 const FILTERS = ['All', ...Array.from(new Set(WORK.map((w) => w.cat)))];
 
+/** @param {string | null | undefined} updatedAt */
 const formatUpdatedDate = (updatedAt) => {
-  if (!updatedAt) return null;
+  if (!updatedAt) {
+    return null;
+  }
 
   const parsed = new Date(updatedAt);
-  if (Number.isNaN(parsed.getTime())) return null;
+  if (Number.isNaN(parsed.getTime())) {
+    return null;
+  }
 
   return new Intl.DateTimeFormat('en-US', {
     year: 'numeric',
@@ -18,6 +26,7 @@ const formatUpdatedDate = (updatedAt) => {
   }).format(parsed);
 };
 
+/** @type {Array<[keyof import('../data/workItems').WorkLinks, string]>} */
 const LINK_LABELS = [
   ['github', 'GitHub'],
   ['paper', 'Paper'],
@@ -27,11 +36,14 @@ const LINK_LABELS = [
 
 const Work = () => {
   const [filter, setFilter] = useState('All');
-  const [imageLoadErrors, setImageLoadErrors] = useState({});
+  const [imageLoadErrors, setImageLoadErrors] = useState(
+    /** @type {Record<string, boolean>} */ ({}),
+  );
   const items = useMemo(
     () => (filter === 'All' ? WORK : WORK.filter((w) => w.cat === filter)),
     [filter],
   );
+  /** @param {string} workId */
   const onImageError = (workId) => {
     setImageLoadErrors((prev) => ({ ...prev, [workId]: true }));
   };
@@ -50,7 +62,8 @@ const Work = () => {
             </div>
             <h1>Selected Work</h1>
             <p className="page-head__desc">
-              Research, production systems, and things built to answer a question. Each one ships with its code.
+              Research, production systems, and things built to answer a question. Each one ships
+              with its code.
             </p>
           </header>
 
@@ -84,25 +97,36 @@ const Work = () => {
                   <span className="index__tech">{p.tech}</span>
                   <div className="work-repo">
                     <span className="work-repo__stat">{p.lang}</span>
-                    {p.repo && repoUpdates[p.repo]?.updatedAt && (
+                    {repoUpdates[p.repo]?.updatedAt && (
                       <span className="work-repo__updated">
-                        Updated {formatUpdatedDate(repoUpdates[p.repo].updatedAt)}
+                        Updated {formatUpdatedDate(repoUpdates[p.repo]?.updatedAt)}
                       </span>
                     )}
                   </div>
                   <div className="work-links">
                     {LINK_LABELS.map(([key, label]) => {
                       const href = p.links[key];
-                      if (!href) return null;
+                      if (!href) {
+                        return null;
+                      }
                       return (
-                        <a key={key} className="work-link" href={href} target="_blank" rel="noopener noreferrer">
+                        <a
+                          key={key}
+                          className="work-link"
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           {label}
                         </a>
                       );
                     })}
                   </div>
                 </div>
-                <div className={`index__media${p.image && !imageLoadErrors[p.num] ? '' : ' index__media--ph'}${p.imageFit === 'contain' ? ' index__media--contain' : ''}`} aria-hidden="true">
+                <div
+                  className={`index__media${p.image && !imageLoadErrors[p.num] ? '' : ' index__media--ph'}${p.imageFit === 'contain' ? ' index__media--contain' : ''}`}
+                  aria-hidden="true"
+                >
                   {p.image && !imageLoadErrors[p.num] ? (
                     <img
                       src={p.image}

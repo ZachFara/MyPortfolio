@@ -16,11 +16,11 @@
     flex: none !important; /* Override flexbox behavior on mobile */
     overflow-x: hidden !important; /* Prevent horizontal overflow */
   }
-  
+
   #sidebar:not(.inactive) {
     transform: translateX(0) !important;
   }
-  
+
   /* Ensure main content shifts when sidebar is open on mobile */
   #main {
     transition: margin-left 0.3s ease !important;

@@ -1,12 +1,12 @@
 /* Portfolio design system entrypoint.
    Keep imports in this exact order to preserve cascade behavior. */
-@import "./theme-dark/00-tokens-base.css";
-@import "./theme-dark/10-shell.css";
-@import "./theme-dark/20-home.css";
-@import "./theme-dark/30-work.css";
-@import "./theme-dark/40-repositories.css";
-@import "./theme-dark/50-blog-list.css";
-@import "./theme-dark/60-cv.css";
-@import "./theme-dark/70-blog-post.css";
-@import "./theme-dark/80-responsive.css";
-@import "./theme-dark/90-scrollbars.css";
+@import './theme-dark/00-tokens-base.css';
+@import './theme-dark/10-shell.css';
+@import './theme-dark/20-home.css';
+@import './theme-dark/30-work.css';
+@import './theme-dark/40-repositories.css';
+@import './theme-dark/50-blog-list.css';
+@import './theme-dark/60-cv.css';
+@import './theme-dark/70-blog-post.css';
+@import './theme-dark/80-responsive.css';
+@import './theme-dark/90-scrollbars.css';

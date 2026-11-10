@@ -1,16 +1,16 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import './App.css';
 // Legacy HTML5UP override stylesheets removed — the design system in
 // styles/theme-dark.css now owns the cascade.
-import Layout from './components/Layout'
+import Layout from './components/Layout';
 
 // Pages
-import Home from './pages/Home'
-import Work from './pages/Work'
-import CurriculumVitae from './pages/CurriculumVitae'
-import Blog from './pages/Blog'
-import AIAgentMemory from './pages/BlogPosts/AIAgentMemory'
-import WhyDoWeNeedAgents from './pages/BlogPosts/WhyDoWeNeedAgents'
+import Home from './pages/Home';
+import Work from './pages/Work';
+import CurriculumVitae from './pages/CurriculumVitae';
+import Blog from './pages/Blog';
+import AIAgentMemory from './pages/BlogPosts/AIAgentMemory';
+import WhyDoWeNeedAgents from './pages/BlogPosts/WhyDoWeNeedAgents';
 
 // AppContent is the routes + layout without the router — exported for SSR prerendering
 export function AppContent() {
@@ -30,7 +30,7 @@ export function AppContent() {
         <Route path="*" element={<Home />} />
       </Routes>
     </Layout>
-  )
+  );
 }
 
 function App() {
@@ -38,7 +38,7 @@ function App() {
     <Router basename="/MyPortfolio">
       <AppContent />
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;

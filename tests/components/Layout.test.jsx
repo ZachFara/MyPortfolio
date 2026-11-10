@@ -11,7 +11,7 @@ describe('Layout Component', () => {
           <Layout>
             <div>Test Content</div>
           </Layout>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     }).not.toThrow();
   });
@@ -22,7 +22,7 @@ describe('Layout Component', () => {
         <Layout>
           <div>Test Content</div>
         </Layout>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(container.querySelector('.rail')).toBeInTheDocument();

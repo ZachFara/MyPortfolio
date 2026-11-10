@@ -6,13 +6,13 @@
     background-color: #f5f6f7 !important;
     background: #f5f6f7 !important;
   }
-  
+
   /* Ensure sidebar inner also maintains color */
   #sidebar > .inner {
     background-color: #f5f6f7 !important;
     background: #f5f6f7 !important;
   }
-  
+
   /* Override the original toggle positioning for mobile and ensure visibility */
   #sidebar .toggle {
     display: block !important;
@@ -24,12 +24,12 @@
     opacity: 1 !important;
     visibility: visible !important;
   }
-  
+
   /* When sidebar is open, move hamburger to the right */
   #sidebar:not(.inactive) .toggle {
     left: calc(26em + 1em) !important;
   }
-  
+
   /* Ensure main content doesn't jump around */
   #main {
     transition: none !important;
@@ -37,7 +37,7 @@
     width: 100% !important;
     position: relative;
   }
-  
+
   /* Add backdrop when sidebar is open on mobile */
   #sidebar:not(.inactive):before {
     content: '';
@@ -51,7 +51,7 @@
     opacity: 1;
     transition: opacity 0.3s ease;
   }
-  
+
   #sidebar.inactive:before {
     opacity: 0;
     pointer-events: none;
@@ -64,28 +64,28 @@
     background-color: #f5f6f7 !important;
     background: #f5f6f7 !important;
   }
-  
+
   #sidebar > .inner {
     background-color: #f5f6f7 !important;
     background: #f5f6f7 !important;
   }
-  
+
   #sidebar .toggle {
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
   }
-  
+
   /* When sidebar is open on smaller screens */
   #sidebar:not(.inactive) .toggle {
     left: calc(24em + 1em) !important;
   }
-  
+
   /* Make sure main content doesn't overlap with toggle */
   #main {
     padding-top: 0;
   }
-  
+
   #header {
     padding-top: 4em;
   }
@@ -97,19 +97,19 @@
     background-color: #f5f6f7 !important;
     background: #f5f6f7 !important;
   }
-  
+
   #sidebar > .inner {
     padding: 1em !important;
     background-color: #f5f6f7 !important;
     background: #f5f6f7 !important;
   }
-  
+
   #sidebar .toggle {
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
   }
-  
+
   /* When sidebar is open on very small screens */
   #sidebar:not(.inactive) .toggle {
     left: calc(22em + 1em) !important;
@@ -122,12 +122,12 @@
     background-color: #f5f6f7 !important;
     background: #f5f6f7 !important;
   }
-  
+
   #sidebar > .inner {
     background-color: #f5f6f7 !important;
     background: #f5f6f7 !important;
   }
-  
+
   #sidebar .toggle {
     top: 0.5em !important;
     display: block !important;
@@ -142,12 +142,12 @@
     background-color: #f5f6f7 !important;
     background: #f5f6f7 !important;
   }
-  
+
   #sidebar > .inner {
     background-color: #f5f6f7 !important;
     background: #f5f6f7 !important;
   }
-  
+
   #sidebar .toggle {
     display: block !important;
     opacity: 1 !important;
@@ -163,7 +163,7 @@
     align-items: center;
     padding: 0.5em 0;
   }
-  
+
   #sidebar nav ul li a {
     padding: 0.75em 0;
     font-size: 1.1em;
@@ -194,7 +194,7 @@
     width: inherit;
     color: #7f888f;
   }
-  
+
   .backup-toggle:after {
     background: rgba(222, 225, 226, 0.75);
     border-radius: 0.375em;
@@ -206,7 +206,7 @@
     width: 5em;
     z-index: -1;
   }
-  
+
   .backup-toggle {
     height: 7.5em;
     line-height: 7.5em;

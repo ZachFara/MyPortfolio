@@ -8,10 +8,10 @@
 }
 
 /* Fix for red outlines and backgrounds */
-.page.active, 
-input[type="submit"].primary:active,
-input[type="reset"].primary:active,
-input[type="button"].primary:active,
+.page.active,
+input[type='submit'].primary:active,
+input[type='reset'].primary:active,
+input[type='button'].primary:active,
 button.primary:active,
 .button.primary:active,
 ul.pagination li > .page.active:active,
@@ -23,9 +23,10 @@ ul.pagination li > .page.active:hover {
 
 /* Project Cards Enhancements */
 .project-card {
-  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), 
-              box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
-              background-color 0.5s ease-in-out !important;
+  transition:
+    transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+    box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+    background-color 0.5s ease-in-out !important;
   outline: none !important; /* Remove outline */
   will-change: transform, box-shadow !important;
   backface-visibility: hidden !important;
@@ -50,18 +51,23 @@ ul.pagination li > .page.active:hover {
 }
 
 .project-image {
-  transition: transform 0.5s ease-in-out, filter 0.3s ease-in-out !important;
+  transition:
+    transform 0.5s ease-in-out,
+    filter 0.3s ease-in-out !important;
 }
 
 .project-info {
-  transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out !important;
+  transition:
+    background-color 0.3s ease-in-out,
+    padding 0.3s ease-in-out !important;
 }
 
 /* Repository Cards Enhancements */
 .repo-card {
-  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), 
-              box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
-              border-color 0.5s ease-in-out !important;
+  transition:
+    transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+    box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+    border-color 0.5s ease-in-out !important;
   outline: none !important;
   will-change: transform, box-shadow !important;
   backface-visibility: hidden !important;
@@ -81,41 +87,56 @@ ul.pagination li > .page.active:hover {
   border-color: #2c86c5 !important;
 }
 
-.repo-title, .repo-description, .repo-link, .repo-meta {
+.repo-title,
+.repo-description,
+.repo-link,
+.repo-meta {
   transition: color 0.3s ease-in-out;
 }
 
 /* Additional effects for all interactive elements */
-button, .button, input[type="submit"], input[type="reset"], input[type="button"] {
-  transition: background-color 0.3s ease-in-out, 
-              color 0.3s ease-in-out, 
-              border-color 0.3s ease-in-out,
-              box-shadow 0.3s ease-in-out !important;
+button,
+.button,
+input[type='submit'],
+input[type='reset'],
+input[type='button'] {
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out,
+    border-color 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out !important;
   outline: none !important;
 }
 
-button:focus, .button:focus, input[type="submit"]:focus, input[type="reset"]:focus, input[type="button"]:focus {
+button:focus,
+.button:focus,
+input[type='submit']:focus,
+input[type='reset']:focus,
+input[type='button']:focus {
   outline: none !important;
   box-shadow: 0 0 0 2px rgba(44, 134, 197, 0.3) !important;
 }
 
 /* Enhance links in the entire site */
 a:not(.button) {
-  transition: color 0.3s ease-in-out, 
-              border-bottom-color 0.3s ease-in-out,
-              text-decoration 0.3s ease-in-out !important;
+  transition:
+    color 0.3s ease-in-out,
+    border-bottom-color 0.3s ease-in-out,
+    text-decoration 0.3s ease-in-out !important;
   outline: none !important;
 }
 
-a:focus, a:active {
+a:focus,
+a:active {
   outline: none !important;
 }
 
 /* Fix for sidebar mini-posts hover effect */
 .mini-posts article {
-  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
-              box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
-              border-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  transition:
+    transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    border-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
   border-top-color: transparent !important; /* Hide the border that causes the black line */
 }
 

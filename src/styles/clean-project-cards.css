@@ -101,16 +101,16 @@
     flex-direction: column;
     min-height: auto;
   }
-  
+
   .project-image {
     flex: none;
     height: 200px;
   }
-  
+
   .project-info {
     padding: 1rem;
   }
-  
+
   .project-info h2 {
     font-size: 1.25rem;
   }

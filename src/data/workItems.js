@@ -1,3 +1,27 @@
+/**
+ * @typedef {object} WorkLinks
+ * @property {string} github
+ * @property {string | null} paper
+ * @property {string | null} blog
+ * @property {string | null} demo
+ */
+
+/**
+ * @typedef {object} WorkItem
+ * @property {string} num
+ * @property {string} cat
+ * @property {string} title
+ * @property {string} desc
+ * @property {string} tech
+ * @property {string} lang
+ * @property {string} repo GitHub "owner/name"; the build-time sync script reads this
+ * @property {string} image
+ * @property {string} [imageAttribution]
+ * @property {'contain'} [imageFit]
+ * @property {WorkLinks} links
+ */
+
+/** @type {WorkItem[]} */
 const WORK = [
   {
     num: '01',
@@ -24,9 +48,11 @@ const WORK = [
     lang: 'Python',
     repo: 'ZachFara/Penn-State-REU-2021-DenoisingDiffusionForAdversarialPurification',
     image: 'images/diffusion-noise.webp',
-    imageAttribution: 'Stable Diffusion visualization from https://medium.com/@ps.cs.engg/getting-started-with-stable-diffusion-535648ac0ce2',
+    imageAttribution:
+      'Stable Diffusion visualization from https://medium.com/@ps.cs.engg/getting-started-with-stable-diffusion-535648ac0ce2',
     links: {
-      github: 'https://github.com/ZachFara/Penn-State-REU-2021-DenoisingDiffusionForAdversarialPurification',
+      github:
+        'https://github.com/ZachFara/Penn-State-REU-2021-DenoisingDiffusionForAdversarialPurification',
       paper: null,
       blog: null,
       demo: null,
@@ -43,7 +69,8 @@ const WORK = [
     image: 'images/covid-transparent.png',
     imageFit: 'contain',
     links: {
-      github: 'https://github.com/ZachFara/Oversampling-Techniques-for-Predicting-COVID-19-Patient-Length-of-Stay',
+      github:
+        'https://github.com/ZachFara/Oversampling-Techniques-for-Predicting-COVID-19-Patient-Length-of-Stay',
       paper: 'https://arxiv.org/abs/2511.15048',
       blog: null,
       demo: null,

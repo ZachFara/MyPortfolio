@@ -16,7 +16,7 @@
     border: 1px solid rgba(0, 0, 0, 0.1) !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
   }
-  
+
   /* Hamburger icon styling */
   #sidebar .toggle:before {
     display: block !important;
@@ -31,7 +31,7 @@
     height: 100% !important;
     line-height: inherit !important;
   }
-  
+
   /* Ensure it's above everything else */
   #sidebar .toggle {
     top: 1em !important;
@@ -44,19 +44,19 @@
     overflow: visible !important;
     transform: none !important;
   }
-  
+
   /* Adjust position when sidebar is open */
   #sidebar:not(.inactive) .toggle {
     left: calc(100vw - 4em) !important;
     background: rgba(245, 246, 247, 0.95) !important;
     color: #7f888f !important;
   }
-  
+
   /* Make sure it's not hidden by other elements */
   body * {
     position: relative;
   }
-  
+
   #sidebar .toggle {
     position: fixed !important;
   }
@@ -71,7 +71,7 @@
     height: 3.5em !important;
     line-height: 3.5em !important;
   }
-  
+
   #sidebar:not(.inactive) .toggle {
     left: calc(100vw - 4em) !important;
   }
@@ -85,7 +85,7 @@
     height: 3em !important;
     line-height: 3em !important;
   }
-  
+
   #sidebar:not(.inactive) .toggle {
     left: calc(100vw - 3.5em) !important;
   }

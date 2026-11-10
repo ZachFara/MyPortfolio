@@ -9,7 +9,9 @@
 
 .link {
   text-decoration: none;
-  transition: color 0.3s ease, text-decoration 0.3s ease;
+  transition:
+    color 0.3s ease,
+    text-decoration 0.3s ease;
 }
 
 /* Fix for nested router links */
@@ -21,7 +23,9 @@
 img {
   max-width: 100%;
   height: auto;
-  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+  transition:
+    transform 0.3s ease-in-out,
+    filter 0.3s ease-in-out;
 }
 
 /* Ensure sidebar is properly styled */
@@ -40,14 +44,16 @@ img {
 
 /* Fix for React Router Link compatibility */
 a {
-  transition: color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
-              background-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
-              border-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
-              padding 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition:
+    color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    background-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    border-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    padding 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   outline: none !important;
 }
 
-a:focus, a:active {
+a:focus,
+a:active {
   outline: none !important;
 }
 
@@ -62,20 +68,27 @@ a.active {
 }
 
 /* Spacing fixes */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-bottom: 1rem;
 }
 
 /* Style specifically for sidebar menu active links */
 #menu ul a {
-  transition: color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
-              background-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
-              border-left 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
-              padding-left 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition:
+    color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    background-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    border-left 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    padding-left 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   outline: none !important;
 }
 
-#menu ul a:focus, #menu ul a:active {
+#menu ul a:focus,
+#menu ul a:active {
   outline: none !important;
 }
 
@@ -150,7 +163,9 @@ header.main {
 /* Sidebar image fixes */
 .mini-posts article {
   margin-bottom: 2rem;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
 }
 
 .mini-posts article:hover {

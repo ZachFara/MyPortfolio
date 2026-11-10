@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 // Sticky "On this page" table of contents for long-form posts.
 // `sections` is an array of { id, label } matching heading ids in the post.
+/** @param {{ sections: Array<{ id: string, label: string }> }} props */
 const BlogTOC = ({ sections }) => {
   const [activeId, setActiveId] = useState('');
 
@@ -11,32 +12,36 @@ const BlogTOC = ({ sections }) => {
 
     const update = () => {
       raf = 0;
-      const headings = sections
-        .map((s) => document.getElementById(s.id))
-        .filter(Boolean);
-      if (!headings.length) return;
+      const headings = sections.map((s) => document.getElementById(s.id)).filter((h) => h !== null);
+      if (!headings.length) {
+        return;
+      }
 
       // Near the page bottom the last section can't reach the offset line,
       // so force it active once we've scrolled to the end.
       const atBottom =
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 2;
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
       if (atBottom) {
-        setActiveId(headings[headings.length - 1].id);
+        setActiveId(headings.at(-1)?.id ?? '');
         return;
       }
 
       // Otherwise: the last heading whose top has crossed the offset line.
-      let current = headings[0].id;
+      let current = headings[0]?.id ?? '';
       for (const h of headings) {
-        if (h.getBoundingClientRect().top <= OFFSET) current = h.id;
-        else break;
+        if (h.getBoundingClientRect().top <= OFFSET) {
+          current = h.id;
+        } else {
+          break;
+        }
       }
       setActiveId(current);
     };
 
     const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(update);
+      if (!raf) {
+        raf = requestAnimationFrame(update);
+      }
     };
 
     update();
@@ -45,16 +50,24 @@ const BlogTOC = ({ sections }) => {
     return () => {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
-      if (raf) cancelAnimationFrame(raf);
+      if (raf) {
+        cancelAnimationFrame(raf);
+      }
     };
   }, [sections]);
 
   // A <base> tag makes bare "#id" links resolve against the base URL (the
   // homepage), so scroll manually and set the hash with an explicit path.
+  /**
+   * @param {import('react').MouseEvent<HTMLAnchorElement>} e
+   * @param {string} id
+   */
   const handleClick = (e, id) => {
     e.preventDefault();
     const el = document.getElementById(id);
-    if (!el) return;
+    if (!el) {
+      return;
+    }
     el.scrollIntoView({ behavior: 'smooth' });
     window.history.replaceState(null, '', `${window.location.pathname}#${id}`);
     setActiveId(id);

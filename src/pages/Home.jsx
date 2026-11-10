@@ -3,14 +3,30 @@ import { Link } from 'react-router-dom';
 import WORK from '../data/workItems';
 
 const CAPS = [
-  { n: '01', t: 'Machine Learning', d: 'Credit-risk models shipped to production, with Bayesian tuning, validation, and segment-level error analysis.' },
-  { n: '02', t: 'Generative & Agentic AI', d: 'RAG systems, multi-tool agents, and MLLM evaluation, plus LLM interpretability research.' },
-  { n: '03', t: 'ML Operations', d: 'Automated deployment, testing, and monitoring of models on cloud infrastructure, with resource optimization and MLFlow-based management.' },
-  { n: '04', t: 'Big Data', d: 'Terabyte-scale ETL on Spark and medallion pipelines on AWS, taking raw telemetry through to production feature stores and warehouses.' },
+  {
+    n: '01',
+    t: 'Machine Learning',
+    d: 'Credit-risk models shipped to production, with Bayesian tuning, validation, and segment-level error analysis.',
+  },
+  {
+    n: '02',
+    t: 'Generative & Agentic AI',
+    d: 'RAG systems, multi-tool agents, and MLLM evaluation, plus LLM interpretability research.',
+  },
+  {
+    n: '03',
+    t: 'ML Operations',
+    d: 'Automated deployment, testing, and monitoring of models on cloud infrastructure, with resource optimization and MLFlow-based management.',
+  },
+  {
+    n: '04',
+    t: 'Big Data',
+    d: 'Terabyte-scale ETL on Spark and medallion pipelines on AWS, taking raw telemetry through to production feature stores and warehouses.',
+  },
 ];
 
 const SELECTED = ['03', '01', '05']
-  .map((num) => WORK.find((p) => p.num === num))
+  .flatMap((num) => WORK.filter((p) => p.num === num))
   .map((p, i) => ({ ...p, num: String(i + 1).padStart(2, '0') }));
 
 const Home = () => (
@@ -23,7 +39,9 @@ const Home = () => (
     <section className="hero">
       <div className="hero__grid">
         <div className="hero__lead">
-          <p className="eyebrow hero__eyebrow"><span className="tick">/</span> Quantitative ML · Interpretability · Agents</p>
+          <p className="eyebrow hero__eyebrow">
+            <span className="tick">/</span> Quantitative ML · Interpretability · Agents
+          </p>
           <h1 className="hero__title">
             <span className="l1">Zachariah</span>
             <span className="l2">Farahany</span>
@@ -32,14 +50,34 @@ const Home = () => (
             I build, deploy, and research production ML and agentic systems.
           </p>
           <dl className="hero__meta">
-            <div><dt>Now</dt><dd>Quantitative Analytics @ Wells Fargo</dd></div>
-            <div><dt>Focus</dt><dd>LLM interpretability · Credit-risk ML · Factor models</dd></div>
-            <div><dt>Studied</dt><dd>M.S. Applied Data Science, UChicago</dd></div>
+            <div>
+              <dt>Now</dt>
+              <dd>Quantitative Analytics @ Wells Fargo</dd>
+            </div>
+            <div>
+              <dt>Focus</dt>
+              <dd>LLM interpretability · Credit-risk ML · Factor models</dd>
+            </div>
+            <div>
+              <dt>Studied</dt>
+              <dd>M.S. Applied Data Science, UChicago</dd>
+            </div>
           </dl>
           <div className="hero__actions">
-            <Link to="/work" className="btn btn--solid">Selected work</Link>
-            <Link to="/cv" className="btn">Curriculum vitae</Link>
-            <a className="dl-link" href="Zachariah-Farahany-Resume.pdf" target="_blank" rel="noopener noreferrer">Résumé PDF <span className="arw">↓</span></a>
+            <Link to="/work" className="btn btn--solid">
+              Selected work
+            </Link>
+            <Link to="/cv" className="btn">
+              Curriculum vitae
+            </Link>
+            <a
+              className="dl-link"
+              href="Zachariah-Farahany-Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Résumé PDF <span className="arw">↓</span>
+            </a>
           </div>
         </div>
 
@@ -55,7 +93,9 @@ const Home = () => (
     <section>
       <div className="wrap">
         <div className="cap__head">
-          <p className="eyebrow"><span className="tick">◇</span> Capabilities</p>
+          <p className="eyebrow">
+            <span className="tick">◇</span> Capabilities
+          </p>
         </div>
         <div className="caps">
           {CAPS.map((c) => (
@@ -73,7 +113,9 @@ const Home = () => (
     <section>
       <div className="wrap">
         <div className="cap__head">
-          <p className="eyebrow"><span className="tick">→</span> Selected work</p>
+          <p className="eyebrow">
+            <span className="tick">→</span> Selected work
+          </p>
         </div>
         <ol className="index">
           {SELECTED.map((p) => (
@@ -87,14 +129,19 @@ const Home = () => (
                 <p className="index__desc">{p.desc}</p>
                 <span className="index__tech">{p.tech}</span>
               </div>
-              <div className={`index__media${p.imageFit === 'contain' ? ' index__media--contain' : ''}`} aria-hidden="true">
+              <div
+                className={`index__media${p.imageFit === 'contain' ? ' index__media--contain' : ''}`}
+                aria-hidden="true"
+              >
                 <img src={p.image} alt={`${p.title} preview`} loading="lazy" />
               </div>
             </li>
           ))}
         </ol>
         <div style={{ marginTop: '2.5rem' }}>
-          <Link to="/work" className="arrow-link">All work <span className="arw">↗</span></Link>
+          <Link to="/work" className="arrow-link">
+            All work <span className="arw">↗</span>
+          </Link>
         </div>
       </div>
     </section>

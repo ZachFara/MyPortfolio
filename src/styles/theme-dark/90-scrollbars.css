@@ -1,4 +1,14 @@
 /* Scrollbars */
-* { scrollbar-width: thin; scrollbar-color: var(--line-2) transparent; }
-*::-webkit-scrollbar { width: 10px; height: 10px; }
-*::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 999px; border: 3px solid var(--bg); }
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-2) transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--line-2);
+  border-radius: 999px;
+  border: 3px solid var(--bg);
+}

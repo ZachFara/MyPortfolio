@@ -6,13 +6,13 @@
     background-color: #f5f6f7 !important;
     background: #f5f6f7 !important;
   }
-  
+
   /* Ensure sidebar inner also maintains color */
   #sidebar > .inner {
     background-color: #f5f6f7 !important;
     background: #f5f6f7 !important;
   }
-  
+
   /* Ensure main content doesn't jump around */
   #main {
     transition: none !important;
@@ -20,7 +20,7 @@
     width: 100% !important;
     position: relative;
   }
-  
+
   /* Add backdrop when sidebar is open on mobile */
   #sidebar:not(.inactive):before {
     content: '';
@@ -34,7 +34,7 @@
     opacity: 1;
     transition: opacity 0.3s ease;
   }
-  
+
   #sidebar.inactive:before {
     opacity: 0;
     pointer-events: none;
@@ -47,16 +47,16 @@
     background-color: #f5f6f7 !important;
     background: #f5f6f7 !important;
   }
-  
+
   #sidebar > .inner {
     background-color: #f5f6f7 !important;
     background: #f5f6f7 !important;
   }
-  
+
   #main {
     padding-top: 0;
   }
-  
+
   #header {
     padding-top: 4em;
   }
@@ -68,7 +68,7 @@
     background-color: #f5f6f7 !important;
     background: #f5f6f7 !important;
   }
-  
+
   #sidebar > .inner {
     padding: 1em !important;
     background-color: #f5f6f7 !important;
@@ -84,7 +84,7 @@
     align-items: center;
     padding: 0.5em 0;
   }
-  
+
   #sidebar nav ul li a {
     padding: 0.75em 0;
     font-size: 1.1em;

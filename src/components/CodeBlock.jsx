@@ -18,17 +18,13 @@ const highlighter = createHighlighterCoreSync({
   engine: createJavaScriptRegexEngine({ forgiving: true }),
 });
 
+/** @param {{ code: string, language?: string }} props */
 const CodeBlock = ({ code, language = 'python' }) => {
   const html = highlighter.codeToHtml(code.trim(), {
     lang: language,
     theme: 'zf-editorial',
   });
-  return (
-    <div
-      className="code-block"
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
-  );
+  return <div className="code-block" dangerouslySetInnerHTML={{ __html: html }} />;
 };
 
 export default CodeBlock;

@@ -23,16 +23,16 @@
     transition: all 0.3s ease !important;
     opacity: 0.9 !important;
   }
-  
+
   .mobile-menu-fab:hover {
     opacity: 1 !important;
     transform: scale(1.1) !important;
   }
-  
+
   .mobile-menu-fab:active {
     transform: scale(0.95) !important;
   }
-  
+
   /* Hide FAB when sidebar is open */
   .sidebar-open .mobile-menu-fab {
     left: calc(100vw - 4rem) !important;
@@ -54,12 +54,12 @@
     position: fixed !important;
     z-index: 99999 !important;
   }
-  
+
   /* Prevent any other element from hiding the menu */
   * {
     position: relative;
   }
-  
+
   #sidebar .toggle,
   .toggle-fallback,
   .mobile-menu-fab {

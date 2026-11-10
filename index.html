@@ -16,16 +16,18 @@
     <title>Zachariah Farahany</title>
     <!-- Single Page Apps for GitHub Pages — https://github.com/rafgraph/spa-github-pages -->
     <script>
-      (function(l) {
+      (function (l) {
         if (l.search[1] === '/') {
-          var decoded = l.search.slice(1).split('&').map(function(s) {
-            return s.replace(/~and~/g, '&');
-          }).join('?');
-          window.history.replaceState(null, null,
-            l.pathname.slice(0, -1) + decoded + l.hash
-          );
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) {
+              return s.replace(/~and~/g, '&');
+            })
+            .join('?');
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
         }
-      }(window.location));
+      })(window.location);
     </script>
     <!-- Icons only. The legacy HTML5UP template stylesheet has been removed;
          the design system in src/styles/theme-dark.css now owns all styling. -->

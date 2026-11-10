@@ -2,6 +2,7 @@
 // (TextMate scopes) but kept on-brand: a cool, blue-forward monochrome with
 // two harmonizing accents (teal strings, periwinkle numbers). No off-palette
 // greens/ambers, so it reads as part of the dark editorial system.
+/** @type {import('shiki/core').ThemeRegistration} */
 const shikiTheme = {
   name: 'zf-editorial',
   type: 'dark',
@@ -23,7 +24,13 @@ const shikiTheme = {
     },
     // Operators and punctuation stay quiet so keywords carry the emphasis.
     {
-      scope: ['keyword.operator', 'punctuation', 'meta.brace', 'punctuation.separator', 'punctuation.terminator'],
+      scope: [
+        'keyword.operator',
+        'punctuation',
+        'meta.brace',
+        'punctuation.separator',
+        'punctuation.terminator',
+      ],
       settings: { foreground: '#7c86a0' },
     },
     {
@@ -31,11 +38,21 @@ const shikiTheme = {
       settings: { foreground: '#7fc7c0' },
     },
     {
-      scope: ['constant.numeric', 'constant.language', 'constant.language.boolean', 'keyword.constant'],
+      scope: [
+        'constant.numeric',
+        'constant.language',
+        'constant.language.boolean',
+        'keyword.constant',
+      ],
       settings: { foreground: '#a9b8ff' },
     },
     {
-      scope: ['entity.name.function', 'support.function', 'meta.function-call.generic', 'meta.function-call'],
+      scope: [
+        'entity.name.function',
+        'support.function',
+        'meta.function-call.generic',
+        'meta.function-call',
+      ],
       settings: { foreground: '#7ab3ff' },
     },
     {
